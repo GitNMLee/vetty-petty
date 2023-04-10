@@ -28,13 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.uxConnectDB = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // uxConnectDB
+            // 
+            this.uxConnectDB.Location = new System.Drawing.Point(633, 112);
+            this.uxConnectDB.Name = "uxConnectDB";
+            this.uxConnectDB.Size = new System.Drawing.Size(146, 23);
+            this.uxConnectDB.TabIndex = 0;
+            this.uxConnectDB.Text = "Connect to DB";
+            this.uxConnectDB.UseVisualStyleBackColor = true;
+            this.uxConnectDB.Click += new System.EventHandler(this.uxConnectDB_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.uxConnectDB);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button uxConnectDB;
     }
 }
 

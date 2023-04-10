@@ -1,0 +1,11 @@
+C:\Users\nater\source\repos\WindowsFormProject\bin\Debug\WindowsFormProject.exe.config
+C:\Users\nater\source\repos\WindowsFormProject\bin\Debug\WindowsFormProject.exe
+C:\Users\nater\source\repos\WindowsFormProject\bin\Debug\WindowsFormProject.pdb
+C:\Users\nater\source\repos\WindowsFormProject\obj\Debug\WindowsFormProject.csproj.AssemblyReference.cache
+C:\Users\nater\source\repos\WindowsFormProject\obj\Debug\WindowsFormProject.csproj.SuggestedBindingRedirects.cache
+C:\Users\nater\source\repos\WindowsFormProject\obj\Debug\WindowsFormProject.Form1.resources
+C:\Users\nater\source\repos\WindowsFormProject\obj\Debug\WindowsFormProject.Properties.Resources.resources
+C:\Users\nater\source\repos\WindowsFormProject\obj\Debug\WindowsFormProject.csproj.GenerateResource.cache
+C:\Users\nater\source\repos\WindowsFormProject\obj\Debug\WindowsFormProject.csproj.CoreCompileInputs.cache
+C:\Users\nater\source\repos\WindowsFormProject\obj\Debug\WindowsFormProject.exe
+C:\Users\nater\source\repos\WindowsFormProject\obj\Debug\WindowsFormProject.pdb
