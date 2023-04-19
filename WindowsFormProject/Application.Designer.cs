@@ -38,12 +38,14 @@
             this.uxPetBreedLabel = new System.Windows.Forms.Label();
             this.uxPetSpeciesCB = new System.Windows.Forms.ComboBox();
             this.uxPetSpeciesLabel = new System.Windows.Forms.Label();
-            this.uxNameLabel = new System.Windows.Forms.Label();
-            this.uxPetNameTB = new System.Windows.Forms.TextBox();
+            this.uxPCFirstNameLabel = new System.Windows.Forms.Label();
+            this.uxPCPetFirstNameTB = new System.Windows.Forms.TextBox();
             this.uxQueryControls = new System.Windows.Forms.GroupBox();
             this.uxQuerySelectQueryCB = new System.Windows.Forms.ComboBox();
             this.uxQuerySelectQueryLabel = new System.Windows.Forms.Label();
             this.uxCreateAptControls = new System.Windows.Forms.GroupBox();
+            this.uxAptAptTimeCB = new System.Windows.Forms.ComboBox();
+            this.uxAptAptDateLabel = new System.Windows.Forms.Label();
             this.uxAptDatePicker = new System.Windows.Forms.DateTimePicker();
             this.uxAptDateLabel = new System.Windows.Forms.Label();
             this.uxAptOwnerNameTB = new System.Windows.Forms.TextBox();
@@ -52,6 +54,16 @@
             this.uxAptOwnerNameLabel = new System.Windows.Forms.Label();
             this.uxAptPetNameLabel = new System.Windows.Forms.Label();
             this.uxAptPetNameTB = new System.Windows.Forms.TextBox();
+            this.uxPCPetLastNameLabel = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.uxPCOwnerLastNameLabel = new System.Windows.Forms.Label();
+            this.uxPCOwnerLastNameTB = new System.Windows.Forms.TextBox();
+            this.uxPCOwnerFirstNameLabel = new System.Windows.Forms.Label();
+            this.uxPCOwnerFirstNameTB = new System.Windows.Forms.TextBox();
+            this.uxPCOwnerEmailLabel = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.uxPCPetDescriptionLabel = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.uxMenuStrip.SuspendLayout();
             this.uxAddPetControls.SuspendLayout();
             this.uxQueryControls.SuspendLayout();
@@ -71,7 +83,6 @@
             // 
             // uxMenuStrip
             // 
-            this.uxMenuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.uxMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.uxMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.uxMenuAddPet,
@@ -79,7 +90,7 @@
             this.uxMenuViewQueries});
             this.uxMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.uxMenuStrip.Name = "uxMenuStrip";
-            this.uxMenuStrip.Size = new System.Drawing.Size(1200, 36);
+            this.uxMenuStrip.Size = new System.Drawing.Size(1200, 33);
             this.uxMenuStrip.TabIndex = 1;
             this.uxMenuStrip.Text = "MenuStrip";
             // 
@@ -106,12 +117,22 @@
             // 
             // uxAddPetControls
             // 
+            this.uxAddPetControls.Controls.Add(this.textBox3);
+            this.uxAddPetControls.Controls.Add(this.uxPCPetDescriptionLabel);
+            this.uxAddPetControls.Controls.Add(this.uxPCOwnerEmailLabel);
+            this.uxAddPetControls.Controls.Add(this.textBox2);
+            this.uxAddPetControls.Controls.Add(this.uxPCOwnerLastNameLabel);
+            this.uxAddPetControls.Controls.Add(this.uxPCOwnerLastNameTB);
+            this.uxAddPetControls.Controls.Add(this.uxPCOwnerFirstNameLabel);
+            this.uxAddPetControls.Controls.Add(this.uxPCOwnerFirstNameTB);
+            this.uxAddPetControls.Controls.Add(this.uxPCPetLastNameLabel);
+            this.uxAddPetControls.Controls.Add(this.textBox1);
             this.uxAddPetControls.Controls.Add(this.uxPetBreedCB);
             this.uxAddPetControls.Controls.Add(this.uxPetBreedLabel);
             this.uxAddPetControls.Controls.Add(this.uxPetSpeciesCB);
             this.uxAddPetControls.Controls.Add(this.uxPetSpeciesLabel);
-            this.uxAddPetControls.Controls.Add(this.uxNameLabel);
-            this.uxAddPetControls.Controls.Add(this.uxPetNameTB);
+            this.uxAddPetControls.Controls.Add(this.uxPCFirstNameLabel);
+            this.uxAddPetControls.Controls.Add(this.uxPCPetFirstNameTB);
             this.uxAddPetControls.Location = new System.Drawing.Point(0, 36);
             this.uxAddPetControls.Name = "uxAddPetControls";
             this.uxAddPetControls.Size = new System.Drawing.Size(651, 404);
@@ -123,7 +144,7 @@
             // uxPetBreedCB
             // 
             this.uxPetBreedCB.FormattingEnabled = true;
-            this.uxPetBreedCB.Location = new System.Drawing.Point(121, 118);
+            this.uxPetBreedCB.Location = new System.Drawing.Point(125, 122);
             this.uxPetBreedCB.Name = "uxPetBreedCB";
             this.uxPetBreedCB.Size = new System.Drawing.Size(121, 28);
             this.uxPetBreedCB.TabIndex = 6;
@@ -131,7 +152,7 @@
             // uxPetBreedLabel
             // 
             this.uxPetBreedLabel.AutoSize = true;
-            this.uxPetBreedLabel.Location = new System.Drawing.Point(21, 121);
+            this.uxPetBreedLabel.Location = new System.Drawing.Point(25, 125);
             this.uxPetBreedLabel.Name = "uxPetBreedLabel";
             this.uxPetBreedLabel.Size = new System.Drawing.Size(80, 20);
             this.uxPetBreedLabel.TabIndex = 5;
@@ -140,7 +161,7 @@
             // uxPetSpeciesCB
             // 
             this.uxPetSpeciesCB.FormattingEnabled = true;
-            this.uxPetSpeciesCB.Location = new System.Drawing.Point(121, 71);
+            this.uxPetSpeciesCB.Location = new System.Drawing.Point(125, 88);
             this.uxPetSpeciesCB.Name = "uxPetSpeciesCB";
             this.uxPetSpeciesCB.Size = new System.Drawing.Size(121, 28);
             this.uxPetSpeciesCB.TabIndex = 4;
@@ -148,27 +169,27 @@
             // uxPetSpeciesLabel
             // 
             this.uxPetSpeciesLabel.AutoSize = true;
-            this.uxPetSpeciesLabel.Location = new System.Drawing.Point(21, 74);
+            this.uxPetSpeciesLabel.Location = new System.Drawing.Point(25, 91);
             this.uxPetSpeciesLabel.Name = "uxPetSpeciesLabel";
             this.uxPetSpeciesLabel.Size = new System.Drawing.Size(94, 20);
             this.uxPetSpeciesLabel.TabIndex = 3;
             this.uxPetSpeciesLabel.Text = "Pet Species";
             // 
-            // uxNameLabel
+            // uxPCFirstNameLabel
             // 
-            this.uxNameLabel.AutoSize = true;
-            this.uxNameLabel.Location = new System.Drawing.Point(21, 29);
-            this.uxNameLabel.Name = "uxNameLabel";
-            this.uxNameLabel.Size = new System.Drawing.Size(79, 20);
-            this.uxNameLabel.TabIndex = 1;
-            this.uxNameLabel.Text = "Pet Name";
+            this.uxPCFirstNameLabel.AutoSize = true;
+            this.uxPCFirstNameLabel.Location = new System.Drawing.Point(21, 29);
+            this.uxPCFirstNameLabel.Name = "uxPCFirstNameLabel";
+            this.uxPCFirstNameLabel.Size = new System.Drawing.Size(114, 20);
+            this.uxPCFirstNameLabel.TabIndex = 1;
+            this.uxPCFirstNameLabel.Text = "Pet First Name";
             // 
-            // uxPetNameTB
+            // uxPCPetFirstNameTB
             // 
-            this.uxPetNameTB.Location = new System.Drawing.Point(106, 25);
-            this.uxPetNameTB.Name = "uxPetNameTB";
-            this.uxPetNameTB.Size = new System.Drawing.Size(100, 26);
-            this.uxPetNameTB.TabIndex = 0;
+            this.uxPCPetFirstNameTB.Location = new System.Drawing.Point(141, 24);
+            this.uxPCPetFirstNameTB.Name = "uxPCPetFirstNameTB";
+            this.uxPCPetFirstNameTB.Size = new System.Drawing.Size(174, 26);
+            this.uxPCPetFirstNameTB.TabIndex = 0;
             // 
             // uxQueryControls
             // 
@@ -201,6 +222,8 @@
             // 
             // uxCreateAptControls
             // 
+            this.uxCreateAptControls.Controls.Add(this.uxAptAptTimeCB);
+            this.uxCreateAptControls.Controls.Add(this.uxAptAptDateLabel);
             this.uxCreateAptControls.Controls.Add(this.uxAptDatePicker);
             this.uxCreateAptControls.Controls.Add(this.uxAptDateLabel);
             this.uxCreateAptControls.Controls.Add(this.uxAptOwnerNameTB);
@@ -216,6 +239,23 @@
             this.uxCreateAptControls.TabStop = false;
             this.uxCreateAptControls.Text = "Create Appointment";
             this.uxCreateAptControls.Visible = false;
+            // 
+            // uxAptAptTimeCB
+            // 
+            this.uxAptAptTimeCB.FormattingEnabled = true;
+            this.uxAptAptTimeCB.Location = new System.Drawing.Point(566, 69);
+            this.uxAptAptTimeCB.Name = "uxAptAptTimeCB";
+            this.uxAptAptTimeCB.Size = new System.Drawing.Size(121, 28);
+            this.uxAptAptTimeCB.TabIndex = 11;
+            // 
+            // uxAptAptDateLabel
+            // 
+            this.uxAptAptDateLabel.AutoSize = true;
+            this.uxAptAptDateLabel.Location = new System.Drawing.Point(421, 70);
+            this.uxAptAptDateLabel.Name = "uxAptAptDateLabel";
+            this.uxAptAptDateLabel.Size = new System.Drawing.Size(138, 20);
+            this.uxAptAptDateLabel.TabIndex = 10;
+            this.uxAptAptDateLabel.Text = "Appointment Time";
             // 
             // uxAptDatePicker
             // 
@@ -282,14 +322,95 @@
             this.uxAptPetNameTB.Size = new System.Drawing.Size(100, 26);
             this.uxAptPetNameTB.TabIndex = 0;
             // 
+            // uxPCPetLastNameLabel
+            // 
+            this.uxPCPetLastNameLabel.AutoSize = true;
+            this.uxPCPetLastNameLabel.Location = new System.Drawing.Point(21, 61);
+            this.uxPCPetLastNameLabel.Name = "uxPCPetLastNameLabel";
+            this.uxPCPetLastNameLabel.Size = new System.Drawing.Size(114, 20);
+            this.uxPCPetLastNameLabel.TabIndex = 8;
+            this.uxPCPetLastNameLabel.Text = "Pet Last Name";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(141, 56);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(174, 26);
+            this.textBox1.TabIndex = 7;
+            // 
+            // uxPCOwnerLastNameLabel
+            // 
+            this.uxPCOwnerLastNameLabel.AutoSize = true;
+            this.uxPCOwnerLastNameLabel.Location = new System.Drawing.Point(321, 61);
+            this.uxPCOwnerLastNameLabel.Name = "uxPCOwnerLastNameLabel";
+            this.uxPCOwnerLastNameLabel.Size = new System.Drawing.Size(136, 20);
+            this.uxPCOwnerLastNameLabel.TabIndex = 12;
+            this.uxPCOwnerLastNameLabel.Text = "Owner Last Name";
+            // 
+            // uxPCOwnerLastNameTB
+            // 
+            this.uxPCOwnerLastNameTB.Location = new System.Drawing.Point(463, 55);
+            this.uxPCOwnerLastNameTB.Name = "uxPCOwnerLastNameTB";
+            this.uxPCOwnerLastNameTB.Size = new System.Drawing.Size(174, 26);
+            this.uxPCOwnerLastNameTB.TabIndex = 11;
+            // 
+            // uxPCOwnerFirstNameLabel
+            // 
+            this.uxPCOwnerFirstNameLabel.AutoSize = true;
+            this.uxPCOwnerFirstNameLabel.Location = new System.Drawing.Point(321, 29);
+            this.uxPCOwnerFirstNameLabel.Name = "uxPCOwnerFirstNameLabel";
+            this.uxPCOwnerFirstNameLabel.Size = new System.Drawing.Size(136, 20);
+            this.uxPCOwnerFirstNameLabel.TabIndex = 10;
+            this.uxPCOwnerFirstNameLabel.Text = "Owner First Name";
+            // 
+            // uxPCOwnerFirstNameTB
+            // 
+            this.uxPCOwnerFirstNameTB.Location = new System.Drawing.Point(463, 23);
+            this.uxPCOwnerFirstNameTB.Name = "uxPCOwnerFirstNameTB";
+            this.uxPCOwnerFirstNameTB.Size = new System.Drawing.Size(174, 26);
+            this.uxPCOwnerFirstNameTB.TabIndex = 9;
+            // 
+            // uxPCOwnerEmailLabel
+            // 
+            this.uxPCOwnerEmailLabel.AutoSize = true;
+            this.uxPCOwnerEmailLabel.Location = new System.Drawing.Point(321, 96);
+            this.uxPCOwnerEmailLabel.Name = "uxPCOwnerEmailLabel";
+            this.uxPCOwnerEmailLabel.Size = new System.Drawing.Size(98, 20);
+            this.uxPCOwnerEmailLabel.TabIndex = 14;
+            this.uxPCOwnerEmailLabel.Text = "Owner Email";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(425, 93);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(174, 26);
+            this.textBox2.TabIndex = 13;
+            // 
+            // uxPCPetDescriptionLabel
+            // 
+            this.uxPCPetDescriptionLabel.AutoSize = true;
+            this.uxPCPetDescriptionLabel.Location = new System.Drawing.Point(26, 153);
+            this.uxPCPetDescriptionLabel.Name = "uxPCPetDescriptionLabel";
+            this.uxPCPetDescriptionLabel.Size = new System.Drawing.Size(117, 20);
+            this.uxPCPetDescriptionLabel.TabIndex = 15;
+            this.uxPCPetDescriptionLabel.Text = "Pet Description";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(30, 176);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(285, 122);
+            this.textBox3.TabIndex = 16;
+            // 
             // Application
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.uxAddPetControls);
             this.Controls.Add(this.uxCreateAptControls);
             this.Controls.Add(this.uxQueryControls);
-            this.Controls.Add(this.uxAddPetControls);
             this.Controls.Add(this.uxConnectDB);
             this.Controls.Add(this.uxMenuStrip);
             this.MainMenuStrip = this.uxMenuStrip;
@@ -317,8 +438,8 @@
         private System.Windows.Forms.ToolStripMenuItem uxMenuCreateApt;
         private System.Windows.Forms.ToolStripMenuItem uxMenuViewQueries;
         private System.Windows.Forms.GroupBox uxAddPetControls;
-        private System.Windows.Forms.Label uxNameLabel;
-        private System.Windows.Forms.TextBox uxPetNameTB;
+        private System.Windows.Forms.Label uxPCFirstNameLabel;
+        private System.Windows.Forms.TextBox uxPCPetFirstNameTB;
         private System.Windows.Forms.Label uxPetSpeciesLabel;
         private System.Windows.Forms.ComboBox uxPetBreedCB;
         private System.Windows.Forms.Label uxPetBreedLabel;
@@ -335,6 +456,18 @@
         private System.Windows.Forms.GroupBox uxQueryControls;
         private System.Windows.Forms.ComboBox uxQuerySelectQueryCB;
         private System.Windows.Forms.Label uxQuerySelectQueryLabel;
+        private System.Windows.Forms.Label uxAptAptDateLabel;
+        private System.Windows.Forms.ComboBox uxAptAptTimeCB;
+        private System.Windows.Forms.Label uxPCOwnerLastNameLabel;
+        private System.Windows.Forms.TextBox uxPCOwnerLastNameTB;
+        private System.Windows.Forms.Label uxPCOwnerFirstNameLabel;
+        private System.Windows.Forms.TextBox uxPCOwnerFirstNameTB;
+        private System.Windows.Forms.Label uxPCPetLastNameLabel;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label uxPCPetDescriptionLabel;
+        private System.Windows.Forms.Label uxPCOwnerEmailLabel;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 
