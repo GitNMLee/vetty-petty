@@ -20,7 +20,7 @@ namespace WindowsFormProject
 
         private void uxConnectDB_Click(object sender, EventArgs e)
         {
-            string connectionString = "Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;";
+            string connectionString = "Server=mssql.cs.ksu.edu;Database=msbuchanan;User Id=msbuchanan;Password=JAs-tNh-5V8-uU4";
 
             using (SqlConnection sqlClient = new SqlConnection(connectionString))
             {

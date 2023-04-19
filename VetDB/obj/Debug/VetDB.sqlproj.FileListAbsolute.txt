@@ -1,0 +1,10 @@
+C:\Users\megha.WINDOWS-P1C2I8Q\Source\Repos\vetty-petty\VetDB\bin\Debug\VetDB.dacpac
+C:\Users\megha.WINDOWS-P1C2I8Q\Source\Repos\vetty-petty\VetDB\bin\Debug\VetDB.dll
+C:\Users\megha.WINDOWS-P1C2I8Q\Source\Repos\vetty-petty\VetDB\bin\Debug\VetDB.pdb
+C:\Users\megha.WINDOWS-P1C2I8Q\Source\Repos\vetty-petty\VetDB\obj\Debug\VetDB.sqlproj.AssemblyReference.cache
+C:\Users\megha.WINDOWS-P1C2I8Q\Source\Repos\vetty-petty\VetDB\obj\Debug\Model.xml
+C:\Users\megha.WINDOWS-P1C2I8Q\Source\Repos\vetty-petty\VetDB\obj\Debug\refactor.xml
+C:\Users\megha.WINDOWS-P1C2I8Q\Source\Repos\vetty-petty\VetDB\obj\Debug\postdeploy.sql
+C:\Users\megha.WINDOWS-P1C2I8Q\Source\Repos\vetty-petty\VetDB\obj\Debug\predeploy.sql
+C:\Users\megha.WINDOWS-P1C2I8Q\Source\Repos\vetty-petty\VetDB\obj\Debug\VetDB.dll
+C:\Users\megha.WINDOWS-P1C2I8Q\Source\Repos\vetty-petty\VetDB\obj\Debug\VetDB.pdb
