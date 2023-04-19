@@ -50,6 +50,10 @@ namespace WindowsFormProject
             uxAddPetControls.Visible = true;
             uxCreateAptControls.Visible = false;
             uxQueryControls.Visible = false;
+            uxAddVetControls.Visible = false;
+            uxPrescribeMedsControls.Visible = false;
+            uxKillPetControls.Visible = false;
+            uxFireVetControls.Visible = false;
         }
 
         /// <summary>
@@ -63,6 +67,10 @@ namespace WindowsFormProject
             uxCreateAptControls.Visible = true;
             uxAddPetControls.Visible = false;
             uxQueryControls.Visible = false;
+            uxAddVetControls.Visible = false;
+            uxPrescribeMedsControls.Visible = false;
+            uxKillPetControls.Visible = false;
+            uxFireVetControls.Visible = false;
         }
 
         /// <summary>
@@ -75,6 +83,73 @@ namespace WindowsFormProject
             uxQueryControls.Visible = true;
             uxAddPetControls.Visible = false;
             uxCreateAptControls.Visible = false;
+            uxAddVetControls.Visible = false;
+            uxPrescribeMedsControls.Visible = false; uxKillPetControls.Visible = false;
+            uxFireVetControls.Visible = false;
+        }
+
+        /// <summary>
+        /// switches control view to add vet
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void addVetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            uxAddVetControls.Visible = true;
+            uxQueryControls.Visible = false;
+            uxAddPetControls.Visible = false;
+            uxCreateAptControls.Visible = false;
+            uxPrescribeMedsControls.Visible = false;
+            uxKillPetControls.Visible = false;
+            uxFireVetControls.Visible = false;
+        }
+
+        /// <summary>
+        /// switches control view to prescribe medication
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void prescribeMedicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            uxPrescribeMedsControls.Visible = true;
+            uxQueryControls.Visible = false;
+            uxAddPetControls.Visible = false;
+            uxCreateAptControls.Visible = false;
+            uxAddVetControls.Visible = false;
+            uxKillPetControls.Visible = false;
+            uxFireVetControls.Visible = false;
+        }
+
+        /// <summary>
+        /// switches control view to kill pet
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void killPetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            uxKillPetControls.Visible = true;
+            uxAddPetControls.Visible = false;
+            uxCreateAptControls.Visible = false;
+            uxQueryControls.Visible = false;
+            uxAddVetControls.Visible = false;
+            uxPrescribeMedsControls.Visible = false;
+            uxFireVetControls.Visible = false;
+        }
+
+        /// <summary>
+        /// switches control view to fire vet
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void fireVetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            uxFireVetControls.Visible = true;
+            uxAddPetControls.Visible = false;
+            uxCreateAptControls.Visible = false;
+            uxQueryControls.Visible = false;
+            uxAddVetControls.Visible = false;
+            uxPrescribeMedsControls.Visible = false;
+            uxKillPetControls.Visible = false;
         }
     }
 }
