@@ -1,4 +1,4 @@
--- BREED
+-------------- BREED --------------
 CREATE PROCEDURE SelectBreed
 @BreedName NVARCHAR(30)
 AS
@@ -7,7 +7,18 @@ FROM Breed B
 WHERE B.BreedName = @BreedName OR @BreedName = N''
 GO;
 
--- SPECIES
+
+
+
+
+
+
+
+
+
+
+
+-------------- SPECIES --------------
 CREATE PROCEDURE SelectSpecies
 @SpeciesName NVARCHAR(30)
 AS
@@ -16,7 +27,22 @@ FROM Species S
 WHERE S.SpeciesName = @SpeciesName OR @SpeciesName = N''
 GO;
 
--- Medications
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------- MEDICATIONS --------------
 CREATE PROCEDURE SelectMedication
 @MedicationName NVARCHAR(30)
 AS
@@ -25,7 +51,21 @@ FROM Medications M
 WHERE M.MedicationName = @MedicationName OR @MedicationName = N''
 GO;
 
--- PetsMeds
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------- PETSMEDS --------------
 CREATE PROCEDURE SelectPetsMeds
 @PetID INT,
 @MedicationID INT
@@ -35,7 +75,13 @@ FROM PetsMeds PM
 WHERE (PM.PetID = @PetID AND PM.MedicationID = @MedicationID) OR (@PetID IS NULL AND @MedicationID IS NULL)
 GO;
 
--- Vets
+
+
+
+
+
+
+-------------- VETS --------------
 CREATE PROCEDURE SelectVet
 @FirstName NVARCHAR(30),
 @LastName NVARCHAR(30)
@@ -45,7 +91,25 @@ FROM Vets V
 WHERE (V.FirstName = @FirstName AND V.LastName = @LastName) OR (@FirstName = N'' AND @LastName = N'')
 GO;
 
--- Appointment
+CREATE PROCEDURE InsertVet
+@VetFirstName NVARCHAR(30),
+@VetLastName NVARCHAR(30)
+AS
+DECLARE @HireDate DATETIME = SYSDATETIMEOFFSET();
+
+MERGE Vets AS T
+USING (SELECT @VetFirstName, @VetLastName, @HireDate) AS S
+ON T.FirstName = S.VetFirstName AND T.LastName = S.VetLastName
+WHEN NOT MATCHED THEN
+    INSERT (FirstName, LastName, HireDate)
+    VALUES (S.VetFirstName, S.VetLastName, S.HireDate);
+
+GO;
+
+
+
+
+-------------- APPOINTMENTS --------------
 CREATE PROCEDURE SelectAppointment
 @VetID INT,
 @Date DATE,
@@ -56,7 +120,33 @@ FROM Appointments A
 WHERE (A.VetID = @VetID AND A.Date = @Date AND A.Time = @Time) OR (@VetID IS NULL AND @Date IS NULL AND @Time IS NULL)
 GO;
 
--- Owners
+CREATE PROCEDURE InsertAppointment
+-- GIVEN VARIABLES
+@PetFirstName NVARCHAR(30),
+@PetLastName NVARCHAR(30),
+@OwnerEMail NVARCHAR(50),
+@VetID INT,
+@Date DATE,
+@Time TIME,
+@Reason NVARCHAR(50)
+AS
+-- Find PetID
+DECLARE @SelectedPetID INT = -1
+SET @SelectedPetID = (
+    SELECT P.PetID FROM Pets P
+    INNER JOIN Owners O ON O.EMail = @OwnerEMail
+    WHERE P.PetFirstName = @PetFirstName AND P.PetLastName = @PetLastName 
+    )
+-- Insert the Appointment
+MERGE Appointments AS T
+USING (SELECT @VetID, @SelectedPetID, @Date, @Time, @Reason) AS S
+ON T.VetID = S.VetID AND T.Date = S.Date AND T.Time = S.Time
+WHEN NOT MATCHED AND @SelectedPetID <> -1 THEN
+    INSERT (VetID, PetID, [Date], [Time], Reason)
+    VALUES (S.VetID, S.SelectedPetID, S.Date, S.Time, S.Reason);
+GO;
+
+-------------- OWNERS --------------
 CREATE PROCEDURE SelectOwner
 @EMail NVARCHAR(50)
 AS
@@ -65,7 +155,7 @@ FROM Owners O
 WHERE O.EMail = @EMail OR @EMail = N''
 GO;
 
--- Pets
+-------------- PETS --------------
 CREATE PROCEDURE SelectPet
 @PetID INT
 AS
@@ -74,7 +164,6 @@ FROM Pets P
 WHERE P.PetID = @PetID OR @PetID IS NULL
 GO;
 
--- This query can be split into two parts, first inserting an Owner, then a Pet
 CREATE PROCEDURE InsertPet
 -- GIVEN VARIABLES
 @OwnerFirstName NVARCHAR(30),
