@@ -239,29 +239,33 @@ ORDER BY MonthlyRank ASC
 GO;
 
 -- #2
-/* CREATE PROCEDURE CommonMedicationByBreed
+CREATE PROCEDURE CommonMedicationByBreed
 AS
 
 WITH breed_cnt_cte AS (
-    SELECT B.BreedName, P.BreedID, COUNT(P.PetID) AS BreedCount
-    FROM Breed B
-    INNER JOIN Pets P ON B.BreedID = P.BreedID
-    GROUP BY P.BreedID, B.BreedName
-)
+    SELECT P.PetID, P.BreedID, COUNT(P.PetID) AS BreedCount
+    FROM Pets P
+    GROUP BY P.BreedID
+),
 
-WITH med_cnt_cte AS (
-
+med_cte AS (
+    SELECT PM.PetID, PM.MedicationID, COUNT(PM.PetID) OVER (PARTITION BY P.BreedID) AS MedCount
+    FROM PetsMeds PM
+    INNER JOIN Pets P ON P.PetID = PM.PetID
 )
 
 SELECT
-
-    BCTE.BreedName,
-    BCTE.BreedCount
-
+    RANK() OVER (PARTITION BY BTCE.BreedID, MCTE.MedCount ORDER BY MCTE.MedCount DESC) AS Rank,
+    B.BreedName,
+    BCTE.BreedCount,
+    M.MedicationName AS MostCommonMedicationName,
+    COUNT(MCTE.MedCount) OVER (PARTITION BY BTCE.BreedID, MCTE.MedCount) AS TotalPrescribed
 FROM breed_cnt_cte BCTE
-INNER JOIN 
+INNER JOIN med_cte MCTE ON MCTE.PetID = BCTE.PetID
+INNER JOIN Medication M ON MCTE.MedicationID = M.MedicationID
+INNER JOIN Breed B ON B.BreedID = BCTE.BreedID
 
-GO; */
+GO;
 
 -- #3
 CREATE PROCEDURE CommonNamesByBreed
