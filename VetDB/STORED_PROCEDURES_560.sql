@@ -214,3 +214,87 @@ GO;
 
 
 -------------- AGGREGATED QUERIES --------------
+
+-- #1
+CREATE PROCEDURE MonthlyAppointmentsByVet
+@FirstDate DATETIME,
+@LastDate DATETIME
+AS
+
+WITH appointment_count_cte AS (
+    SELECT
+        A.VetID,
+        COUNT(A.DateID) OVER (PARTITION BY A.VetID, YEAR(A.Date), MONTH(A.Date)) AS AppointmentCount
+    FROM Appointments A
+)
+
+
+SELECT YEAR(A.Date) AS [Year], MONTH(A.Date) AS [Month], V.LastName + N', ' + V.FirstName AS [VetName],
+    ACNT.AppointmentCount,
+    RANK() OVER (ORDER BY ACNT.AppointmentCount DESC) AS MonthlyRank
+FROM Vets V
+INNER JOIN appointment_count_cte ACNT ON ACNT.VetID = V.VetID
+GROUP BY A.VetID
+ORDER BY MonthlyRank ASC
+GO;
+
+-- #2
+/* CREATE PROCEDURE CommonMedicationByBreed
+AS
+
+WITH breed_cnt_cte AS (
+    SELECT B.BreedName, P.BreedID, COUNT(P.PetID) AS BreedCount
+    FROM Breed B
+    INNER JOIN Pets P ON B.BreedID = P.BreedID
+    GROUP BY P.BreedID, B.BreedName
+)
+
+WITH med_cnt_cte AS (
+
+)
+
+SELECT
+
+    BCTE.BreedName,
+    BCTE.BreedCount
+
+FROM breed_cnt_cte BCTE
+INNER JOIN 
+
+GO; */
+
+-- #3
+CREATE PROCEDURE CommonNamesByBreed
+AS
+SELECT P.PetFirstName AS [PetName], S.SpeciesName AS Species, B.BreedName AS Breed,
+        RANK() OVER(PARTITION BY P.PetFirstName, B.BreedName) AS Rank
+FROM Species S
+INNER JOIN Breed B ON B.SpeciesID = S.SpeciesID
+INNER JOIN Pets P ON P.BreedID = B.BreedID
+ORDER BY Rank ASC
+GO;
+
+-- #4
+CREATE PROCEDURE QuarterlyAppointments
+@FirstDate DATETIME,
+@LastDate DATETIME
+AS
+
+WITH quarter_cte AS (
+    SELECT A.DateID, A.Date,
+            CASE
+                WHEN MONTH(A.Date) BETWEEN 1 AND 3 THEN 1
+                WHEN MONTH(A.Date) BETWEEN 4 AND 6 THEN 2
+                WHEN MONTH(A.Date) BETWEEN 7 AND 9 THEN 3
+                ELSE 4
+            END AS [Quarter]
+    FROM Appointments A
+)
+
+SELECT 
+    YEAR(Q.Date),
+    Q.Quarter,
+    COUNT(A.DateID) OVER (PARTITION BY YEAR(Q.Date), Q.Quarter) AS AppointmentCount
+FROM quarter_cte Q
+ORDER BY YEAR(Q.Date) DESC, Q.Quarter ASC
+GO;
