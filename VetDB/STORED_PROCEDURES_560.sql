@@ -8,16 +8,6 @@ WHERE B.BreedName = @BreedName OR @BreedName = N''
 GO;
 
 
-
-
-
-
-
-
-
-
-
-
 -------------- SPECIES --------------
 CREATE PROCEDURE SelectSpecies
 @SpeciesName NVARCHAR(30)
@@ -26,20 +16,6 @@ SELECT S.SpeciesID, S.SpeciesName
 FROM Species S
 WHERE S.SpeciesName = @SpeciesName OR @SpeciesName = N''
 GO;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 -------------- MEDICATIONS --------------
@@ -52,19 +28,6 @@ WHERE M.MedicationName = @MedicationName OR @MedicationName = N''
 GO;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 -------------- PETSMEDS --------------
 CREATE PROCEDURE SelectPetsMeds
 @PetID INT,
@@ -75,10 +38,23 @@ FROM PetsMeds PM
 WHERE (PM.PetID = @PetID AND PM.MedicationID = @MedicationID) OR (@PetID IS NULL AND @MedicationID IS NULL)
 GO;
 
+CREATE PROCEDURE InsertPetsMeds
+@OwnerEMail NVARCHAR(50),
+@PetFirstName NVARCHAR(30),
+@PetLastName NVARCHAR(30),
+@MedicationID INT,
+@Instructions NVARCHAR(120)
+AS
+DECLARE @OwnerID INT = (SELECT O.OwnerID FROM Owners O WHERE O.EMail = @OwnerEMail);
+DECLARE @PetID INT = (SELECT P.PetID FROM Pets P WHERE P.PetFirstName = @PetFirstName AND P.PetLastName = @PetLastName AND P.OwnerID = @OwnerID);
 
-
-
-
+MERGE PetsMeds AS T
+USING (SELECT @PetID, @MedicationID, @Instructions) AS S
+ON T.PetID = @PetID AND T.MedicationID = @MedicationID
+WHEN NOT MATCHED THEN
+    INSERT (PetID, MedicationID, Instructions)
+    VALUES (S.PetID, S.MedicationID, S.Instructions);
+GO;
 
 
 -------------- VETS --------------
@@ -106,7 +82,20 @@ WHEN NOT MATCHED THEN
 
 GO;
 
+CREATE PROCEDURE FireVet
+@VetFirstName NVARCHAR(30),
+@VetLastName NVARCHAR(30)
+AS
+DECLARE @VetID INT = (SELECT V.VetID FROM Vets V WHERE V.FirstName = @VetFirstName AND V.LastName = @VetLastName);
+DECLARE @TermDate DATETIME = SYSDATETIMEOFFSET();
 
+MERGE Vets AS T
+USING (SELECT @VetID) AS S
+ON T.VetID = S.VetID
+WHEN MATCHED THEN
+    UPDATE
+    SET TerminationDate = @TermDate;
+GO;
 
 
 -------------- APPOINTMENTS --------------
@@ -146,6 +135,7 @@ WHEN NOT MATCHED AND @SelectedPetID <> -1 THEN
     VALUES (S.VetID, S.SelectedPetID, S.Date, S.Time, S.Reason);
 GO;
 
+
 -------------- OWNERS --------------
 CREATE PROCEDURE SelectOwner
 @EMail NVARCHAR(50)
@@ -154,6 +144,7 @@ SELECT O.OwnerID, O.FirstName, O.LastName, O.EMail
 FROM Owners O
 WHERE O.EMail = @EMail OR @EMail = N''
 GO;
+
 
 -------------- PETS --------------
 CREATE PROCEDURE SelectPet
@@ -204,3 +195,22 @@ WHEN NOT MATCHED THEN
     VALUES ([Source].SelectedOwnerID, [Source].SelectedBreedID, [Source].PetFirstName, [Source].PetLastName, [Source].PetDescription);
 
 GO;
+
+
+CREATE PROCEDURE KillPet
+@PetFirstName NVARCHAR(30),
+@PetLastName NVARCHAR(30),
+@OwnerEMail NVARCHAR(50)
+AS
+DECLARE @CurrentTime DATETIME = SYSDATETIMEOFFSET();
+DECLARE @OwnerID INT = (SELECT O.OwnerID FROM Owners O WHERE O.EMail = @OwnerEMail)
+MERGE Pets AS T
+USING (SELECT @PetFirstName, @PetLastName, @OwnerID) AS S
+ON T.OwnerID = S.OwnerID AND T.PetFirstName = S.PetFirstName AND T.PetLastName = S.PetLastName
+WHEN MATCHED THEN
+    UPDATE
+    SET DeceasedOn = @CurrentTime;
+GO;
+
+
+-------------- AGGREGATED QUERIES --------------
