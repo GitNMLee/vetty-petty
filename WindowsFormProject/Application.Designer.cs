@@ -33,7 +33,21 @@
             this.uxMenuAddPet = new System.Windows.Forms.ToolStripMenuItem();
             this.uxMenuCreateApt = new System.Windows.Forms.ToolStripMenuItem();
             this.uxMenuViewQueries = new System.Windows.Forms.ToolStripMenuItem();
+            this.addVetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prescribeMedicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uxAddPetControls = new System.Windows.Forms.GroupBox();
+            this.uxPCSubmitButton = new System.Windows.Forms.Button();
+            this.uxPCPetDescriptionTB = new System.Windows.Forms.TextBox();
+            this.uxPCPetDescriptionLabel = new System.Windows.Forms.Label();
+            this.uxPCOwnerEmailLabel = new System.Windows.Forms.Label();
+            this.uxPCOwnerEmailTB = new System.Windows.Forms.TextBox();
+            this.uxPCOwnerLastNameLabel = new System.Windows.Forms.Label();
+            this.uxPCOwnerLastNameTB = new System.Windows.Forms.TextBox();
+            this.uxPCOwnerFirstNameLabel = new System.Windows.Forms.Label();
+            this.uxPCOwnerFirstNameTB = new System.Windows.Forms.TextBox();
+            this.uxPCPetLastNameLabel = new System.Windows.Forms.Label();
+            this.uxPCPetLastNameTB = new System.Windows.Forms.TextBox();
             this.uxPetBreedCB = new System.Windows.Forms.ComboBox();
             this.uxPetBreedLabel = new System.Windows.Forms.Label();
             this.uxPetSpeciesCB = new System.Windows.Forms.ComboBox();
@@ -44,6 +58,9 @@
             this.uxQuerySelectQueryCB = new System.Windows.Forms.ComboBox();
             this.uxQuerySelectQueryLabel = new System.Windows.Forms.Label();
             this.uxCreateAptControls = new System.Windows.Forms.GroupBox();
+            this.uxAptSubmitButton = new System.Windows.Forms.Button();
+            this.uxAptReasonTB = new System.Windows.Forms.TextBox();
+            this.uxAptReasonLabel = new System.Windows.Forms.Label();
             this.uxAptAptTimeCB = new System.Windows.Forms.ComboBox();
             this.uxAptAptDateLabel = new System.Windows.Forms.Label();
             this.uxAptDatePicker = new System.Windows.Forms.DateTimePicker();
@@ -54,59 +71,29 @@
             this.uxAptOwnerEmailLabel = new System.Windows.Forms.Label();
             this.uxAptPetNameLabel = new System.Windows.Forms.Label();
             this.uxAptPetNameTB = new System.Windows.Forms.TextBox();
-            this.uxPCPetLastNameLabel = new System.Windows.Forms.Label();
-            this.uxPCPetLastNameTB = new System.Windows.Forms.TextBox();
-            this.uxPCOwnerLastNameLabel = new System.Windows.Forms.Label();
-            this.uxPCOwnerLastNameTB = new System.Windows.Forms.TextBox();
-            this.uxPCOwnerFirstNameLabel = new System.Windows.Forms.Label();
-            this.uxPCOwnerFirstNameTB = new System.Windows.Forms.TextBox();
-            this.uxPCOwnerEmailLabel = new System.Windows.Forms.Label();
-            this.uxPCOwnerEmailTB = new System.Windows.Forms.TextBox();
-            this.uxPCPetDescriptionLabel = new System.Windows.Forms.Label();
-            this.uxPCPetDescriptionTB = new System.Windows.Forms.TextBox();
-            this.uxAptReasonLabel = new System.Windows.Forms.Label();
-            this.uxAptReasonTB = new System.Windows.Forms.TextBox();
-            this.addVetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.prescribeMedicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.killPetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fireVetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uxAddVetControls = new System.Windows.Forms.GroupBox();
+            this.uxVetSubmitButton = new System.Windows.Forms.Button();
             this.uxVetLastNameTB = new System.Windows.Forms.TextBox();
             this.uxVetLastNameLabel = new System.Windows.Forms.Label();
             this.uxVetFirstNameLabel = new System.Windows.Forms.Label();
             this.uxVetFirstNameTB = new System.Windows.Forms.TextBox();
             this.uxPrescribeMedsControls = new System.Windows.Forms.GroupBox();
+            this.uxMedsSubmitButton = new System.Windows.Forms.Button();
+            this.uxMedsMedicationCB = new System.Windows.Forms.ComboBox();
+            this.uxMedsMedicationLabel = new System.Windows.Forms.Label();
             this.uxMedsOwnerEmailTB = new System.Windows.Forms.TextBox();
             this.uxMedsOwnerEmailLabel = new System.Windows.Forms.Label();
             this.uxMedsPetNameLabel = new System.Windows.Forms.Label();
             this.uxMedsPetNameTB = new System.Windows.Forms.TextBox();
-            this.uxMedsMedicationLabel = new System.Windows.Forms.Label();
-            this.uxMedsMedicationCB = new System.Windows.Forms.ComboBox();
-            this.uxMedsSubmitButton = new System.Windows.Forms.Button();
-            this.uxPCSubmitButton = new System.Windows.Forms.Button();
-            this.uxAptSubmitButton = new System.Windows.Forms.Button();
-            this.uxVetSubmitButton = new System.Windows.Forms.Button();
-            this.uxKillPetControls = new System.Windows.Forms.GroupBox();
-            this.uxKPSubmitButton = new System.Windows.Forms.Button();
-            this.uxKPOwnerEmailTB = new System.Windows.Forms.TextBox();
-            this.uxKPOwnerEmailLabel = new System.Windows.Forms.Label();
-            this.uxKPPetNameLabel = new System.Windows.Forms.Label();
-            this.uxKPPetNameTB = new System.Windows.Forms.TextBox();
-            this.uxFireVetControls = new System.Windows.Forms.GroupBox();
-            this.uxFVSubmitButton = new System.Windows.Forms.Button();
-            this.uxFVLastNameTB = new System.Windows.Forms.TextBox();
-            this.uxFVLastNameLabel = new System.Windows.Forms.Label();
-            this.uxFVVetFirstNameLabel = new System.Windows.Forms.Label();
-            this.uxFVFirstNameTB = new System.Windows.Forms.TextBox();
+            this.uxSearchTB = new System.Windows.Forms.TextBox();
+            this.uxSearchControls = new System.Windows.Forms.GroupBox();
             this.uxMenuStrip.SuspendLayout();
             this.uxAddPetControls.SuspendLayout();
             this.uxQueryControls.SuspendLayout();
             this.uxCreateAptControls.SuspendLayout();
             this.uxAddVetControls.SuspendLayout();
             this.uxPrescribeMedsControls.SuspendLayout();
-            this.uxKillPetControls.SuspendLayout();
-            this.uxFireVetControls.SuspendLayout();
+            this.uxSearchControls.SuspendLayout();
             this.SuspendLayout();
             // 
             // uxConnectDB
@@ -126,9 +113,9 @@
             this.uxMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.uxMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.uxMenuAddPet,
+            this.addVetToolStripMenuItem,
             this.uxMenuCreateApt,
             this.uxMenuViewQueries,
-            this.addVetToolStripMenuItem,
             this.prescribeMedicationToolStripMenuItem,
             this.editToolStripMenuItem});
             this.uxMenuStrip.Location = new System.Drawing.Point(0, 0);
@@ -140,8 +127,8 @@
             // uxMenuAddPet
             // 
             this.uxMenuAddPet.Name = "uxMenuAddPet";
-            this.uxMenuAddPet.Size = new System.Drawing.Size(192, 29);
-            this.uxMenuAddPet.Text = "Add Pet to Database";
+            this.uxMenuAddPet.Size = new System.Drawing.Size(91, 29);
+            this.uxMenuAddPet.Text = "Add Pet";
             this.uxMenuAddPet.Click += new System.EventHandler(this.uxMenuAddPet_Click);
             // 
             // uxMenuCreateApt
@@ -157,6 +144,27 @@
             this.uxMenuViewQueries.Size = new System.Drawing.Size(230, 29);
             this.uxMenuViewQueries.Text = "View Aggregated Queries";
             this.uxMenuViewQueries.Click += new System.EventHandler(this.uxMenuViewQueries_Click);
+            // 
+            // addVetToolStripMenuItem
+            // 
+            this.addVetToolStripMenuItem.Name = "addVetToolStripMenuItem";
+            this.addVetToolStripMenuItem.Size = new System.Drawing.Size(92, 29);
+            this.addVetToolStripMenuItem.Text = "Add Vet";
+            this.addVetToolStripMenuItem.Click += new System.EventHandler(this.addVetToolStripMenuItem_Click);
+            // 
+            // prescribeMedicationToolStripMenuItem
+            // 
+            this.prescribeMedicationToolStripMenuItem.Name = "prescribeMedicationToolStripMenuItem";
+            this.prescribeMedicationToolStripMenuItem.Size = new System.Drawing.Size(192, 29);
+            this.prescribeMedicationToolStripMenuItem.Text = "Prescribe Medication";
+            this.prescribeMedicationToolStripMenuItem.Click += new System.EventHandler(this.prescribeMedicationToolStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(80, 29);
+            this.editToolStripMenuItem.Text = "Search";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // uxAddPetControls
             // 
@@ -185,6 +193,96 @@
             this.uxAddPetControls.Text = "AddPet";
             this.uxAddPetControls.Visible = false;
             this.uxAddPetControls.Enter += new System.EventHandler(this.uxMenuViewQueries_Click);
+            // 
+            // uxPCSubmitButton
+            // 
+            this.uxPCSubmitButton.Location = new System.Drawing.Point(523, 265);
+            this.uxPCSubmitButton.Name = "uxPCSubmitButton";
+            this.uxPCSubmitButton.Size = new System.Drawing.Size(114, 41);
+            this.uxPCSubmitButton.TabIndex = 17;
+            this.uxPCSubmitButton.Text = "Submit";
+            this.uxPCSubmitButton.UseVisualStyleBackColor = true;
+            // 
+            // uxPCPetDescriptionTB
+            // 
+            this.uxPCPetDescriptionTB.Location = new System.Drawing.Point(30, 176);
+            this.uxPCPetDescriptionTB.Multiline = true;
+            this.uxPCPetDescriptionTB.Name = "uxPCPetDescriptionTB";
+            this.uxPCPetDescriptionTB.Size = new System.Drawing.Size(285, 122);
+            this.uxPCPetDescriptionTB.TabIndex = 16;
+            // 
+            // uxPCPetDescriptionLabel
+            // 
+            this.uxPCPetDescriptionLabel.AutoSize = true;
+            this.uxPCPetDescriptionLabel.Location = new System.Drawing.Point(26, 153);
+            this.uxPCPetDescriptionLabel.Name = "uxPCPetDescriptionLabel";
+            this.uxPCPetDescriptionLabel.Size = new System.Drawing.Size(117, 20);
+            this.uxPCPetDescriptionLabel.TabIndex = 15;
+            this.uxPCPetDescriptionLabel.Text = "Pet Description";
+            // 
+            // uxPCOwnerEmailLabel
+            // 
+            this.uxPCOwnerEmailLabel.AutoSize = true;
+            this.uxPCOwnerEmailLabel.Location = new System.Drawing.Point(321, 96);
+            this.uxPCOwnerEmailLabel.Name = "uxPCOwnerEmailLabel";
+            this.uxPCOwnerEmailLabel.Size = new System.Drawing.Size(98, 20);
+            this.uxPCOwnerEmailLabel.TabIndex = 14;
+            this.uxPCOwnerEmailLabel.Text = "Owner Email";
+            // 
+            // uxPCOwnerEmailTB
+            // 
+            this.uxPCOwnerEmailTB.Location = new System.Drawing.Point(425, 93);
+            this.uxPCOwnerEmailTB.Name = "uxPCOwnerEmailTB";
+            this.uxPCOwnerEmailTB.Size = new System.Drawing.Size(174, 26);
+            this.uxPCOwnerEmailTB.TabIndex = 13;
+            // 
+            // uxPCOwnerLastNameLabel
+            // 
+            this.uxPCOwnerLastNameLabel.AutoSize = true;
+            this.uxPCOwnerLastNameLabel.Location = new System.Drawing.Point(321, 61);
+            this.uxPCOwnerLastNameLabel.Name = "uxPCOwnerLastNameLabel";
+            this.uxPCOwnerLastNameLabel.Size = new System.Drawing.Size(136, 20);
+            this.uxPCOwnerLastNameLabel.TabIndex = 12;
+            this.uxPCOwnerLastNameLabel.Text = "Owner Last Name";
+            // 
+            // uxPCOwnerLastNameTB
+            // 
+            this.uxPCOwnerLastNameTB.Location = new System.Drawing.Point(463, 55);
+            this.uxPCOwnerLastNameTB.Name = "uxPCOwnerLastNameTB";
+            this.uxPCOwnerLastNameTB.Size = new System.Drawing.Size(174, 26);
+            this.uxPCOwnerLastNameTB.TabIndex = 11;
+            // 
+            // uxPCOwnerFirstNameLabel
+            // 
+            this.uxPCOwnerFirstNameLabel.AutoSize = true;
+            this.uxPCOwnerFirstNameLabel.Location = new System.Drawing.Point(321, 29);
+            this.uxPCOwnerFirstNameLabel.Name = "uxPCOwnerFirstNameLabel";
+            this.uxPCOwnerFirstNameLabel.Size = new System.Drawing.Size(136, 20);
+            this.uxPCOwnerFirstNameLabel.TabIndex = 10;
+            this.uxPCOwnerFirstNameLabel.Text = "Owner First Name";
+            // 
+            // uxPCOwnerFirstNameTB
+            // 
+            this.uxPCOwnerFirstNameTB.Location = new System.Drawing.Point(463, 23);
+            this.uxPCOwnerFirstNameTB.Name = "uxPCOwnerFirstNameTB";
+            this.uxPCOwnerFirstNameTB.Size = new System.Drawing.Size(174, 26);
+            this.uxPCOwnerFirstNameTB.TabIndex = 9;
+            // 
+            // uxPCPetLastNameLabel
+            // 
+            this.uxPCPetLastNameLabel.AutoSize = true;
+            this.uxPCPetLastNameLabel.Location = new System.Drawing.Point(21, 61);
+            this.uxPCPetLastNameLabel.Name = "uxPCPetLastNameLabel";
+            this.uxPCPetLastNameLabel.Size = new System.Drawing.Size(114, 20);
+            this.uxPCPetLastNameLabel.TabIndex = 8;
+            this.uxPCPetLastNameLabel.Text = "Pet Last Name";
+            // 
+            // uxPCPetLastNameTB
+            // 
+            this.uxPCPetLastNameTB.Location = new System.Drawing.Point(141, 56);
+            this.uxPCPetLastNameTB.Name = "uxPCPetLastNameTB";
+            this.uxPCPetLastNameTB.Size = new System.Drawing.Size(174, 26);
+            this.uxPCPetLastNameTB.TabIndex = 7;
             // 
             // uxPetBreedCB
             // 
@@ -288,6 +386,32 @@
             this.uxCreateAptControls.Text = "Create Appointment";
             this.uxCreateAptControls.Visible = false;
             // 
+            // uxAptSubmitButton
+            // 
+            this.uxAptSubmitButton.Location = new System.Drawing.Point(547, 256);
+            this.uxAptSubmitButton.Name = "uxAptSubmitButton";
+            this.uxAptSubmitButton.Size = new System.Drawing.Size(114, 41);
+            this.uxAptSubmitButton.TabIndex = 14;
+            this.uxAptSubmitButton.Text = "Submit";
+            this.uxAptSubmitButton.UseVisualStyleBackColor = true;
+            // 
+            // uxAptReasonTB
+            // 
+            this.uxAptReasonTB.Location = new System.Drawing.Point(24, 155);
+            this.uxAptReasonTB.Multiline = true;
+            this.uxAptReasonTB.Name = "uxAptReasonTB";
+            this.uxAptReasonTB.Size = new System.Drawing.Size(300, 150);
+            this.uxAptReasonTB.TabIndex = 13;
+            // 
+            // uxAptReasonLabel
+            // 
+            this.uxAptReasonLabel.AutoSize = true;
+            this.uxAptReasonLabel.Location = new System.Drawing.Point(21, 129);
+            this.uxAptReasonLabel.Name = "uxAptReasonLabel";
+            this.uxAptReasonLabel.Size = new System.Drawing.Size(65, 20);
+            this.uxAptReasonLabel.TabIndex = 12;
+            this.uxAptReasonLabel.Text = "Reason";
+            // 
             // uxAptAptTimeCB
             // 
             this.uxAptAptTimeCB.FormattingEnabled = true;
@@ -370,141 +494,6 @@
             this.uxAptPetNameTB.Size = new System.Drawing.Size(100, 26);
             this.uxAptPetNameTB.TabIndex = 0;
             // 
-            // uxPCPetLastNameLabel
-            // 
-            this.uxPCPetLastNameLabel.AutoSize = true;
-            this.uxPCPetLastNameLabel.Location = new System.Drawing.Point(21, 61);
-            this.uxPCPetLastNameLabel.Name = "uxPCPetLastNameLabel";
-            this.uxPCPetLastNameLabel.Size = new System.Drawing.Size(114, 20);
-            this.uxPCPetLastNameLabel.TabIndex = 8;
-            this.uxPCPetLastNameLabel.Text = "Pet Last Name";
-            // 
-            // uxPCPetLastNameTB
-            // 
-            this.uxPCPetLastNameTB.Location = new System.Drawing.Point(141, 56);
-            this.uxPCPetLastNameTB.Name = "uxPCPetLastNameTB";
-            this.uxPCPetLastNameTB.Size = new System.Drawing.Size(174, 26);
-            this.uxPCPetLastNameTB.TabIndex = 7;
-            // 
-            // uxPCOwnerLastNameLabel
-            // 
-            this.uxPCOwnerLastNameLabel.AutoSize = true;
-            this.uxPCOwnerLastNameLabel.Location = new System.Drawing.Point(321, 61);
-            this.uxPCOwnerLastNameLabel.Name = "uxPCOwnerLastNameLabel";
-            this.uxPCOwnerLastNameLabel.Size = new System.Drawing.Size(136, 20);
-            this.uxPCOwnerLastNameLabel.TabIndex = 12;
-            this.uxPCOwnerLastNameLabel.Text = "Owner Last Name";
-            // 
-            // uxPCOwnerLastNameTB
-            // 
-            this.uxPCOwnerLastNameTB.Location = new System.Drawing.Point(463, 55);
-            this.uxPCOwnerLastNameTB.Name = "uxPCOwnerLastNameTB";
-            this.uxPCOwnerLastNameTB.Size = new System.Drawing.Size(174, 26);
-            this.uxPCOwnerLastNameTB.TabIndex = 11;
-            // 
-            // uxPCOwnerFirstNameLabel
-            // 
-            this.uxPCOwnerFirstNameLabel.AutoSize = true;
-            this.uxPCOwnerFirstNameLabel.Location = new System.Drawing.Point(321, 29);
-            this.uxPCOwnerFirstNameLabel.Name = "uxPCOwnerFirstNameLabel";
-            this.uxPCOwnerFirstNameLabel.Size = new System.Drawing.Size(136, 20);
-            this.uxPCOwnerFirstNameLabel.TabIndex = 10;
-            this.uxPCOwnerFirstNameLabel.Text = "Owner First Name";
-            // 
-            // uxPCOwnerFirstNameTB
-            // 
-            this.uxPCOwnerFirstNameTB.Location = new System.Drawing.Point(463, 23);
-            this.uxPCOwnerFirstNameTB.Name = "uxPCOwnerFirstNameTB";
-            this.uxPCOwnerFirstNameTB.Size = new System.Drawing.Size(174, 26);
-            this.uxPCOwnerFirstNameTB.TabIndex = 9;
-            // 
-            // uxPCOwnerEmailLabel
-            // 
-            this.uxPCOwnerEmailLabel.AutoSize = true;
-            this.uxPCOwnerEmailLabel.Location = new System.Drawing.Point(321, 96);
-            this.uxPCOwnerEmailLabel.Name = "uxPCOwnerEmailLabel";
-            this.uxPCOwnerEmailLabel.Size = new System.Drawing.Size(98, 20);
-            this.uxPCOwnerEmailLabel.TabIndex = 14;
-            this.uxPCOwnerEmailLabel.Text = "Owner Email";
-            // 
-            // uxPCOwnerEmailTB
-            // 
-            this.uxPCOwnerEmailTB.Location = new System.Drawing.Point(425, 93);
-            this.uxPCOwnerEmailTB.Name = "uxPCOwnerEmailTB";
-            this.uxPCOwnerEmailTB.Size = new System.Drawing.Size(174, 26);
-            this.uxPCOwnerEmailTB.TabIndex = 13;
-            // 
-            // uxPCPetDescriptionLabel
-            // 
-            this.uxPCPetDescriptionLabel.AutoSize = true;
-            this.uxPCPetDescriptionLabel.Location = new System.Drawing.Point(26, 153);
-            this.uxPCPetDescriptionLabel.Name = "uxPCPetDescriptionLabel";
-            this.uxPCPetDescriptionLabel.Size = new System.Drawing.Size(117, 20);
-            this.uxPCPetDescriptionLabel.TabIndex = 15;
-            this.uxPCPetDescriptionLabel.Text = "Pet Description";
-            // 
-            // uxPCPetDescriptionTB
-            // 
-            this.uxPCPetDescriptionTB.Location = new System.Drawing.Point(30, 176);
-            this.uxPCPetDescriptionTB.Multiline = true;
-            this.uxPCPetDescriptionTB.Name = "uxPCPetDescriptionTB";
-            this.uxPCPetDescriptionTB.Size = new System.Drawing.Size(285, 122);
-            this.uxPCPetDescriptionTB.TabIndex = 16;
-            // 
-            // uxAptReasonLabel
-            // 
-            this.uxAptReasonLabel.AutoSize = true;
-            this.uxAptReasonLabel.Location = new System.Drawing.Point(21, 129);
-            this.uxAptReasonLabel.Name = "uxAptReasonLabel";
-            this.uxAptReasonLabel.Size = new System.Drawing.Size(65, 20);
-            this.uxAptReasonLabel.TabIndex = 12;
-            this.uxAptReasonLabel.Text = "Reason";
-            // 
-            // uxAptReasonTB
-            // 
-            this.uxAptReasonTB.Location = new System.Drawing.Point(24, 155);
-            this.uxAptReasonTB.Multiline = true;
-            this.uxAptReasonTB.Name = "uxAptReasonTB";
-            this.uxAptReasonTB.Size = new System.Drawing.Size(300, 150);
-            this.uxAptReasonTB.TabIndex = 13;
-            // 
-            // addVetToolStripMenuItem
-            // 
-            this.addVetToolStripMenuItem.Name = "addVetToolStripMenuItem";
-            this.addVetToolStripMenuItem.Size = new System.Drawing.Size(92, 29);
-            this.addVetToolStripMenuItem.Text = "Add Vet";
-            this.addVetToolStripMenuItem.Click += new System.EventHandler(this.addVetToolStripMenuItem_Click);
-            // 
-            // prescribeMedicationToolStripMenuItem
-            // 
-            this.prescribeMedicationToolStripMenuItem.Name = "prescribeMedicationToolStripMenuItem";
-            this.prescribeMedicationToolStripMenuItem.Size = new System.Drawing.Size(192, 29);
-            this.prescribeMedicationToolStripMenuItem.Text = "Prescribe Medication";
-            this.prescribeMedicationToolStripMenuItem.Click += new System.EventHandler(this.prescribeMedicationToolStripMenuItem_Click);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.killPetToolStripMenuItem,
-            this.fireVetToolStripMenuItem});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(58, 29);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // killPetToolStripMenuItem
-            // 
-            this.killPetToolStripMenuItem.Name = "killPetToolStripMenuItem";
-            this.killPetToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.killPetToolStripMenuItem.Text = "Kill Pet";
-            this.killPetToolStripMenuItem.Click += new System.EventHandler(this.killPetToolStripMenuItem_Click);
-            // 
-            // fireVetToolStripMenuItem
-            // 
-            this.fireVetToolStripMenuItem.Name = "fireVetToolStripMenuItem";
-            this.fireVetToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.fireVetToolStripMenuItem.Text = "Fire Vet";
-            this.fireVetToolStripMenuItem.Click += new System.EventHandler(this.fireVetToolStripMenuItem_Click);
-            // 
             // uxAddVetControls
             // 
             this.uxAddVetControls.Controls.Add(this.uxVetSubmitButton);
@@ -519,6 +508,15 @@
             this.uxAddVetControls.TabStop = false;
             this.uxAddVetControls.Text = "Add Vet";
             this.uxAddVetControls.Visible = false;
+            // 
+            // uxVetSubmitButton
+            // 
+            this.uxVetSubmitButton.Location = new System.Drawing.Point(27, 131);
+            this.uxVetSubmitButton.Name = "uxVetSubmitButton";
+            this.uxVetSubmitButton.Size = new System.Drawing.Size(114, 41);
+            this.uxVetSubmitButton.TabIndex = 11;
+            this.uxVetSubmitButton.Text = "Submit";
+            this.uxVetSubmitButton.UseVisualStyleBackColor = true;
             // 
             // uxVetLastNameTB
             // 
@@ -569,6 +567,32 @@
             this.uxPrescribeMedsControls.Text = "Prescribe Medication";
             this.uxPrescribeMedsControls.Visible = false;
             // 
+            // uxMedsSubmitButton
+            // 
+            this.uxMedsSubmitButton.Location = new System.Drawing.Point(27, 244);
+            this.uxMedsSubmitButton.Name = "uxMedsSubmitButton";
+            this.uxMedsSubmitButton.Size = new System.Drawing.Size(114, 41);
+            this.uxMedsSubmitButton.TabIndex = 10;
+            this.uxMedsSubmitButton.Text = "Submit";
+            this.uxMedsSubmitButton.UseVisualStyleBackColor = true;
+            // 
+            // uxMedsMedicationCB
+            // 
+            this.uxMedsMedicationCB.FormattingEnabled = true;
+            this.uxMedsMedicationCB.Location = new System.Drawing.Point(115, 87);
+            this.uxMedsMedicationCB.Name = "uxMedsMedicationCB";
+            this.uxMedsMedicationCB.Size = new System.Drawing.Size(121, 28);
+            this.uxMedsMedicationCB.TabIndex = 9;
+            // 
+            // uxMedsMedicationLabel
+            // 
+            this.uxMedsMedicationLabel.AutoSize = true;
+            this.uxMedsMedicationLabel.Location = new System.Drawing.Point(22, 90);
+            this.uxMedsMedicationLabel.Name = "uxMedsMedicationLabel";
+            this.uxMedsMedicationLabel.Size = new System.Drawing.Size(86, 20);
+            this.uxMedsMedicationLabel.TabIndex = 8;
+            this.uxMedsMedicationLabel.Text = "Medication";
+            // 
             // uxMedsOwnerEmailTB
             // 
             this.uxMedsOwnerEmailTB.Location = new System.Drawing.Point(125, 56);
@@ -601,178 +625,30 @@
             this.uxMedsPetNameTB.Size = new System.Drawing.Size(100, 26);
             this.uxMedsPetNameTB.TabIndex = 0;
             // 
-            // uxMedsMedicationLabel
+            // uxSearchTB
             // 
-            this.uxMedsMedicationLabel.AutoSize = true;
-            this.uxMedsMedicationLabel.Location = new System.Drawing.Point(22, 90);
-            this.uxMedsMedicationLabel.Name = "uxMedsMedicationLabel";
-            this.uxMedsMedicationLabel.Size = new System.Drawing.Size(86, 20);
-            this.uxMedsMedicationLabel.TabIndex = 8;
-            this.uxMedsMedicationLabel.Text = "Medication";
+            this.uxSearchTB.Location = new System.Drawing.Point(24, 25);
+            this.uxSearchTB.Name = "uxSearchTB";
+            this.uxSearchTB.Size = new System.Drawing.Size(260, 26);
+            this.uxSearchTB.TabIndex = 0;
             // 
-            // uxMedsMedicationCB
+            // uxSearchControls
             // 
-            this.uxMedsMedicationCB.FormattingEnabled = true;
-            this.uxMedsMedicationCB.Location = new System.Drawing.Point(115, 87);
-            this.uxMedsMedicationCB.Name = "uxMedsMedicationCB";
-            this.uxMedsMedicationCB.Size = new System.Drawing.Size(121, 28);
-            this.uxMedsMedicationCB.TabIndex = 9;
-            // 
-            // uxMedsSubmitButton
-            // 
-            this.uxMedsSubmitButton.Location = new System.Drawing.Point(27, 244);
-            this.uxMedsSubmitButton.Name = "uxMedsSubmitButton";
-            this.uxMedsSubmitButton.Size = new System.Drawing.Size(114, 41);
-            this.uxMedsSubmitButton.TabIndex = 10;
-            this.uxMedsSubmitButton.Text = "Submit";
-            this.uxMedsSubmitButton.UseVisualStyleBackColor = true;
-            // 
-            // uxPCSubmitButton
-            // 
-            this.uxPCSubmitButton.Location = new System.Drawing.Point(523, 265);
-            this.uxPCSubmitButton.Name = "uxPCSubmitButton";
-            this.uxPCSubmitButton.Size = new System.Drawing.Size(114, 41);
-            this.uxPCSubmitButton.TabIndex = 17;
-            this.uxPCSubmitButton.Text = "Submit";
-            this.uxPCSubmitButton.UseVisualStyleBackColor = true;
-            // 
-            // uxAptSubmitButton
-            // 
-            this.uxAptSubmitButton.Location = new System.Drawing.Point(547, 256);
-            this.uxAptSubmitButton.Name = "uxAptSubmitButton";
-            this.uxAptSubmitButton.Size = new System.Drawing.Size(114, 41);
-            this.uxAptSubmitButton.TabIndex = 14;
-            this.uxAptSubmitButton.Text = "Submit";
-            this.uxAptSubmitButton.UseVisualStyleBackColor = true;
-            // 
-            // uxVetSubmitButton
-            // 
-            this.uxVetSubmitButton.Location = new System.Drawing.Point(27, 131);
-            this.uxVetSubmitButton.Name = "uxVetSubmitButton";
-            this.uxVetSubmitButton.Size = new System.Drawing.Size(114, 41);
-            this.uxVetSubmitButton.TabIndex = 11;
-            this.uxVetSubmitButton.Text = "Submit";
-            this.uxVetSubmitButton.UseVisualStyleBackColor = true;
-            // 
-            // uxKillPetControls
-            // 
-            this.uxKillPetControls.Controls.Add(this.uxKPSubmitButton);
-            this.uxKillPetControls.Controls.Add(this.uxKPOwnerEmailTB);
-            this.uxKillPetControls.Controls.Add(this.uxKPOwnerEmailLabel);
-            this.uxKillPetControls.Controls.Add(this.uxKPPetNameLabel);
-            this.uxKillPetControls.Controls.Add(this.uxKPPetNameTB);
-            this.uxKillPetControls.Location = new System.Drawing.Point(1, 37);
-            this.uxKillPetControls.Name = "uxKillPetControls";
-            this.uxKillPetControls.Size = new System.Drawing.Size(859, 404);
-            this.uxKillPetControls.TabIndex = 16;
-            this.uxKillPetControls.TabStop = false;
-            this.uxKillPetControls.Text = "Kill Pet";
-            this.uxKillPetControls.Visible = false;
-            // 
-            // uxKPSubmitButton
-            // 
-            this.uxKPSubmitButton.Location = new System.Drawing.Point(27, 244);
-            this.uxKPSubmitButton.Name = "uxKPSubmitButton";
-            this.uxKPSubmitButton.Size = new System.Drawing.Size(114, 41);
-            this.uxKPSubmitButton.TabIndex = 10;
-            this.uxKPSubmitButton.Text = "Submit";
-            this.uxKPSubmitButton.UseVisualStyleBackColor = true;
-            // 
-            // uxKPOwnerEmailTB
-            // 
-            this.uxKPOwnerEmailTB.Location = new System.Drawing.Point(125, 56);
-            this.uxKPOwnerEmailTB.Name = "uxKPOwnerEmailTB";
-            this.uxKPOwnerEmailTB.Size = new System.Drawing.Size(159, 26);
-            this.uxKPOwnerEmailTB.TabIndex = 7;
-            // 
-            // uxKPOwnerEmailLabel
-            // 
-            this.uxKPOwnerEmailLabel.AutoSize = true;
-            this.uxKPOwnerEmailLabel.Location = new System.Drawing.Point(21, 59);
-            this.uxKPOwnerEmailLabel.Name = "uxKPOwnerEmailLabel";
-            this.uxKPOwnerEmailLabel.Size = new System.Drawing.Size(98, 20);
-            this.uxKPOwnerEmailLabel.TabIndex = 3;
-            this.uxKPOwnerEmailLabel.Text = "Owner Email";
-            // 
-            // uxKPPetNameLabel
-            // 
-            this.uxKPPetNameLabel.AutoSize = true;
-            this.uxKPPetNameLabel.Location = new System.Drawing.Point(21, 29);
-            this.uxKPPetNameLabel.Name = "uxKPPetNameLabel";
-            this.uxKPPetNameLabel.Size = new System.Drawing.Size(79, 20);
-            this.uxKPPetNameLabel.TabIndex = 1;
-            this.uxKPPetNameLabel.Text = "Pet Name";
-            // 
-            // uxKPPetNameTB
-            // 
-            this.uxKPPetNameTB.Location = new System.Drawing.Point(106, 25);
-            this.uxKPPetNameTB.Name = "uxKPPetNameTB";
-            this.uxKPPetNameTB.Size = new System.Drawing.Size(100, 26);
-            this.uxKPPetNameTB.TabIndex = 0;
-            // 
-            // uxFireVetControls
-            // 
-            this.uxFireVetControls.Controls.Add(this.uxFVSubmitButton);
-            this.uxFireVetControls.Controls.Add(this.uxFVLastNameTB);
-            this.uxFireVetControls.Controls.Add(this.uxFVLastNameLabel);
-            this.uxFireVetControls.Controls.Add(this.uxFVVetFirstNameLabel);
-            this.uxFireVetControls.Controls.Add(this.uxFVFirstNameTB);
-            this.uxFireVetControls.Location = new System.Drawing.Point(0, 37);
-            this.uxFireVetControls.Name = "uxFireVetControls";
-            this.uxFireVetControls.Size = new System.Drawing.Size(859, 404);
-            this.uxFireVetControls.TabIndex = 17;
-            this.uxFireVetControls.TabStop = false;
-            this.uxFireVetControls.Text = "Fire Vet";
-            this.uxFireVetControls.Visible = false;
-            // 
-            // uxFVSubmitButton
-            // 
-            this.uxFVSubmitButton.Location = new System.Drawing.Point(27, 244);
-            this.uxFVSubmitButton.Name = "uxFVSubmitButton";
-            this.uxFVSubmitButton.Size = new System.Drawing.Size(114, 41);
-            this.uxFVSubmitButton.TabIndex = 10;
-            this.uxFVSubmitButton.Text = "Submit";
-            this.uxFVSubmitButton.UseVisualStyleBackColor = true;
-            // 
-            // uxFVLastNameTB
-            // 
-            this.uxFVLastNameTB.Location = new System.Drawing.Point(107, 56);
-            this.uxFVLastNameTB.Name = "uxFVLastNameTB";
-            this.uxFVLastNameTB.Size = new System.Drawing.Size(144, 26);
-            this.uxFVLastNameTB.TabIndex = 7;
-            // 
-            // uxFVLastNameLabel
-            // 
-            this.uxFVLastNameLabel.AutoSize = true;
-            this.uxFVLastNameLabel.Location = new System.Drawing.Point(21, 59);
-            this.uxFVLastNameLabel.Name = "uxFVLastNameLabel";
-            this.uxFVLastNameLabel.Size = new System.Drawing.Size(86, 20);
-            this.uxFVLastNameLabel.TabIndex = 3;
-            this.uxFVLastNameLabel.Text = "Last Name";
-            // 
-            // uxFVVetFirstNameLabel
-            // 
-            this.uxFVVetFirstNameLabel.AutoSize = true;
-            this.uxFVVetFirstNameLabel.Location = new System.Drawing.Point(21, 29);
-            this.uxFVVetFirstNameLabel.Name = "uxFVVetFirstNameLabel";
-            this.uxFVVetFirstNameLabel.Size = new System.Drawing.Size(86, 20);
-            this.uxFVVetFirstNameLabel.TabIndex = 1;
-            this.uxFVVetFirstNameLabel.Text = "First Name";
-            // 
-            // uxFVFirstNameTB
-            // 
-            this.uxFVFirstNameTB.Location = new System.Drawing.Point(109, 22);
-            this.uxFVFirstNameTB.Name = "uxFVFirstNameTB";
-            this.uxFVFirstNameTB.Size = new System.Drawing.Size(142, 26);
-            this.uxFVFirstNameTB.TabIndex = 0;
+            this.uxSearchControls.Controls.Add(this.uxSearchTB);
+            this.uxSearchControls.Location = new System.Drawing.Point(1, 37);
+            this.uxSearchControls.Name = "uxSearchControls";
+            this.uxSearchControls.Size = new System.Drawing.Size(859, 404);
+            this.uxSearchControls.TabIndex = 16;
+            this.uxSearchControls.TabStop = false;
+            this.uxSearchControls.Text = "Search";
+            this.uxSearchControls.Visible = false;
             // 
             // Application
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
-            this.Controls.Add(this.uxFireVetControls);
-            this.Controls.Add(this.uxKillPetControls);
+            this.Controls.Add(this.uxSearchControls);
             this.Controls.Add(this.uxPrescribeMedsControls);
             this.Controls.Add(this.uxAddVetControls);
             this.Controls.Add(this.uxCreateAptControls);
@@ -796,10 +672,8 @@
             this.uxAddVetControls.PerformLayout();
             this.uxPrescribeMedsControls.ResumeLayout(false);
             this.uxPrescribeMedsControls.PerformLayout();
-            this.uxKillPetControls.ResumeLayout(false);
-            this.uxKillPetControls.PerformLayout();
-            this.uxFireVetControls.ResumeLayout(false);
-            this.uxFireVetControls.PerformLayout();
+            this.uxSearchControls.ResumeLayout(false);
+            this.uxSearchControls.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -848,8 +722,6 @@
         private System.Windows.Forms.ToolStripMenuItem addVetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prescribeMedicationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem killPetToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fireVetToolStripMenuItem;
         private System.Windows.Forms.GroupBox uxAddVetControls;
         private System.Windows.Forms.TextBox uxVetLastNameTB;
         private System.Windows.Forms.Label uxVetLastNameLabel;
@@ -866,18 +738,8 @@
         private System.Windows.Forms.Button uxPCSubmitButton;
         private System.Windows.Forms.Button uxAptSubmitButton;
         private System.Windows.Forms.Button uxVetSubmitButton;
-        private System.Windows.Forms.GroupBox uxKillPetControls;
-        private System.Windows.Forms.Button uxKPSubmitButton;
-        private System.Windows.Forms.TextBox uxKPOwnerEmailTB;
-        private System.Windows.Forms.Label uxKPOwnerEmailLabel;
-        private System.Windows.Forms.Label uxKPPetNameLabel;
-        private System.Windows.Forms.TextBox uxKPPetNameTB;
-        private System.Windows.Forms.GroupBox uxFireVetControls;
-        private System.Windows.Forms.Button uxFVSubmitButton;
-        private System.Windows.Forms.TextBox uxFVLastNameTB;
-        private System.Windows.Forms.Label uxFVLastNameLabel;
-        private System.Windows.Forms.Label uxFVVetFirstNameLabel;
-        private System.Windows.Forms.TextBox uxFVFirstNameTB;
+        private System.Windows.Forms.TextBox uxSearchTB;
+        private System.Windows.Forms.GroupBox uxSearchControls;
     }
 }
 

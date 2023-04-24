@@ -52,8 +52,7 @@ namespace WindowsFormProject
             uxQueryControls.Visible = false;
             uxAddVetControls.Visible = false;
             uxPrescribeMedsControls.Visible = false;
-            uxKillPetControls.Visible = false;
-            uxFireVetControls.Visible = false;
+            uxSearchControls.Visible = false;
         }
 
         /// <summary>
@@ -69,8 +68,7 @@ namespace WindowsFormProject
             uxQueryControls.Visible = false;
             uxAddVetControls.Visible = false;
             uxPrescribeMedsControls.Visible = false;
-            uxKillPetControls.Visible = false;
-            uxFireVetControls.Visible = false;
+            uxSearchControls.Visible = false;
         }
 
         /// <summary>
@@ -84,8 +82,8 @@ namespace WindowsFormProject
             uxAddPetControls.Visible = false;
             uxCreateAptControls.Visible = false;
             uxAddVetControls.Visible = false;
-            uxPrescribeMedsControls.Visible = false; uxKillPetControls.Visible = false;
-            uxFireVetControls.Visible = false;
+            uxPrescribeMedsControls.Visible = false;
+            uxSearchControls.Visible = false;
         }
 
         /// <summary>
@@ -100,8 +98,7 @@ namespace WindowsFormProject
             uxAddPetControls.Visible = false;
             uxCreateAptControls.Visible = false;
             uxPrescribeMedsControls.Visible = false;
-            uxKillPetControls.Visible = false;
-            uxFireVetControls.Visible = false;
+            uxSearchControls.Visible = false;
         }
 
         /// <summary>
@@ -116,40 +113,22 @@ namespace WindowsFormProject
             uxAddPetControls.Visible = false;
             uxCreateAptControls.Visible = false;
             uxAddVetControls.Visible = false;
-            uxKillPetControls.Visible = false;
-            uxFireVetControls.Visible = false;
+            uxSearchControls.Visible = false;
         }
 
         /// <summary>
-        /// switches control view to kill pet
+        /// switches control view to search
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void killPetToolStripMenuItem_Click(object sender, EventArgs e)
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            uxKillPetControls.Visible = true;
+            uxSearchControls.Visible = true;
             uxAddPetControls.Visible = false;
             uxCreateAptControls.Visible = false;
             uxQueryControls.Visible = false;
             uxAddVetControls.Visible = false;
             uxPrescribeMedsControls.Visible = false;
-            uxFireVetControls.Visible = false;
-        }
-
-        /// <summary>
-        /// switches control view to fire vet
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void fireVetToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            uxFireVetControls.Visible = true;
-            uxAddPetControls.Visible = false;
-            uxCreateAptControls.Visible = false;
-            uxQueryControls.Visible = false;
-            uxAddVetControls.Visible = false;
-            uxPrescribeMedsControls.Visible = false;
-            uxKillPetControls.Visible = false;
         }
     }
 }
