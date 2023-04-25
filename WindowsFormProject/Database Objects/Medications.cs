@@ -13,5 +13,10 @@ namespace WindowsFormProject.Database_Objects
         public string MedicationName { get; set; }
 
         public string Purpose { get; set; }
+
+        public override string ToString()
+        {
+            return MedicationName;
+        }
     }
 }

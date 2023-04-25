@@ -17,8 +17,8 @@ namespace WindowsFormProject
 
         public Application()
         {
-            InitializeComponent();
-            //GetMedications();
+            InitializeComponent(); uxConnectDB_Click(null, null);
+            GetMedications();
             //GetBreeds();
             //GetSpecies();
         }
@@ -29,8 +29,16 @@ namespace WindowsFormProject
             SqlCommand cmnd = new SqlCommand("SelectMedication", _sqlClient);
             cmnd.CommandType = CommandType.StoredProcedure;
             cmnd.Parameters.AddWithValue("@MedicationName", SqlDbType.NVarChar).Value = "";
-            SqlDataReader data = cmnd.ExecuteReader();
-            _medications = new List<Medications>(data.Cast<Medications>());
+            using (SqlDataReader data = cmnd.ExecuteReader())
+            {
+                List<Medications> list = new List<Medications>();
+                while(data.Read() != false)
+                {
+                    list.Add(new Medications { MedicationID = data.GetFieldValue<int>(0), MedicationName = data.GetFieldValue<string>(1), Purpose= data.GetFieldValue<string>(2) });
+                    
+                }
+                _medications = list;
+            }
             uxMedsMedicationCB.Items.AddRange(_medications.ToArray());
         }
 
@@ -40,8 +48,10 @@ namespace WindowsFormProject
             SqlCommand cmnd = new SqlCommand("SelectBreed", _sqlClient);
             cmnd.CommandType = CommandType.StoredProcedure;
             cmnd.Parameters.AddWithValue("@BreedName", SqlDbType.NVarChar).Value = "";
-            SqlDataReader data = cmnd.ExecuteReader();
-            _breeds = new List<Breed>(data.Cast<Breed>());
+            using (SqlDataReader data = cmnd.ExecuteReader())
+            {
+                _breeds = new List<Breed>(data.Cast<Breed>());
+            }
             uxPetBreedCB.Items.AddRange(_breeds.ToArray());
         }
 
@@ -51,14 +61,16 @@ namespace WindowsFormProject
             SqlCommand cmnd = new SqlCommand("SelectSpecies", _sqlClient);
             cmnd.CommandType = CommandType.StoredProcedure;
             cmnd.Parameters.AddWithValue("@SpeciesName", SqlDbType.NVarChar).Value = "";
-            SqlDataReader data = cmnd.ExecuteReader();
-            _species = new List<Species>(data.Cast<Species>());
+            using (SqlDataReader data = cmnd.ExecuteReader())
+            {
+                _species = new List<Species>(data.Cast<Species>());
+            }
             uxPetSpeciesCB.Items.AddRange(_species.ToArray());
         }
 
         private void uxConnectDB_Click(object sender, EventArgs e)
         {
-            string connectionString = "Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;";
+            string connectionString = "Server=localhost\\SQLEXPRESS;Database=VetDB;Trusted_Connection=True;";
 
             _sqlClient = new SqlConnection(connectionString);
 
