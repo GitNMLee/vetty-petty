@@ -18,17 +18,18 @@ namespace WindowsFormProject
 
         private void uxConnectDB_Click(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=(localdb)\\ProjectsV13;Initial Catalog=VetDB;Integrated Security=True;Pooling=False;Connect Timeout=30";
+            string connectionString = "Data Source=mssql.cs.ksu.edu;Initial Catalog=nmlee;Persist Security Info=True;User ID=nmlee;Password=4e0Ytfa1!rBna6v;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False";
 
             using (_sqlClient = new SqlConnection(connectionString))
             {
                 try
                 {
                     _sqlClient.Open();
-                    SqlCommand cmnd = new SqlCommand("PROCEDURE NAME", _sqlClient);
+                    SqlCommand cmnd = new SqlCommand("SelectSpecies", _sqlClient);
                     cmnd.CommandType = CommandType.StoredProcedure;
-                    cmnd.Parameters.AddWithValue("@TEST_PARAM", SqlDbType.NVarChar).Value = "Test Value";
-                    cmnd.ExecuteNonQuery();
+                    cmnd.Parameters.AddWithValue("@SpeciesName", SqlDbType.NVarChar).Value = "";
+                    SqlDataReader data = cmnd.ExecuteReader();
+                    List<Species> list = new List<Species>(data.Cast<Species>());
                     MessageBox.Show("Stored procedure successful");
                 }
                 catch (Exception ex)

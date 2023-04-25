@@ -4,4 +4,3 @@ AS
 SELECT S.SpeciesID, S.SpeciesName
 FROM Species S
 WHERE S.SpeciesName = @SpeciesName OR @SpeciesName = N''
-GO;

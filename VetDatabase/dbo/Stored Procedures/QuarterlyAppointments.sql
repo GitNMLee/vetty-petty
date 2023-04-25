@@ -20,4 +20,3 @@ SELECT
     COUNT(Q.DateID) OVER (PARTITION BY YEAR(Q.[Date]), Q.[Quarter]) AS AppointmentCount
 FROM quarter_cte Q
 ORDER BY YEAR(Q.[Date]) DESC, Q.[Quarter] ASC
-GO;

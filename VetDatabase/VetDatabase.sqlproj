@@ -6,7 +6,7 @@
     <Name>VetDatabase</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{d3dfac69-4de9-4f28-9ffc-0f107d452172}</ProjectGuid>
+    <ProjectGuid>{92bb0f64-17c1-410e-9531-c3d00d7d40af}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
@@ -16,7 +16,7 @@
     <ModelCollation>1033,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <SqlServerVerification>False</SqlServerVerification>
@@ -61,29 +61,37 @@
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
     <Folder Include="Security\" />
-    <Folder Include="Scripts\" />
     <Folder Include="dbo\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\Species.sql" />
+    <Build Include="dbo\Tables\Appointment.sql" />
     <Build Include="dbo\Tables\Breed.sql" />
     <Build Include="dbo\Tables\Medication.sql" />
-    <Build Include="dbo\Tables\Vet.sql" />
     <Build Include="dbo\Tables\Owner.sql" />
     <Build Include="dbo\Tables\Pet.sql" />
     <Build Include="dbo\Tables\PetMed.sql" />
-    <Build Include="dbo\Tables\Appointment.sql" />
+    <Build Include="dbo\Tables\Species.sql" />
+    <Build Include="dbo\Tables\Vet.sql" />
     <Build Include="Security\RoleMemberships.sql" />
-    <Build Include="Security\Accounts.sql" />
-    <Build Include="Security\Clubs.sql" />
-    <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
     <Build Include="dbo\Stored Procedures\CommonMedicationByBreed.sql" />
-    <Build Include="dbo\Stored Procedures\MonthlyAppointmentsByVet.sql" />
     <Build Include="dbo\Stored Procedures\CommonNamesByBreed.sql" />
+    <Build Include="dbo\Stored Procedures\MonthlyAppointmentsByVet.sql" />
     <Build Include="dbo\Stored Procedures\QuarterlyAppointments.sql" />
     <Build Include="dbo\Stored Procedures\SelectSpecies.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="VetDatabase.refactorlog" />
+    <Build Include="dbo\Stored Procedures\SelectBreed.sql" />
+    <Build Include="dbo\Stored Procedures\SelectMedication.sql" />
+    <Build Include="dbo\Stored Procedures\SelectPetMed.sql" />
+    <Build Include="dbo\Stored Procedures\InsertPetMed.sql" />
+    <Build Include="dbo\Stored Procedures\InsertVet.sql" />
+    <Build Include="dbo\Stored Procedures\FireVet.sql" />
+    <Build Include="dbo\Stored Procedures\InsertAppointment.sql" />
+    <Build Include="dbo\Stored Procedures\SelectOwner.sql" />
+    <Build Include="dbo\Stored Procedures\SelectPet.sql" />
+    <Build Include="dbo\Stored Procedures\InsertPet.sql" />
+    <Build Include="dbo\Stored Procedures\KillPet.sql" />
+    <Build Include="dbo\Stored Procedures\SelectAppointment.sql" />
+    <Build Include="dbo\Stored Procedures\SelectVet.sql" />
+    <Build Include="Security\Accounts.sql" />
+    <Build Include="Security\Clubs.sql" />
   </ItemGroup>
 </Project>
