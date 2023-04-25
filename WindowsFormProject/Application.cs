@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Windows.Forms;
+using System.Collections.Generic;
+using WindowsFormProject.Database_Objects;
 
 namespace WindowsFormProject
 {
     public partial class Application : Form
     {
+        private SqlConnection _sqlClient;
         public Application()
         {
             InitializeComponent();
@@ -22,12 +20,12 @@ namespace WindowsFormProject
         {
             string connectionString = "Server=mssql.cs.ksu.edu;Database=msbuchanan;User Id=msbuchanan;Password=JAs-tNh-5V8-uU4";
 
-            using (SqlConnection sqlClient = new SqlConnection(connectionString))
+            using (_sqlClient = new SqlConnection(connectionString))
             {
                 try
                 {
-                    sqlClient.Open();
-                    SqlCommand cmnd = new SqlCommand("PROCEDURE NAME", sqlClient);
+                    _sqlClient.Open();
+                    SqlCommand cmnd = new SqlCommand("PROCEDURE NAME", _sqlClient);
                     cmnd.CommandType = CommandType.StoredProcedure;
                     cmnd.Parameters.AddWithValue("@TEST_PARAM", SqlDbType.NVarChar).Value = "Test Value";
                     cmnd.ExecuteNonQuery();
@@ -52,8 +50,7 @@ namespace WindowsFormProject
             uxQueryControls.Visible = false;
             uxAddVetControls.Visible = false;
             uxPrescribeMedsControls.Visible = false;
-            uxKillPetControls.Visible = false;
-            uxFireVetControls.Visible = false;
+            uxSearchControls.Visible = false;
         }
 
         /// <summary>
@@ -69,8 +66,7 @@ namespace WindowsFormProject
             uxQueryControls.Visible = false;
             uxAddVetControls.Visible = false;
             uxPrescribeMedsControls.Visible = false;
-            uxKillPetControls.Visible = false;
-            uxFireVetControls.Visible = false;
+            uxSearchControls.Visible = false;
         }
 
         /// <summary>
@@ -84,8 +80,8 @@ namespace WindowsFormProject
             uxAddPetControls.Visible = false;
             uxCreateAptControls.Visible = false;
             uxAddVetControls.Visible = false;
-            uxPrescribeMedsControls.Visible = false; uxKillPetControls.Visible = false;
-            uxFireVetControls.Visible = false;
+            uxPrescribeMedsControls.Visible = false;
+            uxSearchControls.Visible = false;
         }
 
         /// <summary>
@@ -100,8 +96,7 @@ namespace WindowsFormProject
             uxAddPetControls.Visible = false;
             uxCreateAptControls.Visible = false;
             uxPrescribeMedsControls.Visible = false;
-            uxKillPetControls.Visible = false;
-            uxFireVetControls.Visible = false;
+            uxSearchControls.Visible = false;
         }
 
         /// <summary>
@@ -116,40 +111,74 @@ namespace WindowsFormProject
             uxAddPetControls.Visible = false;
             uxCreateAptControls.Visible = false;
             uxAddVetControls.Visible = false;
-            uxKillPetControls.Visible = false;
-            uxFireVetControls.Visible = false;
+            uxSearchControls.Visible = false;
         }
 
         /// <summary>
-        /// switches control view to kill pet
+        /// switches control view to search
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void killPetToolStripMenuItem_Click(object sender, EventArgs e)
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            uxKillPetControls.Visible = true;
+            uxSearchControls.Visible = true;
             uxAddPetControls.Visible = false;
             uxCreateAptControls.Visible = false;
             uxQueryControls.Visible = false;
             uxAddVetControls.Visible = false;
             uxPrescribeMedsControls.Visible = false;
-            uxFireVetControls.Visible = false;
         }
 
         /// <summary>
-        /// switches control view to fire vet
+        /// Event handler for Adding Pet
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void fireVetToolStripMenuItem_Click(object sender, EventArgs e)
+        private void uxPCSubmitButton_Click(object sender, EventArgs e)
         {
-            uxFireVetControls.Visible = true;
-            uxAddPetControls.Visible = false;
-            uxCreateAptControls.Visible = false;
-            uxQueryControls.Visible = false;
-            uxAddVetControls.Visible = false;
-            uxPrescribeMedsControls.Visible = false;
-            uxKillPetControls.Visible = false;
+            // Check that each text box is filled
+            foreach (TextBox tb in uxAddPetControls.Controls.OfType<TextBox>())
+            {
+                if (string.IsNullOrEmpty(tb.Text))
+                {
+                    MessageBox.Show("Please fill in all information.");
+                    return;
+                }
+            }
+
+            // Check that each combo box has a selection
+            foreach (ComboBox cb in uxAddPetControls.Controls.OfType<ComboBox>())
+            {
+                if (cb.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please fill in all information.");
+                    return;
+                }
+            }
+
+            // Run Sql stored procedure
+            try
+            {
+                SqlCommand cmnd = new SqlCommand("InsertPet", _sqlClient);
+                cmnd.CommandType = CommandType.StoredProcedure;
+                cmnd.Parameters.AddWithValue("@OwnerFirstName", SqlDbType.NVarChar).Value = uxPCOwnerFirstNameTB.Text;
+                cmnd.Parameters.AddWithValue("@OwnerLastName", SqlDbType.NVarChar).Value = uxPCOwnerLastNameTB.Text;
+                cmnd.Parameters.AddWithValue("@OwnerEMail", SqlDbType.NVarChar).Value = uxPCOwnerEmailTB.Text;
+
+                cmnd.Parameters.AddWithValue("@PetFirstName", SqlDbType.NVarChar).Value = uxPCPetFirstNameTB.Text;
+                cmnd.Parameters.AddWithValue("@PetLastName", SqlDbType.NVarChar).Value = uxPCPetLastNameTB.Text;
+                cmnd.Parameters.AddWithValue("@PetSpecies", SqlDbType.NVarChar).Value = uxPetSpeciesCB.SelectedItem.ToString();
+                cmnd.Parameters.AddWithValue("@PetBreed", SqlDbType.NVarChar).Value = uxPetBreedCB.SelectedItem.ToString();
+                cmnd.Parameters.AddWithValue("@PetDescription", SqlDbType.NVarChar).Value = uxPCPetDescriptionTB.Text;
+
+                cmnd.ExecuteNonQuery();
+                //SqlDataReader test = cmnd.ExecuteReader();
+                //List<Vets> testList = new List<Vets>(test.Cast<Vets>());
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
+            }
         }
     }
 }
