@@ -73,8 +73,6 @@
     <Build Include="dbo\Tables\Pet.sql" />
     <Build Include="dbo\Tables\PetMed.sql" />
     <Build Include="dbo\Tables\Appointment.sql" />
-    <Build Include="Security\johnkeller.sql" />
-    <Build Include="Security\yihong.sql" />
     <Build Include="Security\RoleMemberships.sql" />
     <Build Include="Security\Accounts.sql" />
     <Build Include="Security\Clubs.sql" />
@@ -83,5 +81,9 @@
     <Build Include="dbo\Stored Procedures\MonthlyAppointmentsByVet.sql" />
     <Build Include="dbo\Stored Procedures\CommonNamesByBreed.sql" />
     <Build Include="dbo\Stored Procedures\QuarterlyAppointments.sql" />
+    <Build Include="dbo\Stored Procedures\SelectSpecies.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="VetDatabase.refactorlog" />
   </ItemGroup>
 </Project>

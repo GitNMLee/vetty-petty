@@ -18,7 +18,7 @@ namespace WindowsFormProject
 
         private void uxConnectDB_Click(object sender, EventArgs e)
         {
-            string connectionString = "Server=mssql.cs.ksu.edu;Database=msbuchanan;User Id=msbuchanan;Password=JAs-tNh-5V8-uU4";
+            string connectionString = "Data Source=(localdb)\\ProjectsV13;Initial Catalog=VetDB;Integrated Security=True;Pooling=False;Connect Timeout=30";
 
             using (_sqlClient = new SqlConnection(connectionString))
             {

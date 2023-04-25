@@ -76,11 +76,10 @@
     <Build Include="Clubs\Tables\MeetingAttendee.sql" />
     <Build Include="Accounts\Tables\AccountHolder.sql" />
     <Build Include="Accounts\Tables\Account.sql" />
-    <Build Include="Security\johnkeller.sql" />
-    <Build Include="Security\yihong.sql" />
     <Build Include="Security\RoleMemberships.sql" />
     <Build Include="Security\Accounts.sql" />
     <Build Include="Security\Clubs.sql" />
     <Build Include="STORED_PROCEDURES_560.sql" />
+    <Build Include="Security\Logins.sql" />
   </ItemGroup>
 </Project>

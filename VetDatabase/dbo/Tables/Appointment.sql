@@ -7,7 +7,7 @@
     [Reason] NVARCHAR (200) NOT NULL,
     PRIMARY KEY CLUSTERED ([DateID] ASC),
     FOREIGN KEY ([PetID]) REFERENCES [dbo].[Pet] ([PetID]),
-    FOREIGN KEY ([VetID]) REFERENCES [dbo].[Vet] ([VetId]),
+    FOREIGN KEY ([VetID]) REFERENCES [dbo].[Vet] ([VetID]),
     UNIQUE NONCLUSTERED ([VetID] ASC, [Date] ASC, [Time] ASC)
 );
 
