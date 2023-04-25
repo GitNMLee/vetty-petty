@@ -1,0 +1,10 @@
+insert into Medications (MedicationID, MedicationName, Purpose) values (1, 'Oxycodone Dydrochloride', 'Maecenas pulvinar lobortis est.');
+insert into Medications (MedicationID, MedicationName, Purpose) values (2, 'Doxycycline', 'In congue.');
+insert into Medications (MedicationID, MedicationName, Purpose) values (3, 'Octinoxate', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
+insert into Medications (MedicationID, MedicationName, Purpose) values (4, 'Antimony Potassium Tartrate', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.');
+insert into Medications (MedicationID, MedicationName, Purpose) values (5, 'Omeprazole', 'Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.');
+insert into Medications (MedicationID, MedicationName, Purpose) values (6, 'Levofloxacin', 'Suspendisse potenti. Cras in purus eu magna vulputate luctus.');
+insert into Medications (MedicationID, MedicationName, Purpose) values (7, 'Salicylic Acid', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.');
+insert into Medications (MedicationID, MedicationName, Purpose) values (8, 'Amantadine Hydrochloride', 'Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.');
+insert into Medications (MedicationID, MedicationName, Purpose) values (9, 'Acetaminophen', 'In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.');
+insert into Medications (MedicationID, MedicationName, Purpose) values (10, 'Sulindac', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.');
