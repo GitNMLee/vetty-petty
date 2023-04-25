@@ -1,7 +1,6 @@
 TRUNCATE TABLE Species;
 TRUNCATE TABLE Breed;
 
-
 insert into Breed (SpeciesID, BreedName) values ( 1, 'Labrador Retriever');
 insert into Breed (SpeciesID, BreedName) values ( 1, 'German Shepherd');
 insert into Breed (SpeciesID, BreedName) values ( 1, 'Bulldog');
