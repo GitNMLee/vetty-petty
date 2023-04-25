@@ -660,7 +660,6 @@
             this.uxSearchVetsButton.TabIndex = 4;
             this.uxSearchVetsButton.Text = "Search Vets";
             this.uxSearchVetsButton.UseVisualStyleBackColor = true;
-            this.uxSearchVetsButton.Click += new System.EventHandler(this.uxSearchVetsButton_Click);
             // 
             // uxSearchOwnersButton
             // 
@@ -670,7 +669,6 @@
             this.uxSearchOwnersButton.TabIndex = 3;
             this.uxSearchOwnersButton.Text = "Search Owners";
             this.uxSearchOwnersButton.UseVisualStyleBackColor = true;
-            this.uxSearchOwnersButton.Click += new System.EventHandler(this.uxSearchOwnersButton_Click);
             // 
             // uxSearchPetsButton
             // 
@@ -680,7 +678,6 @@
             this.uxSearchPetsButton.TabIndex = 2;
             this.uxSearchPetsButton.Text = "Search Pets";
             this.uxSearchPetsButton.UseVisualStyleBackColor = true;
-            this.uxSearchPetsButton.Click += new System.EventHandler(this.uxSearchPetsButton_Click);
             // 
             // uxSearchListBox
             // 
