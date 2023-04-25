@@ -11,5 +11,10 @@ namespace WindowsFormProject.Database_Objects
         public int BreedID { get; set; }
         public int SpeciesID { get; set; }
         public string BreedName { get; set; }
+
+        public override string ToString()
+        {
+            return BreedName;
+        }
     }
 }
