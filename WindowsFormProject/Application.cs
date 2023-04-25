@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
-using System.Collections.Generic;
 using WindowsFormProject.Database_Objects;
 
 namespace WindowsFormProject
@@ -11,32 +11,64 @@ namespace WindowsFormProject
     public partial class Application : Form
     {
         private SqlConnection _sqlClient;
+        private List<Species> _species;
+        private List<Breed> _breeds;
+        private List<Medications> _medications;
         public Application()
         {
-            InitializeComponent();
+            InitializeComponent(); uxConnectDB_Click(null, null);
+            GetSpecies(); GetBreeds(); GetMedications();
+        }
+
+        private void GetSpecies()
+        {
+            uxPetSpeciesCB.Items.Clear();
+            SqlCommand cmnd = new SqlCommand("SelectSpecies", _sqlClient);
+            cmnd.CommandType = CommandType.StoredProcedure;
+            cmnd.Parameters.AddWithValue("@SpeciesName", SqlDbType.NVarChar).Value = "";
+            SqlDataReader data = cmnd.ExecuteReader();
+            _species = new List<Species>(data.Cast<Species>());
+            uxPetSpeciesCB.Items.AddRange(_species.ToArray());
+        }
+
+        private void GetBreeds()
+        {
+            uxPetBreedCB.Items.Clear();
+            SqlCommand cmnd = new SqlCommand("SelectBreed", _sqlClient);
+            cmnd.CommandType = CommandType.StoredProcedure;
+            cmnd.Parameters.AddWithValue("@BreedName", SqlDbType.NVarChar).Value = "";
+            SqlDataReader data = cmnd.ExecuteReader();
+            _breeds = new List<Breed>(data.Cast<Breed>());
+            uxPetBreedCB.Items.AddRange(_breeds.ToArray());
+        }
+
+        private void GetMedications()
+        {
+            uxMedsMedicationCB.Items.Clear();
+            SqlCommand cmnd = new SqlCommand("SelectMedication", _sqlClient);
+            cmnd.CommandType = CommandType.StoredProcedure;
+            cmnd.Parameters.AddWithValue("@MedicationName", SqlDbType.NVarChar).Value = "";
+            SqlDataReader data = cmnd.ExecuteReader();
+            _medications = new List<Medications>(data.Cast<Medications>());
+            uxMedsMedicationCB.Items.AddRange(_medications.ToArray());
         }
 
         private void uxConnectDB_Click(object sender, EventArgs e)
         {
             string connectionString = "Data Source=mssql.cs.ksu.edu;Initial Catalog=nmlee;Persist Security Info=True;User ID=nmlee;Password=4e0Ytfa1!rBna6v;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False";
 
-            using (_sqlClient = new SqlConnection(connectionString))
+            _sqlClient = new SqlConnection(connectionString);
+
+
+            try
             {
-                try
-                {
-                    _sqlClient.Open();
-                    SqlCommand cmnd = new SqlCommand("SelectSpecies", _sqlClient);
-                    cmnd.CommandType = CommandType.StoredProcedure;
-                    cmnd.Parameters.AddWithValue("@SpeciesName", SqlDbType.NVarChar).Value = "";
-                    SqlDataReader data = cmnd.ExecuteReader();
-                    List<Species> list = new List<Species>(data.Cast<Species>());
-                    MessageBox.Show("Stored procedure successful");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                _sqlClient.Open();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         /// <summary>
