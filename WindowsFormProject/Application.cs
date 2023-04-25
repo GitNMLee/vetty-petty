@@ -34,6 +34,7 @@ namespace WindowsFormProject
                 List<Medications> list = new List<Medications>();
                 while(data.Read() != false)
                 {
+      
                     list.Add(new Medications { MedicationID = data.GetFieldValue<int>(0), MedicationName = data.GetFieldValue<string>(1), Purpose= data.GetFieldValue<string>(2) });
                     
                 }
