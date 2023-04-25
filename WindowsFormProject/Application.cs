@@ -26,8 +26,10 @@ namespace WindowsFormProject
             SqlCommand cmnd = new SqlCommand("SelectSpecies", _sqlClient);
             cmnd.CommandType = CommandType.StoredProcedure;
             cmnd.Parameters.AddWithValue("@SpeciesName", SqlDbType.NVarChar).Value = "";
-            SqlDataReader data = cmnd.ExecuteReader();
-            _species = new List<Species>(data.Cast<Species>());
+            using (SqlDataReader data = cmnd.ExecuteReader())
+            {
+                _species = new List<Species>(data.Cast<Species>());
+            }
             uxPetSpeciesCB.Items.AddRange(_species.ToArray());
         }
 
@@ -37,8 +39,10 @@ namespace WindowsFormProject
             SqlCommand cmnd = new SqlCommand("SelectBreed", _sqlClient);
             cmnd.CommandType = CommandType.StoredProcedure;
             cmnd.Parameters.AddWithValue("@BreedName", SqlDbType.NVarChar).Value = "";
-            SqlDataReader data = cmnd.ExecuteReader();
-            _breeds = new List<Breed>(data.Cast<Breed>());
+            using (SqlDataReader data = cmnd.ExecuteReader())
+            {
+                _breeds = new List<Breed>(data.Cast<Breed>());
+            }
             uxPetBreedCB.Items.AddRange(_breeds.ToArray());
         }
 
@@ -48,8 +52,10 @@ namespace WindowsFormProject
             SqlCommand cmnd = new SqlCommand("SelectMedication", _sqlClient);
             cmnd.CommandType = CommandType.StoredProcedure;
             cmnd.Parameters.AddWithValue("@MedicationName", SqlDbType.NVarChar).Value = "";
-            SqlDataReader data = cmnd.ExecuteReader();
-            _medications = new List<Medications>(data.Cast<Medications>());
+            using (SqlDataReader data = cmnd.ExecuteReader())
+            {
+                _medications = new List<Medications>(data.Cast<Medications>());
+            }
             uxMedsMedicationCB.Items.AddRange(_medications.ToArray());
         }
 
@@ -58,7 +64,6 @@ namespace WindowsFormProject
             string connectionString = "Data Source=mssql.cs.ksu.edu;Initial Catalog=nmlee;Persist Security Info=True;User ID=nmlee;Password=4e0Ytfa1!rBna6v;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False";
 
             _sqlClient = new SqlConnection(connectionString);
-
 
             try
             {
