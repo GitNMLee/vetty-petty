@@ -11,4 +11,4 @@ insert into PetMed (PetID, MedicationID, Instructions) values ( 10, 10, 'Duis ma
 
 
 SELECT *
-FROM PetMed
+FROM Pet
