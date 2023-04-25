@@ -18,7 +18,7 @@ namespace WindowsFormProject.Database_Objects
 
         public string PetLastName { get; set; }
 
-        public string? Description { get; set; }
+        public string Description { get; set; }
 
         public DateTime? DeceasedOn { get; set; }
     }
