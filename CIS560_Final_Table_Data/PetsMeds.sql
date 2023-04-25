@@ -1,0 +1,10 @@
+insert into PetsMeds (PetMedID, PetID, MedicationID, Instructions) values (1, 1, 1, 'Integer a nibh.');
+insert into PetsMeds (PetMedID, PetID, MedicationID, Instructions) values (2, 2, 2, 'Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.');
+insert into PetsMeds (PetMedID, PetID, MedicationID, Instructions) values (3, 3, 3, 'Maecenas pulvinar lobortis est.');
+insert into PetsMeds (PetMedID, PetID, MedicationID, Instructions) values (4, 4, 4, 'Duis mattis egestas metus.');
+insert into PetsMeds (PetMedID, PetID, MedicationID, Instructions) values (5, 5, 5, 'Donec semper sapien a libero.');
+insert into PetsMeds (PetMedID, PetID, MedicationID, Instructions) values (6, 6, 6, 'Integer ac leo.');
+insert into PetsMeds (PetMedID, PetID, MedicationID, Instructions) values (7, 7, 7, 'Cras non velit nec nisi vulputate nonummy.');
+insert into PetsMeds (PetMedID, PetID, MedicationID, Instructions) values (8, 8, 8, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.');
+insert into PetsMeds (PetMedID, PetID, MedicationID, Instructions) values (9, 9, 9, 'Pellentesque at nulla. Suspendisse potenti.');
+insert into PetsMeds (PetMedID, PetID, MedicationID, Instructions) values (10, 10, 10, 'Duis mattis egestas metus. Aenean fermentum.');
