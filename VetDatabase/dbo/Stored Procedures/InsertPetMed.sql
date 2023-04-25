@@ -6,7 +6,7 @@ CREATE PROCEDURE InsertPetMed
 @MedicationID INT,
 @Instructions NVARCHAR(120)
 AS
-DECLARE @OwnerID INT = (SELECT O.OwnerID FROM [Owner] O WHERE O.EMail = @OwnerEMail);
+DECLARE @OwnerID INT = (SELECT O.OwnerID FROM [Owner] O WHERE O.Email = @OwnerEMail);
 DECLARE @PetID INT = (SELECT P.PetID FROM Pet P WHERE P.PetFirstName = @PetFirstName AND P.PetLastName = @PetLastName AND P.OwnerID = @OwnerID);
 
 MERGE PetMed AS T

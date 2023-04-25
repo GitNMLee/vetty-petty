@@ -95,14 +95,14 @@
     <Build Include="dbo\Stored Procedures\SelectVet.sql" />
     <Build Include="Security\Accounts.sql" />
     <Build Include="Security\Clubs.sql" />
-    <Build Include="Import Data\Appointment.sql" />
-    <Build Include="Import Data\Breed.sql" />
-    <Build Include="Import Data\Medication.sql" />
-    <Build Include="Import Data\Owner.sql" />
-    <Build Include="Import Data\Pet.sql" />
-    <Build Include="Import Data\PetMed.sql" />
-    <Build Include="Import Data\Species.sql" />
-    <Build Include="Import Data\Vet.sql" />
+    <None Include="Import Data\Appointment.sql" />
+    <None Include="Import Data\Breed.sql" />
+    <None Include="Import Data\Medication.sql" />
+    <None Include="Import Data\Owner.sql" />
+    <None Include="Import Data\Pet.sql" />
+    <None Include="Import Data\PetMed.sql" />
+    <None Include="Import Data\Species.sql" />
+    <None Include="Import Data\Vet.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="VetDatabase.publish.xml" />

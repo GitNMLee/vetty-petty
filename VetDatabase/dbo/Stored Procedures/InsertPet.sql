@@ -19,9 +19,9 @@ AS
 -- First Insert into owners if necessary
 MERGE [Owner] AS [Target]
 USING (SELECT @OwnerFirstName, @OwnerLastName, @OwnerEMail) AS [Source](OwnerFirstName, OwnerLastName, OwnerEMail)
-ON [Target].EMail = [Source].OwnerEMail
+ON [Target].Email = [Source].OwnerEMail
 WHEN NOT MATCHED THEN
-    INSERT (FirstName, LastName, EMail)
+    INSERT (FirstName, LastName, Email)
     VALUES ([Source].OwnerFirstName, [Source].OwnerLastName, [Source].OwnerEMail);
 
 -- Select OwnerID
