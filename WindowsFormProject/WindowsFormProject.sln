@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormProject", "WindowsFormProject.csproj", "{4829D7BC-03B9-45F4-9314-39C8D770C448}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "VetDB", "..\VetDB\VetDB.sqlproj", "{FF55F657-4928-4B1D-936C-6F117D22390B}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "VetDatabase", "..\VetDatabase\VetDatabase.sqlproj", "{D3DFAC69-4DE9-4F28-9FFC-0F107D452172}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +17,12 @@ Global
 		{4829D7BC-03B9-45F4-9314-39C8D770C448}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4829D7BC-03B9-45F4-9314-39C8D770C448}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4829D7BC-03B9-45F4-9314-39C8D770C448}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF55F657-4928-4B1D-936C-6F117D22390B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF55F657-4928-4B1D-936C-6F117D22390B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF55F657-4928-4B1D-936C-6F117D22390B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{FF55F657-4928-4B1D-936C-6F117D22390B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF55F657-4928-4B1D-936C-6F117D22390B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF55F657-4928-4B1D-936C-6F117D22390B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D3DFAC69-4DE9-4F28-9FFC-0F107D452172}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3DFAC69-4DE9-4F28-9FFC-0F107D452172}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3DFAC69-4DE9-4F28-9FFC-0F107D452172}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D3DFAC69-4DE9-4F28-9FFC-0F107D452172}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3DFAC69-4DE9-4F28-9FFC-0F107D452172}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3DFAC69-4DE9-4F28-9FFC-0F107D452172}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
