@@ -10,40 +10,17 @@ namespace WindowsFormProject
 {
     public partial class Application : Form
     {
-        private SqlConnection _sqlClient;
-        private List<Species> _species;
-        private List<Breed> _breeds;
         private List<Medications> _medications;
+        private List<Breed> _breeds;
+        private List<Species> _species;
+        private SqlConnection _sqlClient;
+
         public Application()
         {
-            InitializeComponent(); uxConnectDB_Click(null, null);
-            GetSpecies(); GetBreeds(); GetMedications();
-        }
-
-        private void GetSpecies()
-        {
-            uxPetSpeciesCB.Items.Clear();
-            SqlCommand cmnd = new SqlCommand("SelectSpecies", _sqlClient);
-            cmnd.CommandType = CommandType.StoredProcedure;
-            cmnd.Parameters.AddWithValue("@SpeciesName", SqlDbType.NVarChar).Value = "";
-            using (SqlDataReader data = cmnd.ExecuteReader())
-            {
-                _species = new List<Species>(data.Cast<Species>());
-            }
-            uxPetSpeciesCB.Items.AddRange(_species.ToArray());
-        }
-
-        private void GetBreeds()
-        {
-            uxPetBreedCB.Items.Clear();
-            SqlCommand cmnd = new SqlCommand("SelectBreed", _sqlClient);
-            cmnd.CommandType = CommandType.StoredProcedure;
-            cmnd.Parameters.AddWithValue("@BreedName", SqlDbType.NVarChar).Value = "";
-            using (SqlDataReader data = cmnd.ExecuteReader())
-            {
-                _breeds = new List<Breed>(data.Cast<Breed>());
-            }
-            uxPetBreedCB.Items.AddRange(_breeds.ToArray());
+            InitializeComponent();
+            //GetMedications();
+            //GetBreeds();
+            //GetSpecies();
         }
 
         private void GetMedications()
@@ -52,22 +29,43 @@ namespace WindowsFormProject
             SqlCommand cmnd = new SqlCommand("SelectMedication", _sqlClient);
             cmnd.CommandType = CommandType.StoredProcedure;
             cmnd.Parameters.AddWithValue("@MedicationName", SqlDbType.NVarChar).Value = "";
-            using (SqlDataReader data = cmnd.ExecuteReader())
-            {
-                _medications = new List<Medications>(data.Cast<Medications>());
-            }
+            SqlDataReader data = cmnd.ExecuteReader();
+            _medications = new List<Medications>(data.Cast<Medications>());
             uxMedsMedicationCB.Items.AddRange(_medications.ToArray());
+        }
+
+        private void GetBreeds()
+        {
+            uxPetBreedCB.Items.Clear();
+            SqlCommand cmnd = new SqlCommand("SelectBreed", _sqlClient);
+            cmnd.CommandType = CommandType.StoredProcedure;
+            cmnd.Parameters.AddWithValue("@BreedName", SqlDbType.NVarChar).Value = "";
+            SqlDataReader data = cmnd.ExecuteReader();
+            _breeds = new List<Breed>(data.Cast<Breed>());
+            uxPetBreedCB.Items.AddRange(_breeds.ToArray());
+        }
+
+        private void GetSpecies()
+        {
+            uxPetSpeciesCB.Items.Clear();
+            SqlCommand cmnd = new SqlCommand("SelectSpecies", _sqlClient);
+            cmnd.CommandType = CommandType.StoredProcedure;
+            cmnd.Parameters.AddWithValue("@SpeciesName", SqlDbType.NVarChar).Value = "";
+            SqlDataReader data = cmnd.ExecuteReader();
+            _species = new List<Species>(data.Cast<Species>());
+            uxPetSpeciesCB.Items.AddRange(_species.ToArray());
         }
 
         private void uxConnectDB_Click(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=mssql.cs.ksu.edu;Initial Catalog=nmlee;Persist Security Info=True;User ID=nmlee;Password=4e0Ytfa1!rBna6v;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False";
+            string connectionString = "Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;";
 
             _sqlClient = new SqlConnection(connectionString);
 
             try
             {
                 _sqlClient.Open();
+                MessageBox.Show("Connection successful");
             }
             catch (Exception ex)
             {
@@ -217,50 +215,6 @@ namespace WindowsFormProject
             {
                 MessageBox.Show(sqlEx.Message);
             }
-        }
-
-        /// <summary>
-        /// Search control Search pet button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void uxSearchPetsButton_Click(object sender, EventArgs e)
-        {
-            //if search box has terms
-            if(!String.IsNullOrEmpty(uxSearchTB.Text))
-            {
-                SqlCommand cmnd = new SqlCommand("SelectPet", _sqlClient);
-                cmnd.CommandType = CommandType.StoredProcedure;
-                cmnd.Parameters.AddWithValue("@PetName", SqlDbType.NVarChar).Value = uxSearchTB.Text;
-
-                cmnd.ExecuteNonQuery();
-                //test listbox
-                /*using(SqlDataReader test = cmnd.ExecuteReader())
-                {
-                    uxSearchListBox.DataSource = test;
-                }*/
-            }
-
-        }
-
-        /// <summary>
-        /// Search control search owners button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void uxSearchOwnersButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        /// <summary>
-        /// Search control Search vets button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void uxSearchVetsButton_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
