@@ -63,6 +63,7 @@
     <Folder Include="dbo\Tables\" />
     <Folder Include="Security\" />
     <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="Data" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Appointment.sql" />
@@ -94,5 +95,13 @@
     <Build Include="dbo\Stored Procedures\SelectVet.sql" />
     <Build Include="Security\Accounts.sql" />
     <Build Include="Security\Clubs.sql" />
+    <Build Include="Data\Appointments.sql" />
+    <Build Include="Data\Breed.sql" />
+    <Build Include="Data\Medications.sql" />
+    <Build Include="Data\Owners.sql" />
+    <Build Include="Data\Pets.sql" />
+    <Build Include="Data\PetsMeds.sql" />
+    <Build Include="Data\Species.sql" />
+    <Build Include="Data\Vets.sql" />
   </ItemGroup>
 </Project>
