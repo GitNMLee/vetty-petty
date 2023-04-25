@@ -185,9 +185,9 @@
             this.uxAddPetControls.Controls.Add(this.uxPCFirstNameLabel);
             this.uxAddPetControls.Controls.Add(this.uxPCPetFirstNameTB);
             this.uxAddPetControls.Location = new System.Drawing.Point(0, 23);
-            this.uxAddPetControls.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxAddPetControls.Margin = new System.Windows.Forms.Padding(2);
             this.uxAddPetControls.Name = "uxAddPetControls";
-            this.uxAddPetControls.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxAddPetControls.Padding = new System.Windows.Forms.Padding(2);
             this.uxAddPetControls.Size = new System.Drawing.Size(434, 263);
             this.uxAddPetControls.TabIndex = 2;
             this.uxAddPetControls.TabStop = false;
@@ -198,7 +198,7 @@
             // uxPCSubmitButton
             // 
             this.uxPCSubmitButton.Location = new System.Drawing.Point(349, 172);
-            this.uxPCSubmitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxPCSubmitButton.Margin = new System.Windows.Forms.Padding(2);
             this.uxPCSubmitButton.Name = "uxPCSubmitButton";
             this.uxPCSubmitButton.Size = new System.Drawing.Size(76, 27);
             this.uxPCSubmitButton.TabIndex = 17;
@@ -209,7 +209,7 @@
             // uxPCPetDescriptionTB
             // 
             this.uxPCPetDescriptionTB.Location = new System.Drawing.Point(20, 114);
-            this.uxPCPetDescriptionTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxPCPetDescriptionTB.Margin = new System.Windows.Forms.Padding(2);
             this.uxPCPetDescriptionTB.Multiline = true;
             this.uxPCPetDescriptionTB.Name = "uxPCPetDescriptionTB";
             this.uxPCPetDescriptionTB.Size = new System.Drawing.Size(191, 81);
@@ -238,7 +238,7 @@
             // uxPCOwnerEmailTB
             // 
             this.uxPCOwnerEmailTB.Location = new System.Drawing.Point(283, 60);
-            this.uxPCOwnerEmailTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxPCOwnerEmailTB.Margin = new System.Windows.Forms.Padding(2);
             this.uxPCOwnerEmailTB.Name = "uxPCOwnerEmailTB";
             this.uxPCOwnerEmailTB.Size = new System.Drawing.Size(117, 20);
             this.uxPCOwnerEmailTB.TabIndex = 13;
@@ -256,7 +256,7 @@
             // uxPCOwnerLastNameTB
             // 
             this.uxPCOwnerLastNameTB.Location = new System.Drawing.Point(309, 36);
-            this.uxPCOwnerLastNameTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxPCOwnerLastNameTB.Margin = new System.Windows.Forms.Padding(2);
             this.uxPCOwnerLastNameTB.Name = "uxPCOwnerLastNameTB";
             this.uxPCOwnerLastNameTB.Size = new System.Drawing.Size(117, 20);
             this.uxPCOwnerLastNameTB.TabIndex = 11;
@@ -274,7 +274,7 @@
             // uxPCOwnerFirstNameTB
             // 
             this.uxPCOwnerFirstNameTB.Location = new System.Drawing.Point(309, 15);
-            this.uxPCOwnerFirstNameTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxPCOwnerFirstNameTB.Margin = new System.Windows.Forms.Padding(2);
             this.uxPCOwnerFirstNameTB.Name = "uxPCOwnerFirstNameTB";
             this.uxPCOwnerFirstNameTB.Size = new System.Drawing.Size(117, 20);
             this.uxPCOwnerFirstNameTB.TabIndex = 9;
@@ -292,7 +292,7 @@
             // uxPCPetLastNameTB
             // 
             this.uxPCPetLastNameTB.Location = new System.Drawing.Point(94, 36);
-            this.uxPCPetLastNameTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxPCPetLastNameTB.Margin = new System.Windows.Forms.Padding(2);
             this.uxPCPetLastNameTB.Name = "uxPCPetLastNameTB";
             this.uxPCPetLastNameTB.Size = new System.Drawing.Size(117, 20);
             this.uxPCPetLastNameTB.TabIndex = 7;
@@ -301,7 +301,7 @@
             // 
             this.uxPetBreedCB.FormattingEnabled = true;
             this.uxPetBreedCB.Location = new System.Drawing.Point(83, 79);
-            this.uxPetBreedCB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxPetBreedCB.Margin = new System.Windows.Forms.Padding(2);
             this.uxPetBreedCB.Name = "uxPetBreedCB";
             this.uxPetBreedCB.Size = new System.Drawing.Size(82, 21);
             this.uxPetBreedCB.TabIndex = 6;
@@ -320,7 +320,7 @@
             // 
             this.uxPetSpeciesCB.FormattingEnabled = true;
             this.uxPetSpeciesCB.Location = new System.Drawing.Point(83, 57);
-            this.uxPetSpeciesCB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxPetSpeciesCB.Margin = new System.Windows.Forms.Padding(2);
             this.uxPetSpeciesCB.Name = "uxPetSpeciesCB";
             this.uxPetSpeciesCB.Size = new System.Drawing.Size(82, 21);
             this.uxPetSpeciesCB.TabIndex = 4;
@@ -348,7 +348,7 @@
             // uxPCPetFirstNameTB
             // 
             this.uxPCPetFirstNameTB.Location = new System.Drawing.Point(94, 16);
-            this.uxPCPetFirstNameTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxPCPetFirstNameTB.Margin = new System.Windows.Forms.Padding(2);
             this.uxPCPetFirstNameTB.Name = "uxPCPetFirstNameTB";
             this.uxPCPetFirstNameTB.Size = new System.Drawing.Size(117, 20);
             this.uxPCPetFirstNameTB.TabIndex = 0;
@@ -358,9 +358,9 @@
             this.uxQueryControls.Controls.Add(this.uxQuerySelectQueryCB);
             this.uxQueryControls.Controls.Add(this.uxQuerySelectQueryLabel);
             this.uxQueryControls.Location = new System.Drawing.Point(3, 24);
-            this.uxQueryControls.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxQueryControls.Margin = new System.Windows.Forms.Padding(2);
             this.uxQueryControls.Name = "uxQueryControls";
-            this.uxQueryControls.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxQueryControls.Padding = new System.Windows.Forms.Padding(2);
             this.uxQueryControls.Size = new System.Drawing.Size(606, 263);
             this.uxQueryControls.TabIndex = 11;
             this.uxQueryControls.TabStop = false;
@@ -371,7 +371,7 @@
             // 
             this.uxQuerySelectQueryCB.FormattingEnabled = true;
             this.uxQuerySelectQueryCB.Location = new System.Drawing.Point(81, 19);
-            this.uxQuerySelectQueryCB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxQuerySelectQueryCB.Margin = new System.Windows.Forms.Padding(2);
             this.uxQuerySelectQueryCB.Name = "uxQuerySelectQueryCB";
             this.uxQuerySelectQueryCB.Size = new System.Drawing.Size(82, 21);
             this.uxQuerySelectQueryCB.TabIndex = 6;
@@ -402,9 +402,9 @@
             this.uxCreateAptControls.Controls.Add(this.uxAptPetNameLabel);
             this.uxCreateAptControls.Controls.Add(this.uxAptPetNameTB);
             this.uxCreateAptControls.Location = new System.Drawing.Point(3, 24);
-            this.uxCreateAptControls.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxCreateAptControls.Margin = new System.Windows.Forms.Padding(2);
             this.uxCreateAptControls.Name = "uxCreateAptControls";
-            this.uxCreateAptControls.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxCreateAptControls.Padding = new System.Windows.Forms.Padding(2);
             this.uxCreateAptControls.Size = new System.Drawing.Size(573, 263);
             this.uxCreateAptControls.TabIndex = 8;
             this.uxCreateAptControls.TabStop = false;
@@ -414,7 +414,7 @@
             // uxAptSubmitButton
             // 
             this.uxAptSubmitButton.Location = new System.Drawing.Point(365, 166);
-            this.uxAptSubmitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxAptSubmitButton.Margin = new System.Windows.Forms.Padding(2);
             this.uxAptSubmitButton.Name = "uxAptSubmitButton";
             this.uxAptSubmitButton.Size = new System.Drawing.Size(76, 27);
             this.uxAptSubmitButton.TabIndex = 14;
@@ -424,7 +424,7 @@
             // uxAptReasonTB
             // 
             this.uxAptReasonTB.Location = new System.Drawing.Point(16, 101);
-            this.uxAptReasonTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxAptReasonTB.Margin = new System.Windows.Forms.Padding(2);
             this.uxAptReasonTB.Multiline = true;
             this.uxAptReasonTB.Name = "uxAptReasonTB";
             this.uxAptReasonTB.Size = new System.Drawing.Size(201, 99);
@@ -444,7 +444,7 @@
             // 
             this.uxAptAptTimeCB.FormattingEnabled = true;
             this.uxAptAptTimeCB.Location = new System.Drawing.Point(308, 32);
-            this.uxAptAptTimeCB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxAptAptTimeCB.Margin = new System.Windows.Forms.Padding(2);
             this.uxAptAptTimeCB.Name = "uxAptAptTimeCB";
             this.uxAptAptTimeCB.Size = new System.Drawing.Size(82, 21);
             this.uxAptAptTimeCB.TabIndex = 11;
@@ -462,7 +462,7 @@
             // uxAptDatePicker
             // 
             this.uxAptDatePicker.Location = new System.Drawing.Point(307, 10);
-            this.uxAptDatePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxAptDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.uxAptDatePicker.Name = "uxAptDatePicker";
             this.uxAptDatePicker.Size = new System.Drawing.Size(135, 20);
             this.uxAptDatePicker.TabIndex = 9;
@@ -480,7 +480,7 @@
             // uxAptOwnerEmailTB
             // 
             this.uxAptOwnerEmailTB.Location = new System.Drawing.Point(85, 37);
-            this.uxAptOwnerEmailTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxAptOwnerEmailTB.Margin = new System.Windows.Forms.Padding(2);
             this.uxAptOwnerEmailTB.Name = "uxAptOwnerEmailTB";
             this.uxAptOwnerEmailTB.Size = new System.Drawing.Size(68, 20);
             this.uxAptOwnerEmailTB.TabIndex = 7;
@@ -489,7 +489,7 @@
             // 
             this.uxAptVetCB.FormattingEnabled = true;
             this.uxAptVetCB.Location = new System.Drawing.Point(43, 58);
-            this.uxAptVetCB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxAptVetCB.Margin = new System.Windows.Forms.Padding(2);
             this.uxAptVetCB.Name = "uxAptVetCB";
             this.uxAptVetCB.Size = new System.Drawing.Size(82, 21);
             this.uxAptVetCB.TabIndex = 6;
@@ -527,7 +527,7 @@
             // uxAptPetNameTB
             // 
             this.uxAptPetNameTB.Location = new System.Drawing.Point(71, 16);
-            this.uxAptPetNameTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxAptPetNameTB.Margin = new System.Windows.Forms.Padding(2);
             this.uxAptPetNameTB.Name = "uxAptPetNameTB";
             this.uxAptPetNameTB.Size = new System.Drawing.Size(68, 20);
             this.uxAptPetNameTB.TabIndex = 0;
@@ -540,9 +540,9 @@
             this.uxAddVetControls.Controls.Add(this.uxVetFirstNameLabel);
             this.uxAddVetControls.Controls.Add(this.uxVetFirstNameTB);
             this.uxAddVetControls.Location = new System.Drawing.Point(2, 24);
-            this.uxAddVetControls.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxAddVetControls.Margin = new System.Windows.Forms.Padding(2);
             this.uxAddVetControls.Name = "uxAddVetControls";
-            this.uxAddVetControls.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxAddVetControls.Padding = new System.Windows.Forms.Padding(2);
             this.uxAddVetControls.Size = new System.Drawing.Size(573, 263);
             this.uxAddVetControls.TabIndex = 14;
             this.uxAddVetControls.TabStop = false;
@@ -552,7 +552,7 @@
             // uxVetSubmitButton
             // 
             this.uxVetSubmitButton.Location = new System.Drawing.Point(18, 85);
-            this.uxVetSubmitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxVetSubmitButton.Margin = new System.Windows.Forms.Padding(2);
             this.uxVetSubmitButton.Name = "uxVetSubmitButton";
             this.uxVetSubmitButton.Size = new System.Drawing.Size(76, 27);
             this.uxVetSubmitButton.TabIndex = 11;
@@ -562,7 +562,7 @@
             // uxVetLastNameTB
             // 
             this.uxVetLastNameTB.Location = new System.Drawing.Point(71, 37);
-            this.uxVetLastNameTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxVetLastNameTB.Margin = new System.Windows.Forms.Padding(2);
             this.uxVetLastNameTB.Name = "uxVetLastNameTB";
             this.uxVetLastNameTB.Size = new System.Drawing.Size(68, 20);
             this.uxVetLastNameTB.TabIndex = 7;
@@ -590,7 +590,7 @@
             // uxVetFirstNameTB
             // 
             this.uxVetFirstNameTB.Location = new System.Drawing.Point(71, 16);
-            this.uxVetFirstNameTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxVetFirstNameTB.Margin = new System.Windows.Forms.Padding(2);
             this.uxVetFirstNameTB.Name = "uxVetFirstNameTB";
             this.uxVetFirstNameTB.Size = new System.Drawing.Size(68, 20);
             this.uxVetFirstNameTB.TabIndex = 0;
@@ -605,9 +605,9 @@
             this.uxPrescribeMedsControls.Controls.Add(this.uxMedsPetNameLabel);
             this.uxPrescribeMedsControls.Controls.Add(this.uxMedsPetNameTB);
             this.uxPrescribeMedsControls.Location = new System.Drawing.Point(2, 24);
-            this.uxPrescribeMedsControls.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxPrescribeMedsControls.Margin = new System.Windows.Forms.Padding(2);
             this.uxPrescribeMedsControls.Name = "uxPrescribeMedsControls";
-            this.uxPrescribeMedsControls.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxPrescribeMedsControls.Padding = new System.Windows.Forms.Padding(2);
             this.uxPrescribeMedsControls.Size = new System.Drawing.Size(573, 263);
             this.uxPrescribeMedsControls.TabIndex = 15;
             this.uxPrescribeMedsControls.TabStop = false;
@@ -617,7 +617,7 @@
             // uxMedsSubmitButton
             // 
             this.uxMedsSubmitButton.Location = new System.Drawing.Point(18, 159);
-            this.uxMedsSubmitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxMedsSubmitButton.Margin = new System.Windows.Forms.Padding(2);
             this.uxMedsSubmitButton.Name = "uxMedsSubmitButton";
             this.uxMedsSubmitButton.Size = new System.Drawing.Size(76, 27);
             this.uxMedsSubmitButton.TabIndex = 10;
@@ -628,7 +628,7 @@
             // 
             this.uxMedsMedicationCB.FormattingEnabled = true;
             this.uxMedsMedicationCB.Location = new System.Drawing.Point(77, 57);
-            this.uxMedsMedicationCB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxMedsMedicationCB.Margin = new System.Windows.Forms.Padding(2);
             this.uxMedsMedicationCB.Name = "uxMedsMedicationCB";
             this.uxMedsMedicationCB.Size = new System.Drawing.Size(82, 21);
             this.uxMedsMedicationCB.TabIndex = 9;
@@ -646,7 +646,7 @@
             // uxMedsOwnerEmailTB
             // 
             this.uxMedsOwnerEmailTB.Location = new System.Drawing.Point(83, 36);
-            this.uxMedsOwnerEmailTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxMedsOwnerEmailTB.Margin = new System.Windows.Forms.Padding(2);
             this.uxMedsOwnerEmailTB.Name = "uxMedsOwnerEmailTB";
             this.uxMedsOwnerEmailTB.Size = new System.Drawing.Size(107, 20);
             this.uxMedsOwnerEmailTB.TabIndex = 7;
@@ -674,7 +674,7 @@
             // uxMedsPetNameTB
             // 
             this.uxMedsPetNameTB.Location = new System.Drawing.Point(71, 16);
-            this.uxMedsPetNameTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxMedsPetNameTB.Margin = new System.Windows.Forms.Padding(2);
             this.uxMedsPetNameTB.Name = "uxMedsPetNameTB";
             this.uxMedsPetNameTB.Size = new System.Drawing.Size(68, 20);
             this.uxMedsPetNameTB.TabIndex = 0;
@@ -682,7 +682,7 @@
             // uxSearchTB
             // 
             this.uxSearchTB.Location = new System.Drawing.Point(16, 16);
-            this.uxSearchTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxSearchTB.Margin = new System.Windows.Forms.Padding(2);
             this.uxSearchTB.Name = "uxSearchTB";
             this.uxSearchTB.Size = new System.Drawing.Size(175, 20);
             this.uxSearchTB.TabIndex = 0;
@@ -691,9 +691,9 @@
             // 
             this.uxSearchControls.Controls.Add(this.uxSearchTB);
             this.uxSearchControls.Location = new System.Drawing.Point(1, 24);
-            this.uxSearchControls.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxSearchControls.Margin = new System.Windows.Forms.Padding(2);
             this.uxSearchControls.Name = "uxSearchControls";
-            this.uxSearchControls.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxSearchControls.Padding = new System.Windows.Forms.Padding(2);
             this.uxSearchControls.Size = new System.Drawing.Size(573, 263);
             this.uxSearchControls.TabIndex = 16;
             this.uxSearchControls.TabStop = false;
@@ -706,9 +706,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.uxAddPetControls);
-            this.Controls.Add(this.uxSearchControls);
-            this.Controls.Add(this.uxPrescribeMedsControls);
             this.Controls.Add(this.uxAddVetControls);
+            this.Controls.Add(this.uxPrescribeMedsControls);
+            this.Controls.Add(this.uxSearchControls);
             this.Controls.Add(this.uxCreateAptControls);
             this.Controls.Add(this.uxQueryControls);
             this.Controls.Add(this.uxConnectDB);
