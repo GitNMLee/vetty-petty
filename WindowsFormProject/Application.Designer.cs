@@ -87,10 +87,10 @@
             this.uxMedsPetNameTB = new System.Windows.Forms.TextBox();
             this.uxSearchTB = new System.Windows.Forms.TextBox();
             this.uxSearchControls = new System.Windows.Forms.GroupBox();
-            this.uxSearchListBox = new System.Windows.Forms.ListBox();
-            this.uxSearchPetsButton = new System.Windows.Forms.Button();
-            this.uxSearchOwnersButton = new System.Windows.Forms.Button();
             this.uxSearchVetsButton = new System.Windows.Forms.Button();
+            this.uxSearchOwnersButton = new System.Windows.Forms.Button();
+            this.uxSearchPetsButton = new System.Windows.Forms.Button();
+            this.uxSearchListBox = new System.Windows.Forms.ListBox();
             this.uxMenuStrip.SuspendLayout();
             this.uxAddPetControls.SuspendLayout();
             this.uxQueryControls.SuspendLayout();
@@ -113,6 +113,7 @@
             // 
             // uxMenuStrip
             // 
+            this.uxMenuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.uxMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.uxMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.uxMenuAddPet,
@@ -651,23 +652,15 @@
             this.uxSearchControls.Text = "Search";
             this.uxSearchControls.Visible = false;
             // 
-            // uxSearchListBox
+            // uxSearchVetsButton
             // 
-            this.uxSearchListBox.FormattingEnabled = true;
-            this.uxSearchListBox.ItemHeight = 20;
-            this.uxSearchListBox.Location = new System.Drawing.Point(21, 60);
-            this.uxSearchListBox.Name = "uxSearchListBox";
-            this.uxSearchListBox.Size = new System.Drawing.Size(305, 324);
-            this.uxSearchListBox.TabIndex = 1;
-            // 
-            // uxSearchPetsButton
-            // 
-            this.uxSearchPetsButton.Location = new System.Drawing.Point(290, 22);
-            this.uxSearchPetsButton.Name = "uxSearchPetsButton";
-            this.uxSearchPetsButton.Size = new System.Drawing.Size(127, 31);
-            this.uxSearchPetsButton.TabIndex = 2;
-            this.uxSearchPetsButton.Text = "Search Pets";
-            this.uxSearchPetsButton.UseVisualStyleBackColor = true;
+            this.uxSearchVetsButton.Location = new System.Drawing.Point(556, 23);
+            this.uxSearchVetsButton.Name = "uxSearchVetsButton";
+            this.uxSearchVetsButton.Size = new System.Drawing.Size(127, 31);
+            this.uxSearchVetsButton.TabIndex = 4;
+            this.uxSearchVetsButton.Text = "Search Vets";
+            this.uxSearchVetsButton.UseVisualStyleBackColor = true;
+            this.uxSearchVetsButton.Click += new System.EventHandler(this.uxSearchVetsButton_Click);
             // 
             // uxSearchOwnersButton
             // 
@@ -677,15 +670,26 @@
             this.uxSearchOwnersButton.TabIndex = 3;
             this.uxSearchOwnersButton.Text = "Search Owners";
             this.uxSearchOwnersButton.UseVisualStyleBackColor = true;
+            this.uxSearchOwnersButton.Click += new System.EventHandler(this.uxSearchOwnersButton_Click);
             // 
-            // uxSearchVetsButton
+            // uxSearchPetsButton
             // 
-            this.uxSearchVetsButton.Location = new System.Drawing.Point(556, 23);
-            this.uxSearchVetsButton.Name = "uxSearchVetsButton";
-            this.uxSearchVetsButton.Size = new System.Drawing.Size(127, 31);
-            this.uxSearchVetsButton.TabIndex = 4;
-            this.uxSearchVetsButton.Text = "Search Vets";
-            this.uxSearchVetsButton.UseVisualStyleBackColor = true;
+            this.uxSearchPetsButton.Location = new System.Drawing.Point(290, 22);
+            this.uxSearchPetsButton.Name = "uxSearchPetsButton";
+            this.uxSearchPetsButton.Size = new System.Drawing.Size(127, 31);
+            this.uxSearchPetsButton.TabIndex = 2;
+            this.uxSearchPetsButton.Text = "Search Pets";
+            this.uxSearchPetsButton.UseVisualStyleBackColor = true;
+            this.uxSearchPetsButton.Click += new System.EventHandler(this.uxSearchPetsButton_Click);
+            // 
+            // uxSearchListBox
+            // 
+            this.uxSearchListBox.FormattingEnabled = true;
+            this.uxSearchListBox.ItemHeight = 20;
+            this.uxSearchListBox.Location = new System.Drawing.Point(21, 60);
+            this.uxSearchListBox.Name = "uxSearchListBox";
+            this.uxSearchListBox.Size = new System.Drawing.Size(305, 324);
+            this.uxSearchListBox.TabIndex = 1;
             // 
             // Application
             // 

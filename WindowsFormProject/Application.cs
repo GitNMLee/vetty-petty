@@ -218,5 +218,49 @@ namespace WindowsFormProject
                 MessageBox.Show(sqlEx.Message);
             }
         }
+
+        /// <summary>
+        /// Search control Search pet button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxSearchPetsButton_Click(object sender, EventArgs e)
+        {
+            //if search box has terms
+            if(!String.IsNullOrEmpty(uxSearchTB.Text))
+            {
+                SqlCommand cmnd = new SqlCommand("SelectPet", _sqlClient);
+                cmnd.CommandType = CommandType.StoredProcedure;
+                cmnd.Parameters.AddWithValue("@PetName", SqlDbType.NVarChar).Value = uxSearchTB.Text;
+
+                cmnd.ExecuteNonQuery();
+                //test listbox
+                /*using(SqlDataReader test = cmnd.ExecuteReader())
+                {
+                    uxSearchListBox.DataSource = test;
+                }*/
+            }
+
+        }
+
+        /// <summary>
+        /// Search control search owners button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxSearchOwnersButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Search control Search vets button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxSearchVetsButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
