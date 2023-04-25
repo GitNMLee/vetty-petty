@@ -224,12 +224,13 @@ AS
 WITH appointment_count_cte AS (
     SELECT
         A.VetID,
+        A.Date,
         COUNT(A.DateID) OVER (PARTITION BY A.VetID, YEAR(A.Date), MONTH(A.Date)) AS AppointmentCount
     FROM Appointments A
 )
 
 
-SELECT YEAR(A.Date) AS [Year], MONTH(A.Date) AS [Month], V.LastName + N', ' + V.FirstName AS [VetName],
+SELECT YEAR(ACNT.Date) AS [Year], MONTH(ACNT.Date) AS [Month], V.LastName + N', ' + V.FirstName AS [VetName],
     ACNT.AppointmentCount,
     RANK() OVER (ORDER BY ACNT.AppointmentCount DESC) AS MonthlyRank
 FROM Vets V
@@ -255,11 +256,11 @@ med_cte AS (
 )
 
 SELECT
-    RANK() OVER (PARTITION BY BTCE.BreedID, MCTE.MedCount ORDER BY MCTE.MedCount DESC) AS Rank,
+    RANK() OVER (PARTITION BY B.BreedID, MCTE.MedCount ORDER BY MCTE.MedCount DESC) AS Rank,
     B.BreedName,
     BCTE.BreedCount,
     M.MedicationName AS MostCommonMedicationName,
-    COUNT(MCTE.MedCount) OVER (PARTITION BY BTCE.BreedID, MCTE.MedCount) AS TotalPrescribed
+    COUNT(MCTE.MedCount) OVER (PARTITION BY B.BreedID, MCTE.MedCount) AS TotalPrescribed
 FROM breed_cnt_cte BCTE
 INNER JOIN med_cte MCTE ON MCTE.PetID = BCTE.PetID
 INNER JOIN Medication M ON MCTE.MedicationID = M.MedicationID
