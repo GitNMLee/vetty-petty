@@ -53,6 +53,14 @@
     <Compile Include="Application.Designer.cs">
       <DependentUpon>Application.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database Objects\Appointments.cs" />
+    <Compile Include="Database Objects\Breed.cs" />
+    <Compile Include="Database Objects\Medications.cs" />
+    <Compile Include="Database Objects\Owners.cs" />
+    <Compile Include="Database Objects\Pets.cs" />
+    <Compile Include="Database Objects\PetsMeds.cs" />
+    <Compile Include="Database Objects\Species.cs" />
+    <Compile Include="Database Objects\Vets.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Application.resx">
