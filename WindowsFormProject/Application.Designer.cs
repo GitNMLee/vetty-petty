@@ -122,8 +122,7 @@
             this.editToolStripMenuItem});
             this.uxMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.uxMenuStrip.Name = "uxMenuStrip";
-            this.uxMenuStrip.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.uxMenuStrip.Size = new System.Drawing.Size(800, 24);
+            this.uxMenuStrip.Size = new System.Drawing.Size(1200, 36);
             this.uxMenuStrip.TabIndex = 1;
             this.uxMenuStrip.Text = "MenuStrip";
             // 
@@ -752,7 +751,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.uxAddPetControls);
             this.Controls.Add(this.uxSearchControls);
             this.Controls.Add(this.uxPrescribeMedsControls);

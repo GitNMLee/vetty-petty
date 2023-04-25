@@ -33,6 +33,7 @@ namespace WindowsFormProject
                 List<Medications> list = new List<Medications>();
                 while(data.Read() != false)
                 {
+      
                     list.Add(new Medications { MedicationID = data.GetFieldValue<int>(0), MedicationName = data.GetFieldValue<string>(1), Purpose= data.GetFieldValue<string>(2) });
                     
                 }
@@ -246,7 +247,21 @@ namespace WindowsFormProject
         /// <param name="e"></param>
         private void uxSearchPetsButton_Click(object sender, EventArgs e)
         {
+            //if search box has terms
+            if (!String.IsNullOrEmpty(uxSearchTB.Text))
+            {
+                SqlCommand cmnd = new SqlCommand("SelectPet", _sqlClient);
+                cmnd.CommandType = CommandType.StoredProcedure;
+                cmnd.Parameters.AddWithValue("@PetName", SqlDbType.NVarChar).Value = uxSearchTB.Text;
 
+                cmnd.ExecuteNonQuery();
+                //test listbox
+                //databinding - cast data table to a table then bind it
+                /*using(SqlDataReader test = cmnd.ExecuteReader())
+                {
+                    uxSearchListBox.DataSource = test;
+                }*/
+            }
         }
 
         /// <summary>
@@ -259,9 +274,9 @@ namespace WindowsFormProject
             //if search box has terms
             if (!String.IsNullOrEmpty(uxSearchTB.Text))
             {
-                SqlCommand cmnd = new SqlCommand("SelectPet", _sqlClient);
+                SqlCommand cmnd = new SqlCommand("SelectOwner", _sqlClient);
                 cmnd.CommandType = CommandType.StoredProcedure;
-                cmnd.Parameters.AddWithValue("@PetName", SqlDbType.NVarChar).Value = uxSearchTB.Text;
+                cmnd.Parameters.AddWithValue("@Email", SqlDbType.NVarChar).Value = uxSearchTB.Text;
 
                 cmnd.ExecuteNonQuery();
                 //test listbox
@@ -279,7 +294,31 @@ namespace WindowsFormProject
         /// <param name="e"></param>
         private void uxSearchVetsButton_Click(object sender, EventArgs e)
         {
+            //if search box has terms
+            if (!String.IsNullOrEmpty(uxSearchTB.Text))
+            {
+                string[] terms = uxSearchTB.Text.Split(' ');
+                SqlCommand cmnd = new SqlCommand("SelectVet", _sqlClient);
+                cmnd.CommandType = CommandType.StoredProcedure;
+                if(terms.Length == 1)
+                {
+                    cmnd.Parameters.AddWithValue("@FirstName", SqlDbType.NVarChar).Value = terms[0];
+                    cmnd.Parameters.AddWithValue("@LastName", SqlDbType.NVarChar).Value = terms[0];
+                }
+                else
+                {
+                    cmnd.Parameters.AddWithValue("@FirstName", SqlDbType.NVarChar).Value = terms[0];
+                    cmnd.Parameters.AddWithValue("@LastName", SqlDbType.NVarChar).Value = terms[1];
+                }
+                
 
+                cmnd.ExecuteNonQuery();
+                //test listbox
+                /*using(SqlDataReader test = cmnd.ExecuteReader())
+                {
+                    uxSearchListBox.DataSource = test;
+                }*/
+            }
         }
 
         /// <summary>
