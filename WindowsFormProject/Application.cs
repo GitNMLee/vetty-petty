@@ -80,17 +80,6 @@ namespace WindowsFormProject
             uxPetSpeciesCB.Items.AddRange(_species.ToArray());
         }
 
-        private void GetSpecies()
-        {
-            uxPetSpeciesCB.Items.Clear();
-            SqlCommand cmnd = new SqlCommand("SelectSpecies", _sqlClient);
-            cmnd.CommandType = CommandType.StoredProcedure;
-            cmnd.Parameters.AddWithValue("@SpeciesName", SqlDbType.NVarChar).Value = "";
-            SqlDataReader data = cmnd.ExecuteReader();
-            _species = new List<Species>(data.Cast<Species>());
-            uxPetSpeciesCB.Items.AddRange(_species.ToArray());
-        }
-
         private void uxConnectDB_Click(object sender, EventArgs e)
         {
             string connectionString = ConfigurationSettings.AppSettings["databaseConnection"];
