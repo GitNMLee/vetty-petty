@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 using WindowsFormProject.Database_Objects;
+using System.Configuration;
 
 namespace WindowsFormProject
 {
@@ -17,10 +18,9 @@ namespace WindowsFormProject
 
         public Application()
         {
-            InitializeComponent();
-            //GetMedications();
-            //GetBreeds();
-            //GetSpecies();
+            InitializeComponent(); uxConnectDB_Click(null, null);
+            GetMedications();
+            GetSpecies();
         }
 
         private void GetMedications()
@@ -29,20 +29,55 @@ namespace WindowsFormProject
             SqlCommand cmnd = new SqlCommand("SelectMedication", _sqlClient);
             cmnd.CommandType = CommandType.StoredProcedure;
             cmnd.Parameters.AddWithValue("@MedicationName", SqlDbType.NVarChar).Value = "";
-            SqlDataReader data = cmnd.ExecuteReader();
-            _medications = new List<Medications>(data.Cast<Medications>());
+            using (SqlDataReader data = cmnd.ExecuteReader())
+            {
+                List<Medications> list = new List<Medications>();
+                while(data.Read() != false)
+                {
+      
+                    list.Add(new Medications { MedicationID = data.GetFieldValue<int>(0), MedicationName = data.GetFieldValue<string>(1), Purpose= data.GetFieldValue<string>(2) });
+                    
+                }
+                _medications = list;
+            }
             uxMedsMedicationCB.Items.AddRange(_medications.ToArray());
         }
 
-        private void GetBreeds()
+        private void GetBreeds(int SpeciesID)
         {
             uxPetBreedCB.Items.Clear();
             SqlCommand cmnd = new SqlCommand("SelectBreed", _sqlClient);
             cmnd.CommandType = CommandType.StoredProcedure;
             cmnd.Parameters.AddWithValue("@BreedName", SqlDbType.NVarChar).Value = "";
-            SqlDataReader data = cmnd.ExecuteReader();
-            _breeds = new List<Breed>(data.Cast<Breed>());
+            cmnd.Parameters.AddWithValue("@SpeciesID", SqlDbType.Int).Value = SpeciesID;
+            using (SqlDataReader data = cmnd.ExecuteReader())
+            {
+                List<Breed> list = new List<Breed>();
+                while (data.Read() != false)
+                {
+                    list.Add(new Breed { BreedID = data.GetFieldValue<int>(0), BreedName = data.GetFieldValue<string>(2), SpeciesID = data.GetFieldValue<int>(1) });
+                }
+                _breeds = list;
+            }
             uxPetBreedCB.Items.AddRange(_breeds.ToArray());
+        }
+
+        private void GetSpecies()
+        {
+            uxPetSpeciesCB.Items.Clear();
+            SqlCommand cmnd = new SqlCommand("SelectSpecies", _sqlClient);
+            cmnd.CommandType = CommandType.StoredProcedure;
+            cmnd.Parameters.AddWithValue("@SpeciesName", SqlDbType.NVarChar).Value = "";
+            using (SqlDataReader data = cmnd.ExecuteReader())
+            {
+                List<Species> list = new List<Species>();
+                while (data.Read() != false)
+                {
+                    list.Add(new Species { SpeciesID = (int)data[0], SpeciesName=(string)data[1]});
+                }
+                _species = list;
+            }
+            uxPetSpeciesCB.Items.AddRange(_species.ToArray());
         }
 
         private void GetSpecies()
@@ -58,7 +93,7 @@ namespace WindowsFormProject
 
         private void uxConnectDB_Click(object sender, EventArgs e)
         {
-            string connectionString = "Server=mssql.cs.ksu.edu;Database=msbuchanan;User Id=msbuchanan;Password=JAs-tNh-5V8-uU4";
+            string connectionString = ConfigurationSettings.AppSettings["databaseConnection"];
 
             _sqlClient = new SqlConnection(connectionString);
 
@@ -207,9 +242,248 @@ namespace WindowsFormProject
                 cmnd.Parameters.AddWithValue("@PetBreed", SqlDbType.NVarChar).Value = uxPetBreedCB.SelectedItem.ToString();
                 cmnd.Parameters.AddWithValue("@PetDescription", SqlDbType.NVarChar).Value = uxPCPetDescriptionTB.Text;
 
+                int n = cmnd.ExecuteNonQuery();
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
+            }
+        }
+
+        /// <summary>
+        /// Search control search pet button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxSearchPetsButton_Click(object sender, EventArgs e)
+        {
+            //if search box has terms
+            if (!String.IsNullOrEmpty(uxSearchTB.Text))
+            {
+                SqlCommand cmnd = new SqlCommand("SelectPet", _sqlClient);
+                cmnd.CommandType = CommandType.StoredProcedure;
+                cmnd.Parameters.AddWithValue("@PetName", SqlDbType.NVarChar).Value = uxSearchTB.Text;
+
                 cmnd.ExecuteNonQuery();
-                //SqlDataReader test = cmnd.ExecuteReader();
-                //List<Vets> testList = new List<Vets>(test.Cast<Vets>());
+                
+                using (SqlDataReader data = cmnd.ExecuteReader())
+                {
+                    List<Pets> list = new List<Pets>();
+                    while (data.Read() != false)
+                    {
+
+                        list.Add(new Pets { PetID = data.GetFieldValue<int>(0), PetFirstName = data.GetFieldValue<string>(1), PetLastName = data.GetFieldValue<string>(2) });
+
+                    }
+                    uxSearchListBox.DataSource = list;
+                }
+            }
+        }
+
+        /// <summary>
+        /// search control search owner button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxSearchOwnersButton_Click(object sender, EventArgs e)
+        {
+            //if search box has terms
+            if (!String.IsNullOrEmpty(uxSearchTB.Text))
+            {
+                SqlCommand cmnd = new SqlCommand("SelectOwner", _sqlClient);
+                cmnd.CommandType = CommandType.StoredProcedure;
+                cmnd.Parameters.AddWithValue("@Email", SqlDbType.NVarChar).Value = uxSearchTB.Text;
+
+                cmnd.ExecuteNonQuery();
+                //test listbox
+                /*using(SqlDataReader test = cmnd.ExecuteReader())
+                {
+                    uxSearchListBox.DataSource = test;
+                }*/
+            }
+        }
+
+        /// <summary>
+        /// search control search vet button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxSearchVetsButton_Click(object sender, EventArgs e)
+        {
+            //if search box has terms
+            if (!String.IsNullOrEmpty(uxSearchTB.Text))
+            {
+                string[] terms = uxSearchTB.Text.Split(' ');
+                SqlCommand cmnd = new SqlCommand("SelectVet", _sqlClient);
+                cmnd.CommandType = CommandType.StoredProcedure;
+                if(terms.Length == 1)
+                {
+                    cmnd.Parameters.AddWithValue("@FirstName", SqlDbType.NVarChar).Value = terms[0];
+                    cmnd.Parameters.AddWithValue("@LastName", SqlDbType.NVarChar).Value = terms[0];
+                }
+                else
+                {
+                    cmnd.Parameters.AddWithValue("@FirstName", SqlDbType.NVarChar).Value = terms[0];
+                    cmnd.Parameters.AddWithValue("@LastName", SqlDbType.NVarChar).Value = terms[1];
+                }
+                
+
+                cmnd.ExecuteNonQuery();
+                //test listbox
+                /*using(SqlDataReader test = cmnd.ExecuteReader())
+                {
+                    uxSearchListBox.DataSource = test;
+                }*/
+            }
+        }
+
+        /// <summary>
+        /// Index changed on the Species ComboBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxPetSpeciesCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (uxPetSpeciesCB.SelectedItem is Species item)
+            {
+                GetBreeds(item.SpeciesID);
+            }
+        }
+
+        /// <summary>
+        /// Event Handler for Adding Vet
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxVetSubmitButton_Click(object sender, EventArgs e)
+        {
+            // Check that each text box is filled
+            foreach (TextBox tb in uxAddVetControls.Controls.OfType<TextBox>())
+            {
+                if (string.IsNullOrEmpty(tb.Text))
+                {
+                    MessageBox.Show("Please fill in all information.");
+                    return;
+                }
+            }
+
+            // Run Sql stored procedure
+            try
+            {
+                SqlCommand cmnd = new SqlCommand("InsertVet", _sqlClient);
+                cmnd.CommandType = CommandType.StoredProcedure;
+                cmnd.Parameters.AddWithValue("@VetFirstName", SqlDbType.NVarChar).Value = uxVetFirstNameTB.Text;
+                cmnd.Parameters.AddWithValue("@VetLastName", SqlDbType.NVarChar).Value = uxVetLastNameTB.Text;
+
+                cmnd.ExecuteNonQuery();
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
+            }
+        }
+
+        /// <summary>
+        /// Event handler Create Appointment button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxAptSubmitButton_Click(object sender, EventArgs e)
+        {
+            // Check that each text box is filled
+            foreach (TextBox tb in uxCreateAptControls.Controls.OfType<TextBox>())
+            {
+                if (string.IsNullOrEmpty(tb.Text))
+                {
+                    MessageBox.Show("Please fill in all information.");
+                    return;
+                }
+            }
+
+            // Check that each combo box has a selection
+            foreach (ComboBox cb in uxCreateAptControls.Controls.OfType<ComboBox>())
+            {
+                if (cb.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please fill in all information.");
+                    return;
+                }
+            }
+
+            // Check that each datetimepicker has a selection
+            foreach (DateTimePicker dtp in uxCreateAptControls.Controls.OfType<DateTimePicker>())
+            {
+                if (string.IsNullOrEmpty(dtp.Text))
+                {
+                    MessageBox.Show("Please fill in all information.");
+                    return;
+                }
+            }
+
+            try
+            {
+                SqlCommand cmnd = new SqlCommand("InsertAppointment", _sqlClient);
+                cmnd.CommandType = CommandType.StoredProcedure;
+                string[] nameSplit = uxAptPetNameTB.Text.Split(' ');
+                if (nameSplit.Length != 2) throw new Exception("Could not split name");
+                Vets vet = uxAptVetCB.SelectedItem as Vets;
+                cmnd.Parameters.AddWithValue("@PetFirstName", SqlDbType.NVarChar).Value = nameSplit[0];
+                cmnd.Parameters.AddWithValue("@PetLastName", SqlDbType.NVarChar).Value = nameSplit[1];
+                cmnd.Parameters.AddWithValue("@OwnerEMail", SqlDbType.NVarChar).Value = uxAptOwnerEmailTB.Text;
+                cmnd.Parameters.AddWithValue("@VetID", SqlDbType.Int).Value = vet.VetID;
+                cmnd.Parameters.AddWithValue("@Date", SqlDbType.DateTime).Value = DateTime.Parse(uxAptDatePicker.Text);
+                cmnd.Parameters.AddWithValue("@Time", SqlDbType.DateTime).Value = (DateTime)uxAptAptTimeCB.SelectedItem;
+                cmnd.Parameters.AddWithValue("@Reason", SqlDbType.NVarChar).Value = uxAptReasonTB.Text;
+
+                cmnd.ExecuteNonQuery();
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
+            }
+        }
+
+        /// <summary>
+        /// Insert medication submit button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxMedsSubmitButton_Click(object sender, EventArgs e)
+        {
+            // Check that each text box is filled
+            foreach (TextBox tb in uxPrescribeMedsControls.Controls.OfType<TextBox>())
+            {
+                if (string.IsNullOrEmpty(tb.Text))
+                {
+                    MessageBox.Show("Please fill in all information.");
+                    return;
+                }
+            }
+
+            // Check that each combo box has a selection
+            foreach (ComboBox cb in uxPrescribeMedsControls.Controls.OfType<ComboBox>())
+            {
+                if (cb.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please fill in all information.");
+                    return;
+                }
+            }
+
+            try
+            {
+                SqlCommand cmnd = new SqlCommand("InsertPetMed", _sqlClient);
+                cmnd.CommandType = CommandType.StoredProcedure;
+                string[] nameSplit = uxMedsPetNameTB.Text.Split(' ');
+                if (nameSplit.Length != 2) throw new Exception("Could not split name");
+                Medications medication = uxMedsMedicationCB.SelectedItem as Medications;
+                cmnd.Parameters.AddWithValue("@PetFirstName", SqlDbType.NVarChar).Value = nameSplit[0];
+                cmnd.Parameters.AddWithValue("@PetLastName", SqlDbType.NVarChar).Value = nameSplit[1];
+                cmnd.Parameters.AddWithValue("@OwnerEMail", SqlDbType.NVarChar).Value = uxMedsOwnerEmailTB.Text;
+                cmnd.Parameters.AddWithValue("@MedicationID", SqlDbType.Int).Value = medication.MedicationID;
+                cmnd.Parameters.AddWithValue("@Instructions", SqlDbType.NVarChar).Value = "";
+
+                cmnd.ExecuteNonQuery();
             }
             catch (SqlException sqlEx)
             {

@@ -87,6 +87,10 @@
             this.uxMedsPetNameTB = new System.Windows.Forms.TextBox();
             this.uxSearchTB = new System.Windows.Forms.TextBox();
             this.uxSearchControls = new System.Windows.Forms.GroupBox();
+            this.uxSearchVetsButton = new System.Windows.Forms.Button();
+            this.uxSearchOwnersButton = new System.Windows.Forms.Button();
+            this.uxSearchPetsButton = new System.Windows.Forms.Button();
+            this.uxSearchListBox = new System.Windows.Forms.ListBox();
             this.uxMenuStrip.SuspendLayout();
             this.uxAddPetControls.SuspendLayout();
             this.uxQueryControls.SuspendLayout();
@@ -119,49 +123,49 @@
             this.editToolStripMenuItem});
             this.uxMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.uxMenuStrip.Name = "uxMenuStrip";
-            this.uxMenuStrip.Size = new System.Drawing.Size(1200, 36);
+            this.uxMenuStrip.Size = new System.Drawing.Size(1200, 24);
             this.uxMenuStrip.TabIndex = 1;
             this.uxMenuStrip.Text = "MenuStrip";
             // 
             // uxMenuAddPet
             // 
             this.uxMenuAddPet.Name = "uxMenuAddPet";
-            this.uxMenuAddPet.Size = new System.Drawing.Size(91, 32);
+            this.uxMenuAddPet.Size = new System.Drawing.Size(61, 20);
             this.uxMenuAddPet.Text = "Add Pet";
             this.uxMenuAddPet.Click += new System.EventHandler(this.uxMenuAddPet_Click);
             // 
             // addVetToolStripMenuItem
             // 
             this.addVetToolStripMenuItem.Name = "addVetToolStripMenuItem";
-            this.addVetToolStripMenuItem.Size = new System.Drawing.Size(92, 32);
+            this.addVetToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.addVetToolStripMenuItem.Text = "Add Vet";
             this.addVetToolStripMenuItem.Click += new System.EventHandler(this.addVetToolStripMenuItem_Click);
             // 
             // uxMenuCreateApt
             // 
             this.uxMenuCreateApt.Name = "uxMenuCreateApt";
-            this.uxMenuCreateApt.Size = new System.Drawing.Size(189, 32);
+            this.uxMenuCreateApt.Size = new System.Drawing.Size(127, 20);
             this.uxMenuCreateApt.Text = "Create Appointment";
             this.uxMenuCreateApt.Click += new System.EventHandler(this.uxMenuCreateApt_Click);
             // 
             // uxMenuViewQueries
             // 
             this.uxMenuViewQueries.Name = "uxMenuViewQueries";
-            this.uxMenuViewQueries.Size = new System.Drawing.Size(230, 32);
+            this.uxMenuViewQueries.Size = new System.Drawing.Size(152, 20);
             this.uxMenuViewQueries.Text = "View Aggregated Queries";
             this.uxMenuViewQueries.Click += new System.EventHandler(this.uxMenuViewQueries_Click);
             // 
             // prescribeMedicationToolStripMenuItem
             // 
             this.prescribeMedicationToolStripMenuItem.Name = "prescribeMedicationToolStripMenuItem";
-            this.prescribeMedicationToolStripMenuItem.Size = new System.Drawing.Size(192, 32);
+            this.prescribeMedicationToolStripMenuItem.Size = new System.Drawing.Size(130, 20);
             this.prescribeMedicationToolStripMenuItem.Text = "Prescribe Medication";
             this.prescribeMedicationToolStripMenuItem.Click += new System.EventHandler(this.prescribeMedicationToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(80, 32);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.editToolStripMenuItem.Text = "Search";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -318,6 +322,7 @@
             this.uxPetSpeciesCB.Name = "uxPetSpeciesCB";
             this.uxPetSpeciesCB.Size = new System.Drawing.Size(121, 28);
             this.uxPetSpeciesCB.TabIndex = 4;
+            this.uxPetSpeciesCB.SelectedIndexChanged += new System.EventHandler(this.uxPetSpeciesCB_SelectedIndexChanged);
             // 
             // uxPetSpeciesLabel
             // 
@@ -411,6 +416,7 @@
             this.uxAptSubmitButton.TabIndex = 14;
             this.uxAptSubmitButton.Text = "Submit";
             this.uxAptSubmitButton.UseVisualStyleBackColor = true;
+            this.uxAptSubmitButton.Click += new System.EventHandler(this.uxAptSubmitButton_Click);
             // 
             // uxAptReasonTB
             // 
@@ -543,6 +549,7 @@
             this.uxVetSubmitButton.TabIndex = 11;
             this.uxVetSubmitButton.Text = "Submit";
             this.uxVetSubmitButton.UseVisualStyleBackColor = true;
+            this.uxVetSubmitButton.Click += new System.EventHandler(this.uxVetSubmitButton_Click);
             // 
             // uxVetLastNameTB
             // 
@@ -606,6 +613,7 @@
             this.uxMedsSubmitButton.TabIndex = 10;
             this.uxMedsSubmitButton.Text = "Submit";
             this.uxMedsSubmitButton.UseVisualStyleBackColor = true;
+            this.uxMedsSubmitButton.Click += new System.EventHandler(this.uxMedsSubmitButton_Click);
             // 
             // uxMedsMedicationCB
             // 
@@ -669,6 +677,10 @@
             // 
             // uxSearchControls
             // 
+            this.uxSearchControls.Controls.Add(this.uxSearchVetsButton);
+            this.uxSearchControls.Controls.Add(this.uxSearchOwnersButton);
+            this.uxSearchControls.Controls.Add(this.uxSearchPetsButton);
+            this.uxSearchControls.Controls.Add(this.uxSearchListBox);
             this.uxSearchControls.Controls.Add(this.uxSearchTB);
             this.uxSearchControls.Location = new System.Drawing.Point(1, 24);
             this.uxSearchControls.Margin = new System.Windows.Forms.Padding(2);
@@ -680,17 +692,57 @@
             this.uxSearchControls.Text = "Search";
             this.uxSearchControls.Visible = false;
             // 
+            // uxSearchVetsButton
+            // 
+            this.uxSearchVetsButton.Location = new System.Drawing.Point(371, 15);
+            this.uxSearchVetsButton.Margin = new System.Windows.Forms.Padding(2);
+            this.uxSearchVetsButton.Name = "uxSearchVetsButton";
+            this.uxSearchVetsButton.Size = new System.Drawing.Size(85, 20);
+            this.uxSearchVetsButton.TabIndex = 4;
+            this.uxSearchVetsButton.Text = "Search Vets";
+            this.uxSearchVetsButton.UseVisualStyleBackColor = true;
+            // 
+            // uxSearchOwnersButton
+            // 
+            this.uxSearchOwnersButton.Location = new System.Drawing.Point(282, 14);
+            this.uxSearchOwnersButton.Margin = new System.Windows.Forms.Padding(2);
+            this.uxSearchOwnersButton.Name = "uxSearchOwnersButton";
+            this.uxSearchOwnersButton.Size = new System.Drawing.Size(85, 20);
+            this.uxSearchOwnersButton.TabIndex = 3;
+            this.uxSearchOwnersButton.Text = "Search Owners";
+            this.uxSearchOwnersButton.UseVisualStyleBackColor = true;
+            // 
+            // uxSearchPetsButton
+            // 
+            this.uxSearchPetsButton.Location = new System.Drawing.Point(193, 14);
+            this.uxSearchPetsButton.Margin = new System.Windows.Forms.Padding(2);
+            this.uxSearchPetsButton.Name = "uxSearchPetsButton";
+            this.uxSearchPetsButton.Size = new System.Drawing.Size(85, 20);
+            this.uxSearchPetsButton.TabIndex = 2;
+            this.uxSearchPetsButton.Text = "Search Pets";
+            this.uxSearchPetsButton.UseVisualStyleBackColor = true;
+            // 
+            // uxSearchListBox
+            // 
+            this.uxSearchListBox.FormattingEnabled = true;
+            this.uxSearchListBox.Location = new System.Drawing.Point(14, 39);
+            this.uxSearchListBox.Margin = new System.Windows.Forms.Padding(2);
+            this.uxSearchListBox.Name = "uxSearchListBox";
+            this.uxSearchListBox.Size = new System.Drawing.Size(205, 212);
+            this.uxSearchListBox.TabIndex = 1;
+            // 
             // Application
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
-            this.Controls.Add(this.uxSearchControls);
+            this.Controls.Add(this.uxPrescribeMedsControls);
+            this.Controls.Add(this.uxCreateAptControls);
+            this.Controls.Add(this.uxAddVetControls);
             this.Controls.Add(this.uxAddPetControls);
             this.Controls.Add(this.uxAddVetControls);
             this.Controls.Add(this.uxPrescribeMedsControls);
             this.Controls.Add(this.uxSearchControls);
-            this.Controls.Add(this.uxCreateAptControls);
             this.Controls.Add(this.uxQueryControls);
             this.Controls.Add(this.uxConnectDB);
             this.Controls.Add(this.uxMenuStrip);
@@ -778,6 +830,10 @@
         private System.Windows.Forms.Button uxVetSubmitButton;
         private System.Windows.Forms.TextBox uxSearchTB;
         private System.Windows.Forms.GroupBox uxSearchControls;
+        private System.Windows.Forms.Button uxSearchVetsButton;
+        private System.Windows.Forms.Button uxSearchOwnersButton;
+        private System.Windows.Forms.Button uxSearchPetsButton;
+        private System.Windows.Forms.ListBox uxSearchListBox;
     }
 }
 
