@@ -19,8 +19,8 @@ namespace WindowsFormProject
         {
             InitializeComponent(); uxConnectDB_Click(null, null);
             GetMedications();
-            //GetBreeds();
-            //GetSpecies();
+            GetBreeds();
+            GetSpecies();
         }
 
         private void GetMedications()
@@ -71,7 +71,7 @@ namespace WindowsFormProject
 
         private void uxConnectDB_Click(object sender, EventArgs e)
         {
-            string connectionString = "Server=localhost\\SQLEXPRESS;Database=VetDB;Trusted_Connection=True;";
+            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Database=VetDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False";
 
             _sqlClient = new SqlConnection(connectionString);
 
@@ -245,12 +245,18 @@ namespace WindowsFormProject
                 cmnd.Parameters.AddWithValue("@PetName", SqlDbType.NVarChar).Value = uxSearchTB.Text;
 
                 cmnd.ExecuteNonQuery();
-                //test listbox
-                //databinding - cast data table to a table then bind it
-                /*using(SqlDataReader test = cmnd.ExecuteReader())
+                
+                using (SqlDataReader data = cmnd.ExecuteReader())
                 {
-                    uxSearchListBox.DataSource = test;
-                }*/
+                    List<Pets> list = new List<Pets>();
+                    while (data.Read() != false)
+                    {
+
+                        list.Add(new Pets { PetID = data.GetFieldValue<int>(0), PetFirstName = data.GetFieldValue<string>(1), PetLastName = data.GetFieldValue<string>(2) });
+
+                    }
+                    uxSearchListBox.DataSource = list;
+                }
             }
         }
 
