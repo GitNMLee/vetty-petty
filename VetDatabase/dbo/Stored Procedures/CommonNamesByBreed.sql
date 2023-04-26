@@ -1,8 +1,16 @@
 ﻿CREATE PROCEDURE CommonNamesByBreed
 AS
-SELECT P.PetFirstName AS [PetName], S.SpeciesName AS Species, B.BreedName AS Breed,
-        RANK() OVER(PARTITION BY P.PetFirstName, B.BreedName ORDER BY P.PetFirstName DESC, B.BreedName DESC) AS [Rank]
-FROM Species S
+WITH name_rank_cte AS
+(
+	SELECT
+	P.PetFirstName AS [PetName], S.SpeciesName AS Species, B.BreedName AS Breed,
+	COUNT(P.PetFirstName) AS [Count]
+	FROM Species S
     INNER JOIN Breed B ON B.SpeciesID = S.SpeciesID
     INNER JOIN Pet P ON P.BreedID = B.BreedID
+	GROUP BY P.PetFirstName, S.SpeciesName, B.BreedName
+)
+SELECT RCTE.[PetName], RCTE.Species, RCTE.Breed,
+        RANK() OVER(ORDER BY RCTE.[Count] DESC) AS [Rank]
+FROM name_rank_cte RCTE
 ORDER BY [Rank] ASC

@@ -8,14 +8,11 @@ CREATE PROCEDURE InsertPet
 @PetLastName NVARCHAR(30),
 @PetSpecies NVARCHAR(30),
 @PetBreed NVARCHAR(30),
-@PetDescription NVARCHAR(30),
-
--- QUERY VARIABLES
-@SelectedOwnerID INT,
-@SelectedBreedID INT
+@PetDescription NVARCHAR(30)
 
 AS
-
+DECLARE @SelectedOwnerID INT
+DECLARE @SelectedBreedID INT
 -- First Insert into owners if necessary
 MERGE [Owner] AS [Target]
 USING (SELECT @OwnerFirstName, @OwnerLastName, @OwnerEMail) AS [Source](OwnerFirstName, OwnerLastName, OwnerEMail)

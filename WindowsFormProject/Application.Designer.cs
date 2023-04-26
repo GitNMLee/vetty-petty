@@ -388,6 +388,7 @@
             this.uxAptSubmitButton.TabIndex = 14;
             this.uxAptSubmitButton.Text = "Submit";
             this.uxAptSubmitButton.UseVisualStyleBackColor = true;
+            this.uxAptSubmitButton.Click += new System.EventHandler(this.uxAptSubmitButton_Click);
             // 
             // uxAptReasonTB
             // 
@@ -511,6 +512,7 @@
             this.uxVetSubmitButton.TabIndex = 11;
             this.uxVetSubmitButton.Text = "Submit";
             this.uxVetSubmitButton.UseVisualStyleBackColor = true;
+            this.uxVetSubmitButton.Click += new System.EventHandler(this.uxVetSubmitButton_Click);
             // 
             // uxVetLastNameTB
             // 
@@ -569,6 +571,7 @@
             this.uxMedsSubmitButton.TabIndex = 10;
             this.uxMedsSubmitButton.Text = "Submit";
             this.uxMedsSubmitButton.UseVisualStyleBackColor = true;
+            this.uxMedsSubmitButton.Click += new System.EventHandler(this.uxMedsSubmitButton_Click);
             // 
             // uxMedsMedicationCB
             // 
