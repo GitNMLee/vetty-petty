@@ -51,7 +51,27 @@ insert into Breed (SpeciesID, BreedName) values ( 2, 'Savannah');
 insert into Breed (SpeciesID, BreedName) values ( 2, 'American Curl');
 insert into Breed (SpeciesID, BreedName) values ( 3, 'Mustang');
 insert into Breed (SpeciesID, BreedName) values ( 3, 'American Paint');
+insert into Breed (SpeciesID, BreedName) values ( 4, 'Green Tree Python');
+insert into Breed (SpeciesID, BreedName) values ( 5, 'Chameleon');
+insert into Breed (SpeciesID, BreedName) values ( 6, 'Painted Turtle');
+insert into Breed (SpeciesID, BreedName) values ( 7, 'Amazon Milk Frog');
+insert into Breed (SpeciesID, BreedName) values ( 8, 'Cardinal');
+insert into Breed (SpeciesID, BreedName) values ( 9, 'Common Goldfish');
+insert into Breed (SpeciesID, BreedName) values ( 10, 'Belgian Blue');
+insert into Breed (SpeciesID, BreedName) values ( 11, 'Cameroon Sheep');
+insert into Breed (SpeciesID, BreedName) values ( 12, 'American Pygmy');
+insert into Breed (SpeciesID, BreedName) values ( 13, 'Angora');
+insert into Breed (SpeciesID, BreedName) values ( 14, 'Syrian');
+insert into Breed (SpeciesID, BreedName) values ( 15, 'Spotted');
+insert into Breed (SpeciesID, BreedName) values ( 16, 'Mini Lop');
+insert into Breed (SpeciesID, BreedName) values ( 17, 'Peruvian');
+insert into Breed (SpeciesID, BreedName) values ( 18, 'Vietnamese Pot-bellied');
+insert into Breed (SpeciesID, BreedName) values ( 19, 'Grey Domestic');
+insert into Breed (SpeciesID, BreedName) values ( 20, 'Hairless');
 
 SELECT *
 FROM Breed
 ORDER BY SpeciesID ASC
+SELECT *
+FROM Species
+Order BY SpeciesID ASC
