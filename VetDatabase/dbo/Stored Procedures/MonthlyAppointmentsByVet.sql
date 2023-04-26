@@ -41,4 +41,4 @@ SELECT ACNT.AppointmentYear AS [Year], ACNT.AppointmentMonth AS [Month],
     RANK() OVER (ORDER BY ACNT.AppointmentCount DESC) AS MonthlyRank
 FROM Vet V
 INNER JOIN appointment_count_cte ACNT ON ACNT.VetID = V.VetID
-ORDER BY MonthlyRank ASC
+ORDER BY MonthlyRank ASC, [Year] ASC, [Month] ASC
