@@ -19,7 +19,6 @@ namespace WindowsFormProject
         {
             InitializeComponent(); uxConnectDB_Click(null, null);
             GetMedications();
-            GetBreeds();
             GetSpecies();
         }
 
@@ -43,15 +42,21 @@ namespace WindowsFormProject
             uxMedsMedicationCB.Items.AddRange(_medications.ToArray());
         }
 
-        private void GetBreeds()
+        private void GetBreeds(int SpeciesID)
         {
             uxPetBreedCB.Items.Clear();
             SqlCommand cmnd = new SqlCommand("SelectBreed", _sqlClient);
             cmnd.CommandType = CommandType.StoredProcedure;
             cmnd.Parameters.AddWithValue("@BreedName", SqlDbType.NVarChar).Value = "";
+            cmnd.Parameters.AddWithValue("@SpeciesID", SqlDbType.Int).Value = SpeciesID;
             using (SqlDataReader data = cmnd.ExecuteReader())
             {
-                _breeds = new List<Breed>(data.Cast<Breed>());
+                List<Breed> list = new List<Breed>();
+                while (data.Read() != false)
+                {
+                    list.Add(new Breed { BreedID = data.GetFieldValue<int>(0), BreedName = data.GetFieldValue<string>(2), SpeciesID = data.GetFieldValue<int>(1) });
+                }
+                _breeds = list;
             }
             uxPetBreedCB.Items.AddRange(_breeds.ToArray());
         }
@@ -64,7 +69,12 @@ namespace WindowsFormProject
             cmnd.Parameters.AddWithValue("@SpeciesName", SqlDbType.NVarChar).Value = "";
             using (SqlDataReader data = cmnd.ExecuteReader())
             {
-                _species = new List<Species>(data.Cast<Species>());
+                List<Species> list = new List<Species>();
+                while (data.Read() != false)
+                {
+                    list.Add(new Species { SpeciesID = (int)data[0], SpeciesName=(string)data[1]});
+                }
+                _species = list;
             }
             uxPetSpeciesCB.Items.AddRange(_species.ToArray());
         }
@@ -314,6 +324,19 @@ namespace WindowsFormProject
                 {
                     uxSearchListBox.DataSource = test;
                 }*/
+            }
+        }
+
+        /// <summary>
+        /// Index changed on the Species ComboBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxPetSpeciesCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (uxPetSpeciesCB.SelectedItem is Species item)
+            {
+                GetBreeds(item.SpeciesID);
             }
         }
     }
