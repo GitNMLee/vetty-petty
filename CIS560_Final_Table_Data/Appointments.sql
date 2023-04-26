@@ -18,3 +18,4 @@ insert into Appointments (DateID, VetID, PetID, Date, Time) values (17, 17, 17, 
 insert into Appointments (DateID, VetID, PetID, Date, Time) values (18, 18, 18, '2022-07-14', '9:41 AM');
 insert into Appointments (DateID, VetID, PetID, Date, Time) values (19, 19, 19, '2019-12-13', '12:15 PM');
 insert into Appointments (DateID, VetID, PetID, Date, Time) values (20, 20, 20, '2019-09-18', '12:12 AM');
+insert into Appointments (DateID, VetID, PetID, Date, Time) values (21, 20, 20, '2019-09-19', '12:12 AM');
