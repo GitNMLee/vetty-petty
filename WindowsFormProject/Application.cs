@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 using WindowsFormProject.Database_Objects;
+using System.Configuration;
 
 namespace WindowsFormProject
 {
@@ -81,7 +82,7 @@ namespace WindowsFormProject
 
         private void uxConnectDB_Click(object sender, EventArgs e)
         {
-            string connectionString = "Server=localhost\\SQLEXPRESS;Database=VetDB;Trusted_Connection=True;";
+            string connectionString = ConfigurationSettings.AppSettings["databaseConnection"];
 
             _sqlClient = new SqlConnection(connectionString);
 
