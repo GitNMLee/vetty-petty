@@ -54,20 +54,19 @@ namespace WindowsFormProject
             SqlCommand cmnd = new SqlCommand("SelectSpeciesWithBreed", _connection);
             cmnd.CommandType = CommandType.StoredProcedure;
             cmnd.Parameters.AddWithValue("@BreedID", SqlDbType.Int).Value = _pet.BreedID;
-
+            Species currentSpecies;
             using (SqlDataReader data = cmnd.ExecuteReader())
             {
                 data.Read();
-                Species CurrentSpecies = new Species { SpeciesID = data.GetFieldValue<int>(0), SpeciesName = data.GetFieldValue<string>(1) };
+                currentSpecies = new Species { SpeciesID = data.GetFieldValue<int>(0), SpeciesName = data.GetFieldValue<string>(1) };
                 // sets current index
                 for(int i = 0; i < _species.Count; i++)
                 {
-                    if (_species[i].SpeciesName == CurrentSpecies.SpeciesName) uxEPPetSpeciesCB.SelectedIndex = i;
+                    if (_species[i].SpeciesName == currentSpecies.SpeciesName) uxEPPetSpeciesCB.SelectedIndex = i;
                 }
-
-                //sets breed combo box
-                GetBreeds(CurrentSpecies.SpeciesID);
             }
+            //sets breed combo box
+            GetBreeds(currentSpecies.SpeciesID);
         }
 
         private void GetBreeds(int SpeciesID)
