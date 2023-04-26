@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormProject", "WindowsFormProject.csproj", "{4829D7BC-03B9-45F4-9314-39C8D770C448}"
-	ProjectSection(ProjectDependencies) = postProject
-		{92BB0F64-17C1-410E-9531-C3D00D7D40AF} = {92BB0F64-17C1-410E-9531-C3D00D7D40AF}
-	EndProjectSection
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "VetDatabase", "..\VetDatabase\VetDatabase.sqlproj", "{92BB0F64-17C1-410E-9531-C3D00D7D40AF}"
 EndProject
