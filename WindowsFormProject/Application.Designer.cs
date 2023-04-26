@@ -429,7 +429,7 @@
             // 
             this.uxAptDatePicker.Location = new System.Drawing.Point(460, 15);
             this.uxAptDatePicker.Name = "uxAptDatePicker";
-            this.uxAptDatePicker.Size = new System.Drawing.Size(200, 26);
+            this.uxAptDatePicker.Size = new System.Drawing.Size(294, 26);
             this.uxAptDatePicker.TabIndex = 9;
             // 
             // uxAptDateLabel
@@ -702,11 +702,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(966, 504);
+            this.Controls.Add(this.uxCreateAptControls);
+            this.Controls.Add(this.uxAddVetControls);
             this.Controls.Add(this.uxAddPetControls);
             this.Controls.Add(this.uxSearchControls);
-            this.Controls.Add(this.uxAddVetControls);
             this.Controls.Add(this.uxPrescribeMedsControls);
-            this.Controls.Add(this.uxCreateAptControls);
             this.Controls.Add(this.uxQueryControls);
             this.Controls.Add(this.uxMenuStrip);
             this.MainMenuStrip = this.uxMenuStrip;

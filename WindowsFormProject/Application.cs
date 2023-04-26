@@ -15,15 +15,35 @@ namespace WindowsFormProject
         private List<Breed> _breeds;
         private List<Species> _species;
         private SqlConnection _sqlClient;
+        private List<Vets> _vets;
 
         public Application()
         {
             InitializeComponent(); uxConnectDB_Click(null, null);
             GetMedications();
             GetSpecies();
+            GetVets();
         }
 
         #region Get functions and Connect DB
+
+        private void GetVets()
+        {
+            uxAptVetCB.Items.Clear();
+            SqlCommand cmnd = new SqlCommand("SelectVet", _sqlClient);
+            cmnd.CommandType = CommandType.StoredProcedure;
+            cmnd.Parameters.AddWithValue("@Search", SqlDbType.NVarChar).Value = "";
+            using (SqlDataReader data = cmnd.ExecuteReader())
+            {
+                List<Vets> list = new List<Vets>();
+                while(data.Read() != false)
+                {
+                    list.Add(new Vets { VetID = data.GetFieldValue<int>(0), FirstName = data.GetFieldValue<string>(1), LastName = data.GetFieldValue<string>(2), HireDate = data.GetFieldValue<DateTime>(3) });
+                }
+                _vets = list;
+            }
+            uxAptVetCB.Items.AddRange(_vets.ToArray());
+        }
         private void GetMedications()
         {
             uxMedsMedicationCB.Items.Clear();
@@ -237,6 +257,10 @@ namespace WindowsFormProject
                 cmnd.Parameters.AddWithValue("@PetDescription", SqlDbType.NVarChar).Value = uxPCPetDescriptionTB.Text;
 
                 int n = cmnd.ExecuteNonQuery();
+
+                MessageBox.Show($"{uxPCPetFirstNameTB.Text} {uxPCPetLastNameTB.Text} added successfully");
+                ClearForm();
+                
             }
             catch (SqlException sqlEx)
             {
@@ -405,6 +429,9 @@ namespace WindowsFormProject
                 cmnd.Parameters.AddWithValue("@VetLastName", SqlDbType.NVarChar).Value = uxVetLastNameTB.Text;
 
                 cmnd.ExecuteNonQuery();
+
+                MessageBox.Show($"{uxVetFirstNameTB.Text} {uxVetLastNameTB.Text} added successfully");
+                ClearForm();
             }
             catch (SqlException sqlEx)
             {
@@ -454,7 +481,7 @@ namespace WindowsFormProject
                 SqlCommand cmnd = new SqlCommand("InsertAppointment", _sqlClient);
                 cmnd.CommandType = CommandType.StoredProcedure;
                 string[] nameSplit = uxAptPetNameTB.Text.Split(' ');
-                if (nameSplit.Length != 2) throw new Exception("Could not split name");
+                if (nameSplit.Length != 2) throw new Exception("Please enter first and last name of pet");
                 Vets vet = uxAptVetCB.SelectedItem as Vets;
                 cmnd.Parameters.AddWithValue("@PetFirstName", SqlDbType.NVarChar).Value = nameSplit[0];
                 cmnd.Parameters.AddWithValue("@PetLastName", SqlDbType.NVarChar).Value = nameSplit[1];
@@ -465,6 +492,9 @@ namespace WindowsFormProject
                 cmnd.Parameters.AddWithValue("@Reason", SqlDbType.NVarChar).Value = uxAptReasonTB.Text;
 
                 cmnd.ExecuteNonQuery();
+
+                MessageBox.Show($"Appointment successfully created for {nameSplit[0]} {nameSplit[1]} for {uxAptDatePicker.Text} at {uxAptAptTimeCB.SelectedItem}");
+                ClearForm();
             }
             catch (SqlException sqlEx)
             {
@@ -518,6 +548,34 @@ namespace WindowsFormProject
             {
                 MessageBox.Show(sqlEx.Message);
             }
+        }
+
+        /// <summary>
+        /// Clears form
+        /// </summary>
+        private void ClearForm()
+        {
+            //AddPetControls
+            uxPCPetDescriptionTB.Clear();
+            uxPCOwnerEmailTB.Clear();
+            uxPCOwnerFirstNameTB.Clear();
+            uxPCOwnerLastNameTB.Clear();
+            uxPCPetFirstNameTB.Clear();
+            uxPCPetLastNameTB.Clear();
+            uxPetSpeciesCB.SelectedIndex = -1;
+            uxPetBreedCB.SelectedIndex = -1;
+
+            //AddVetControls
+            uxVetFirstNameTB.Clear();
+            uxVetLastNameTB.Clear();
+
+            //CreateAptControls
+            uxAptAptTimeCB.SelectedIndex = -1;
+            uxAptOwnerEmailTB.Clear();
+            uxAptPetNameTB.Clear();
+            uxAptReasonTB.Clear();
+            uxAptVetCB.SelectedIndex = -1;
+
         }
     }
 }

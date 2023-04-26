@@ -69,6 +69,10 @@ namespace WindowsFormProject
             GetBreeds(currentSpecies.SpeciesID);
         }
 
+        /// <summary>
+        /// populates breed combo box 
+        /// </summary>
+        /// <param name="SpeciesID"></param>
         private void GetBreeds(int SpeciesID)
         {
             uxEPPetBreedCB.Items.Clear();
