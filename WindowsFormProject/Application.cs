@@ -256,12 +256,18 @@ namespace WindowsFormProject
                 cmnd.Parameters.AddWithValue("@PetName", SqlDbType.NVarChar).Value = uxSearchTB.Text;
 
                 cmnd.ExecuteNonQuery();
-                //test listbox
-                //databinding - cast data table to a table then bind it
-                /*using(SqlDataReader test = cmnd.ExecuteReader())
+                
+                using (SqlDataReader data = cmnd.ExecuteReader())
                 {
-                    uxSearchListBox.DataSource = test;
-                }*/
+                    List<Pets> list = new List<Pets>();
+                    while (data.Read() != false)
+                    {
+
+                        list.Add(new Pets { PetID = data.GetFieldValue<int>(0), PetFirstName = data.GetFieldValue<string>(1), PetLastName = data.GetFieldValue<string>(2) });
+
+                    }
+                    uxSearchListBox.DataSource = list;
+                }
             }
         }
 
