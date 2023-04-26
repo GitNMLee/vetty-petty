@@ -103,6 +103,7 @@
     <None Include="Import Data\PetMed.sql" />
     <None Include="Import Data\Species.sql" />
     <None Include="Import Data\Vet.sql" />
+    <Build Include="dbo\Stored Procedures\SelectSpeciesWithBreed.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="VetDatabase.publish.xml" />

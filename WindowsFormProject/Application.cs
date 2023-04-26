@@ -23,6 +23,7 @@ namespace WindowsFormProject
             GetSpecies();
         }
 
+        #region Get functions and Connect DB
         private void GetMedications()
         {
             uxMedsMedicationCB.Items.Clear();
@@ -60,6 +61,7 @@ namespace WindowsFormProject
                 _breeds = list;
             }
             uxPetBreedCB.Items.AddRange(_breeds.ToArray());
+       
         }
 
         private void GetSpecies()
@@ -97,6 +99,7 @@ namespace WindowsFormProject
             }
 
         }
+        #endregion
 
         #region Control view code
         /// <summary>
@@ -241,6 +244,7 @@ namespace WindowsFormProject
             }
         }
 
+        #region Search functions
         /// <summary>
         /// Search control search pet button
         /// </summary>
@@ -266,6 +270,7 @@ namespace WindowsFormProject
 
                 }
                 uxSearchListBox.DataSource = list;
+                if (list.Count >= 1) uxSearchEditButton.Visible = true;
             }
             
         }
@@ -293,6 +298,7 @@ namespace WindowsFormProject
 
                 }
                 uxSearchListBox.DataSource = list;
+                if (list.Count >= 1) uxSearchEditButton.Visible = true;
             }
 
         }
@@ -319,9 +325,46 @@ namespace WindowsFormProject
 
                 }
                 uxSearchListBox.DataSource = list;
+                if (list.Count >= 1) uxSearchEditButton.Visible = true;
             }
             
         }
+
+        /// <summary>
+        /// Edit search index button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxSearchEditButton_Click(object sender, EventArgs e)
+        {
+            // pops out selected index info in the correct form for editing
+            if (uxSearchListBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select something.");
+            }
+            else
+            {
+                //pets
+                if (uxSearchListBox.SelectedItem is Pets pet)
+                {
+                    EditPetForm form = new EditPetForm(pet, _species, _sqlClient);
+                    form.Show();
+                }
+                //vets
+                else if (uxSearchListBox.SelectedItem is Vets vet)
+                {
+                    EditVetForm form = new EditVetForm(vet, _sqlClient);
+                    form.Show();
+                }
+                //owners
+                else if (uxSearchListBox.SelectedItem is Owners owner)
+                {
+                    EditOwnerForm form = new EditOwnerForm(owner);
+                    form.Show();
+                }
+            }
+        }
+        #endregion
 
         /// <summary>
         /// Index changed on the Species ComboBox
