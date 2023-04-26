@@ -21,5 +21,10 @@ namespace WindowsFormProject.Database_Objects
         public string Description { get; set; }
 
         public DateTime? DeceasedOn { get; set; }
+
+        public override string ToString()
+        {
+            return PetFirstName + " " + PetLastName;
+        }
     }
 }

@@ -17,5 +17,10 @@ namespace WindowsFormProject.Database_Objects
         public DateTime HireDate { get; set; }
 
         public DateTime? TermiationDate { get; set; }
+
+        public override string ToString()
+        {
+            return FirstName + " " + LastName;
+        }
     }
 }

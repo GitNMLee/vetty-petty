@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE SelectPet
-@PetName NVARCHAR
+@PetName NVARCHAR(30)
 AS
 SELECT P.PetID, P.OwnerID, P.BreedID, P.PetFirstName, P.PetLastName, P.Description, P.DeceasedOn
 FROM Pet P

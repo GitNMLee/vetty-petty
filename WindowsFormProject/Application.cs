@@ -97,6 +97,7 @@ namespace WindowsFormProject
 
         }
 
+        #region Control view code
         /// <summary>
         /// switches control view to add pet
         /// </summary>
@@ -187,6 +188,7 @@ namespace WindowsFormProject
             uxAddVetControls.Visible = false;
             uxPrescribeMedsControls.Visible = false;
         }
+        #endregion
 
         /// <summary>
         /// Event handler for Adding Pet
@@ -247,27 +249,26 @@ namespace WindowsFormProject
         /// <param name="e"></param>
         private void uxSearchPetsButton_Click(object sender, EventArgs e)
         {
-            //if search box has terms
-            if (!String.IsNullOrEmpty(uxSearchTB.Text))
+            //Search pets
+            SqlCommand cmnd = new SqlCommand("SelectPet", _sqlClient);
+            cmnd.CommandType = CommandType.StoredProcedure;
+            cmnd.Parameters.AddWithValue("@PetName", SqlDbType.NVarChar).Value = uxSearchTB.Text;
+            
+            //Populate listbox
+            using (SqlDataReader data = cmnd.ExecuteReader())
             {
-                SqlCommand cmnd = new SqlCommand("SelectPet", _sqlClient);
-                cmnd.CommandType = CommandType.StoredProcedure;
-                cmnd.Parameters.AddWithValue("@PetName", SqlDbType.NVarChar).Value = uxSearchTB.Text;
-
-                cmnd.ExecuteNonQuery();
-                
-                using (SqlDataReader data = cmnd.ExecuteReader())
+                List<Pets> list = new List<Pets>();
+                while (data.Read() != false)
                 {
-                    List<Pets> list = new List<Pets>();
-                    while (data.Read() != false)
-                    {
 
-                        list.Add(new Pets { PetID = data.GetFieldValue<int>(0), PetFirstName = data.GetFieldValue<string>(1), PetLastName = data.GetFieldValue<string>(2) });
+                    list.Add(new Pets { PetID = data.GetFieldValue<int>(0), OwnerID = data.GetFieldValue<int>(1), BreedID = data.GetFieldValue<int>(2), 
+                        PetFirstName = data.GetFieldValue<string>(3), PetLastName = data.GetFieldValue<string>(4), 
+                        Description = data.GetFieldValue<string>(5) });
 
-                    }
-                    uxSearchListBox.DataSource = list;
                 }
+                uxSearchListBox.DataSource = list;
             }
+            
         }
 
         /// <summary>
@@ -277,20 +278,24 @@ namespace WindowsFormProject
         /// <param name="e"></param>
         private void uxSearchOwnersButton_Click(object sender, EventArgs e)
         {
-            //if search box has terms
-            if (!String.IsNullOrEmpty(uxSearchTB.Text))
-            {
-                SqlCommand cmnd = new SqlCommand("SelectOwner", _sqlClient);
-                cmnd.CommandType = CommandType.StoredProcedure;
-                cmnd.Parameters.AddWithValue("@Email", SqlDbType.NVarChar).Value = uxSearchTB.Text;
+            //search Owners
+            SqlCommand cmnd = new SqlCommand("SelectOwner", _sqlClient);
+            cmnd.CommandType = CommandType.StoredProcedure;
+            cmnd.Parameters.AddWithValue("@Email", SqlDbType.NVarChar).Value = uxSearchTB.Text;
 
-                cmnd.ExecuteNonQuery();
-                //test listbox
-                /*using(SqlDataReader test = cmnd.ExecuteReader())
+            //Populate listbox
+            using (SqlDataReader data = cmnd.ExecuteReader())
+            {
+                List<Owners> list = new List<Owners>();
+                while (data.Read() != false)
                 {
-                    uxSearchListBox.DataSource = test;
-                }*/
+
+                    list.Add(new Owners { OwnerID = data.GetFieldValue<int>(0), FirstName = data.GetFieldValue<string>(1), LastName = data.GetFieldValue<string>(2), EMail = data.GetFieldValue<string>(3) });
+
+                }
+                uxSearchListBox.DataSource = list;
             }
+
         }
 
         /// <summary>
@@ -300,31 +305,23 @@ namespace WindowsFormProject
         /// <param name="e"></param>
         private void uxSearchVetsButton_Click(object sender, EventArgs e)
         {
-            //if search box has terms
-            if (!String.IsNullOrEmpty(uxSearchTB.Text))
-            {
-                string[] terms = uxSearchTB.Text.Split(' ');
-                SqlCommand cmnd = new SqlCommand("SelectVet", _sqlClient);
-                cmnd.CommandType = CommandType.StoredProcedure;
-                if(terms.Length == 1)
-                {
-                    cmnd.Parameters.AddWithValue("@FirstName", SqlDbType.NVarChar).Value = terms[0];
-                    cmnd.Parameters.AddWithValue("@LastName", SqlDbType.NVarChar).Value = terms[0];
-                }
-                else
-                {
-                    cmnd.Parameters.AddWithValue("@FirstName", SqlDbType.NVarChar).Value = terms[0];
-                    cmnd.Parameters.AddWithValue("@LastName", SqlDbType.NVarChar).Value = terms[1];
-                }
-                
+            SqlCommand cmnd = new SqlCommand("SelectVet", _sqlClient);
+            cmnd.CommandType = CommandType.StoredProcedure;
+            cmnd.Parameters.AddWithValue("@Search", SqlDbType.NVarChar).Value = uxSearchTB.Text;
 
-                cmnd.ExecuteNonQuery();
-                //test listbox
-                /*using(SqlDataReader test = cmnd.ExecuteReader())
+            //Populate listbox
+            using (SqlDataReader data = cmnd.ExecuteReader())
+            {
+                List<Vets> list = new List<Vets>();
+                while (data.Read() != false)
                 {
-                    uxSearchListBox.DataSource = test;
-                }*/
+
+                    list.Add(new Vets { VetID = data.GetFieldValue<int>(0), FirstName = data.GetFieldValue<string>(1), LastName = data.GetFieldValue<string>(2), HireDate = data.GetFieldValue<DateTime>(3) });
+
+                }
+                uxSearchListBox.DataSource = list;
             }
+            
         }
 
         /// <summary>

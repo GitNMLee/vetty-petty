@@ -14,5 +14,10 @@ namespace WindowsFormProject.Database_Objects
         public string LastName { get; set; }
 
         public string EMail { get; set; }
+
+        public override string ToString()
+        {
+            return FirstName + " " + LastName;
+        }
     }
 }
