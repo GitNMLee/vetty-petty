@@ -12,6 +12,7 @@ WITH quarter_cte(DateID, [Year], [Quarter]) AS (
                 ELSE 4
             END AS [Quarter]
     FROM Appointment A
+    WHERE A.[Date] <= @LastDate AND A.[Date] >= @FirstDate
 )
 
 SELECT 
