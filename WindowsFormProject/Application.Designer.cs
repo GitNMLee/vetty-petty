@@ -102,7 +102,6 @@
             // 
             // uxMenuStrip
             // 
-            this.uxMenuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.uxMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.uxMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.uxMenuAddPet,
@@ -113,49 +112,49 @@
             this.editToolStripMenuItem});
             this.uxMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.uxMenuStrip.Name = "uxMenuStrip";
-            this.uxMenuStrip.Size = new System.Drawing.Size(966, 36);
+            this.uxMenuStrip.Size = new System.Drawing.Size(966, 33);
             this.uxMenuStrip.TabIndex = 1;
             this.uxMenuStrip.Text = "MenuStrip";
             // 
             // uxMenuAddPet
             // 
             this.uxMenuAddPet.Name = "uxMenuAddPet";
-            this.uxMenuAddPet.Size = new System.Drawing.Size(91, 32);
+            this.uxMenuAddPet.Size = new System.Drawing.Size(91, 29);
             this.uxMenuAddPet.Text = "Add Pet";
             this.uxMenuAddPet.Click += new System.EventHandler(this.uxMenuAddPet_Click);
             // 
             // addVetToolStripMenuItem
             // 
             this.addVetToolStripMenuItem.Name = "addVetToolStripMenuItem";
-            this.addVetToolStripMenuItem.Size = new System.Drawing.Size(92, 32);
+            this.addVetToolStripMenuItem.Size = new System.Drawing.Size(92, 29);
             this.addVetToolStripMenuItem.Text = "Add Vet";
             this.addVetToolStripMenuItem.Click += new System.EventHandler(this.addVetToolStripMenuItem_Click);
             // 
             // uxMenuCreateApt
             // 
             this.uxMenuCreateApt.Name = "uxMenuCreateApt";
-            this.uxMenuCreateApt.Size = new System.Drawing.Size(189, 32);
+            this.uxMenuCreateApt.Size = new System.Drawing.Size(189, 29);
             this.uxMenuCreateApt.Text = "Create Appointment";
             this.uxMenuCreateApt.Click += new System.EventHandler(this.uxMenuCreateApt_Click);
             // 
             // uxMenuViewQueries
             // 
             this.uxMenuViewQueries.Name = "uxMenuViewQueries";
-            this.uxMenuViewQueries.Size = new System.Drawing.Size(230, 32);
+            this.uxMenuViewQueries.Size = new System.Drawing.Size(230, 29);
             this.uxMenuViewQueries.Text = "View Aggregated Queries";
             this.uxMenuViewQueries.Click += new System.EventHandler(this.uxMenuViewQueries_Click);
             // 
             // prescribeMedicationToolStripMenuItem
             // 
             this.prescribeMedicationToolStripMenuItem.Name = "prescribeMedicationToolStripMenuItem";
-            this.prescribeMedicationToolStripMenuItem.Size = new System.Drawing.Size(192, 32);
+            this.prescribeMedicationToolStripMenuItem.Size = new System.Drawing.Size(192, 29);
             this.prescribeMedicationToolStripMenuItem.Text = "Prescribe Medication";
             this.prescribeMedicationToolStripMenuItem.Click += new System.EventHandler(this.prescribeMedicationToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(80, 32);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(80, 29);
             this.editToolStripMenuItem.Text = "Search";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -428,6 +427,7 @@
             // uxAptDatePicker
             // 
             this.uxAptDatePicker.Location = new System.Drawing.Point(460, 15);
+            this.uxAptDatePicker.MinDate = new System.DateTime(2023, 4, 26, 0, 0, 0, 0);
             this.uxAptDatePicker.Name = "uxAptDatePicker";
             this.uxAptDatePicker.Size = new System.Drawing.Size(294, 26);
             this.uxAptDatePicker.TabIndex = 9;
@@ -445,7 +445,7 @@
             // 
             this.uxAptOwnerEmailTB.Location = new System.Drawing.Point(128, 57);
             this.uxAptOwnerEmailTB.Name = "uxAptOwnerEmailTB";
-            this.uxAptOwnerEmailTB.Size = new System.Drawing.Size(100, 26);
+            this.uxAptOwnerEmailTB.Size = new System.Drawing.Size(161, 26);
             this.uxAptOwnerEmailTB.TabIndex = 7;
             // 
             // uxAptVetCB
@@ -487,7 +487,7 @@
             // 
             this.uxAptPetNameTB.Location = new System.Drawing.Point(106, 25);
             this.uxAptPetNameTB.Name = "uxAptPetNameTB";
-            this.uxAptPetNameTB.Size = new System.Drawing.Size(100, 26);
+            this.uxAptPetNameTB.Size = new System.Drawing.Size(183, 26);
             this.uxAptPetNameTB.TabIndex = 0;
             // 
             // uxAddVetControls

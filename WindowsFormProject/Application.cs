@@ -22,13 +22,14 @@ namespace WindowsFormProject
             InitializeComponent(); uxConnectDB_Click(null, null);
             GetMedications();
             GetSpecies();
-            GetVets();
+            GetVetsAndTimes();
         }
 
         #region Get functions and Connect DB
 
-        private void GetVets()
+        private void GetVetsAndTimes()
         {
+            //get vets
             uxAptVetCB.Items.Clear();
             SqlCommand cmnd = new SqlCommand("SelectVet", _sqlClient);
             cmnd.CommandType = CommandType.StoredProcedure;
@@ -43,6 +44,14 @@ namespace WindowsFormProject
                 _vets = list;
             }
             uxAptVetCB.Items.AddRange(_vets.ToArray());
+
+            //AddTimes
+            DateTime time = DateTime.Today.AddHours(8); //8:00 am
+            while(time <= DateTime.Today.AddHours(17)) //5 pm (17:00)
+            {
+                uxAptAptTimeCB.Items.Add(time.TimeOfDay.ToString(@"hh\:mm"));
+                time = time.AddMinutes(30);
+            }
         }
         private void GetMedications()
         {
@@ -488,7 +497,7 @@ namespace WindowsFormProject
                 cmnd.Parameters.AddWithValue("@OwnerEMail", SqlDbType.NVarChar).Value = uxAptOwnerEmailTB.Text;
                 cmnd.Parameters.AddWithValue("@VetID", SqlDbType.Int).Value = vet.VetID;
                 cmnd.Parameters.AddWithValue("@Date", SqlDbType.DateTime).Value = DateTime.Parse(uxAptDatePicker.Text);
-                cmnd.Parameters.AddWithValue("@Time", SqlDbType.DateTime).Value = (DateTime)uxAptAptTimeCB.SelectedItem;
+                cmnd.Parameters.AddWithValue("@Time", SqlDbType.DateTime).Value = DateTime.Parse(uxAptAptTimeCB.SelectedItem.ToString());
                 cmnd.Parameters.AddWithValue("@Reason", SqlDbType.NVarChar).Value = uxAptReasonTB.Text;
 
                 cmnd.ExecuteNonQuery();
@@ -496,9 +505,9 @@ namespace WindowsFormProject
                 MessageBox.Show($"Appointment successfully created for {nameSplit[0]} {nameSplit[1]} for {uxAptDatePicker.Text} at {uxAptAptTimeCB.SelectedItem}");
                 ClearForm();
             }
-            catch (SqlException sqlEx)
+            catch (Exception Ex)
             {
-                MessageBox.Show(sqlEx.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
