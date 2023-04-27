@@ -348,6 +348,7 @@
             this.uxQuerySelectQueryCB.Name = "uxQuerySelectQueryCB";
             this.uxQuerySelectQueryCB.Size = new System.Drawing.Size(121, 28);
             this.uxQuerySelectQueryCB.TabIndex = 6;
+            this.uxQuerySelectQueryCB.SelectedIndexChanged += new System.EventHandler(this.uxQuerySelectQueryCB_SelectedIndexChanged);
             // 
             // uxQuerySelectQueryLabel
             // 

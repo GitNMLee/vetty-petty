@@ -14,6 +14,7 @@ namespace WindowsFormProject
         private List<Medications> _medications;
         private List<Breed> _breeds;
         private List<Species> _species;
+        private List<string> _queries;
         private SqlConnection _sqlClient;
 
         public Application()
@@ -21,9 +22,17 @@ namespace WindowsFormProject
             InitializeComponent(); uxConnectDB_Click(null, null);
             GetMedications();
             GetSpecies();
+            FillAggregatedQueries();
         }
 
         #region Get functions and Connect DB
+        private void FillAggregatedQueries()
+        {
+            List<string> queryList = new List<string>() { "CommonMedicationByBreed", "CommonNamesByBreed", "MonthlyAppointmentsByVet", "QuarterlyAppointments" };
+            _queries = queryList;
+            uxQuerySelectQueryCB.Items.AddRange(_queries.ToArray());
+        }
+
         private void GetMedications()
         {
             uxMedsMedicationCB.Items.Clear();
@@ -518,6 +527,26 @@ namespace WindowsFormProject
             {
                 MessageBox.Show(sqlEx.Message);
             }
+        }
+
+        private void OpenDataTable(string procedureName)
+        {
+            DataTable dt = new DataTable();
+
+            SqlCommand cmnd = new SqlCommand(procedureName, _sqlClient);
+            cmnd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmnd);
+            dataAdapter.Fill(dt);
+
+            DataPopup window = new DataPopup();
+            window.uxDataGrid.DataSource = dt;
+            window.Show();
+        }
+
+        private void uxQuerySelectQueryCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string queryName = uxQuerySelectQueryCB.SelectedItem as string;
+            OpenDataTable(queryName);
         }
     }
 }

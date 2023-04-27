@@ -61,6 +61,12 @@
     <Compile Include="Database Objects\PetsMeds.cs" />
     <Compile Include="Database Objects\Species.cs" />
     <Compile Include="Database Objects\Vets.cs" />
+    <Compile Include="DataPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataPopup.Designer.cs">
+      <DependentUpon>DataPopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditOwnerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Application.resx">
       <DependentUpon>Application.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataPopup.resx">
+      <DependentUpon>DataPopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditOwnerForm.resx">
       <DependentUpon>EditOwnerForm.cs</DependentUpon>
