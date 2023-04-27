@@ -54,8 +54,6 @@
             this.uxPCFirstNameLabel = new System.Windows.Forms.Label();
             this.uxPCPetFirstNameTB = new System.Windows.Forms.TextBox();
             this.uxQueryControls = new System.Windows.Forms.GroupBox();
-            this.uxQuerySelectQueryCB = new System.Windows.Forms.ComboBox();
-            this.uxQuerySelectQueryLabel = new System.Windows.Forms.Label();
             this.uxCreateAptControls = new System.Windows.Forms.GroupBox();
             this.uxAptSubmitButton = new System.Windows.Forms.Button();
             this.uxAptReasonTB = new System.Windows.Forms.TextBox();
@@ -77,6 +75,8 @@
             this.uxVetFirstNameLabel = new System.Windows.Forms.Label();
             this.uxVetFirstNameTB = new System.Windows.Forms.TextBox();
             this.uxPrescribeMedsControls = new System.Windows.Forms.GroupBox();
+            this.uxMedsInstructionsTB = new System.Windows.Forms.TextBox();
+            this.uxMedsInstructionsLabel = new System.Windows.Forms.Label();
             this.uxMedsSubmitButton = new System.Windows.Forms.Button();
             this.uxMedsMedicationCB = new System.Windows.Forms.ComboBox();
             this.uxMedsMedicationLabel = new System.Windows.Forms.Label();
@@ -91,6 +91,11 @@
             this.uxSearchOwnersButton = new System.Windows.Forms.Button();
             this.uxSearchPetsButton = new System.Windows.Forms.Button();
             this.uxSearchListBox = new System.Windows.Forms.ListBox();
+            this.uxQueryRankVets = new System.Windows.Forms.Button();
+            this.uxQuery = new System.Windows.Forms.Button();
+            this.uxQueryCommonNames = new System.Windows.Forms.Button();
+            this.uxQueryTotalApts = new System.Windows.Forms.Button();
+            this.uxQueryDataGridView = new System.Windows.Forms.DataGridView();
             this.uxMenuStrip.SuspendLayout();
             this.uxAddPetControls.SuspendLayout();
             this.uxQueryControls.SuspendLayout();
@@ -98,11 +103,11 @@
             this.uxAddVetControls.SuspendLayout();
             this.uxPrescribeMedsControls.SuspendLayout();
             this.uxSearchControls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uxQueryDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // uxMenuStrip
             // 
-            this.uxMenuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.uxMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.uxMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.uxMenuAddPet,
@@ -113,49 +118,49 @@
             this.editToolStripMenuItem});
             this.uxMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.uxMenuStrip.Name = "uxMenuStrip";
-            this.uxMenuStrip.Size = new System.Drawing.Size(966, 36);
+            this.uxMenuStrip.Size = new System.Drawing.Size(966, 33);
             this.uxMenuStrip.TabIndex = 1;
             this.uxMenuStrip.Text = "MenuStrip";
             // 
             // uxMenuAddPet
             // 
             this.uxMenuAddPet.Name = "uxMenuAddPet";
-            this.uxMenuAddPet.Size = new System.Drawing.Size(91, 32);
+            this.uxMenuAddPet.Size = new System.Drawing.Size(91, 29);
             this.uxMenuAddPet.Text = "Add Pet";
             this.uxMenuAddPet.Click += new System.EventHandler(this.uxMenuAddPet_Click);
             // 
             // addVetToolStripMenuItem
             // 
             this.addVetToolStripMenuItem.Name = "addVetToolStripMenuItem";
-            this.addVetToolStripMenuItem.Size = new System.Drawing.Size(92, 32);
+            this.addVetToolStripMenuItem.Size = new System.Drawing.Size(92, 29);
             this.addVetToolStripMenuItem.Text = "Add Vet";
             this.addVetToolStripMenuItem.Click += new System.EventHandler(this.addVetToolStripMenuItem_Click);
             // 
             // uxMenuCreateApt
             // 
             this.uxMenuCreateApt.Name = "uxMenuCreateApt";
-            this.uxMenuCreateApt.Size = new System.Drawing.Size(189, 32);
+            this.uxMenuCreateApt.Size = new System.Drawing.Size(189, 29);
             this.uxMenuCreateApt.Text = "Create Appointment";
             this.uxMenuCreateApt.Click += new System.EventHandler(this.uxMenuCreateApt_Click);
             // 
             // uxMenuViewQueries
             // 
             this.uxMenuViewQueries.Name = "uxMenuViewQueries";
-            this.uxMenuViewQueries.Size = new System.Drawing.Size(230, 32);
-            this.uxMenuViewQueries.Text = "View Aggregated Queries";
+            this.uxMenuViewQueries.Size = new System.Drawing.Size(145, 29);
+            this.uxMenuViewQueries.Text = "View Data Sets";
             this.uxMenuViewQueries.Click += new System.EventHandler(this.uxMenuViewQueries_Click);
             // 
             // prescribeMedicationToolStripMenuItem
             // 
             this.prescribeMedicationToolStripMenuItem.Name = "prescribeMedicationToolStripMenuItem";
-            this.prescribeMedicationToolStripMenuItem.Size = new System.Drawing.Size(192, 32);
+            this.prescribeMedicationToolStripMenuItem.Size = new System.Drawing.Size(192, 29);
             this.prescribeMedicationToolStripMenuItem.Text = "Prescribe Medication";
             this.prescribeMedicationToolStripMenuItem.Click += new System.EventHandler(this.prescribeMedicationToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(80, 32);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(80, 29);
             this.editToolStripMenuItem.Text = "Search";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -331,14 +336,17 @@
             // 
             // uxQueryControls
             // 
-            this.uxQueryControls.Controls.Add(this.uxQuerySelectQueryCB);
-            this.uxQueryControls.Controls.Add(this.uxQuerySelectQueryLabel);
+            this.uxQueryControls.Controls.Add(this.uxQueryDataGridView);
+            this.uxQueryControls.Controls.Add(this.uxQueryTotalApts);
+            this.uxQueryControls.Controls.Add(this.uxQueryCommonNames);
+            this.uxQueryControls.Controls.Add(this.uxQuery);
+            this.uxQueryControls.Controls.Add(this.uxQueryRankVets);
             this.uxQueryControls.Location = new System.Drawing.Point(4, 37);
             this.uxQueryControls.Name = "uxQueryControls";
             this.uxQueryControls.Size = new System.Drawing.Size(909, 405);
             this.uxQueryControls.TabIndex = 11;
             this.uxQueryControls.TabStop = false;
-            this.uxQueryControls.Text = "View AggregatedQueries";
+            this.uxQueryControls.Text = "View Data Sets";
             this.uxQueryControls.Visible = false;
             // 
             // uxQuerySelectQueryCB
@@ -429,8 +437,9 @@
             // uxAptDatePicker
             // 
             this.uxAptDatePicker.Location = new System.Drawing.Point(460, 15);
+            this.uxAptDatePicker.MinDate = new System.DateTime(2023, 4, 26, 0, 0, 0, 0);
             this.uxAptDatePicker.Name = "uxAptDatePicker";
-            this.uxAptDatePicker.Size = new System.Drawing.Size(200, 26);
+            this.uxAptDatePicker.Size = new System.Drawing.Size(294, 26);
             this.uxAptDatePicker.TabIndex = 9;
             // 
             // uxAptDateLabel
@@ -446,7 +455,7 @@
             // 
             this.uxAptOwnerEmailTB.Location = new System.Drawing.Point(128, 57);
             this.uxAptOwnerEmailTB.Name = "uxAptOwnerEmailTB";
-            this.uxAptOwnerEmailTB.Size = new System.Drawing.Size(100, 26);
+            this.uxAptOwnerEmailTB.Size = new System.Drawing.Size(161, 26);
             this.uxAptOwnerEmailTB.TabIndex = 7;
             // 
             // uxAptVetCB
@@ -488,7 +497,7 @@
             // 
             this.uxAptPetNameTB.Location = new System.Drawing.Point(106, 25);
             this.uxAptPetNameTB.Name = "uxAptPetNameTB";
-            this.uxAptPetNameTB.Size = new System.Drawing.Size(100, 26);
+            this.uxAptPetNameTB.Size = new System.Drawing.Size(183, 26);
             this.uxAptPetNameTB.TabIndex = 0;
             // 
             // uxAddVetControls
@@ -550,6 +559,8 @@
             // 
             // uxPrescribeMedsControls
             // 
+            this.uxPrescribeMedsControls.Controls.Add(this.uxMedsInstructionsTB);
+            this.uxPrescribeMedsControls.Controls.Add(this.uxMedsInstructionsLabel);
             this.uxPrescribeMedsControls.Controls.Add(this.uxMedsSubmitButton);
             this.uxPrescribeMedsControls.Controls.Add(this.uxMedsMedicationCB);
             this.uxPrescribeMedsControls.Controls.Add(this.uxMedsMedicationLabel);
@@ -564,6 +575,23 @@
             this.uxPrescribeMedsControls.TabStop = false;
             this.uxPrescribeMedsControls.Text = "Prescribe Medication";
             this.uxPrescribeMedsControls.Visible = false;
+            // 
+            // uxMedsInstructionsTB
+            // 
+            this.uxMedsInstructionsTB.Location = new System.Drawing.Point(23, 152);
+            this.uxMedsInstructionsTB.Multiline = true;
+            this.uxMedsInstructionsTB.Name = "uxMedsInstructionsTB";
+            this.uxMedsInstructionsTB.Size = new System.Drawing.Size(294, 73);
+            this.uxMedsInstructionsTB.TabIndex = 18;
+            // 
+            // uxMedsInstructionsLabel
+            // 
+            this.uxMedsInstructionsLabel.AutoSize = true;
+            this.uxMedsInstructionsLabel.Location = new System.Drawing.Point(22, 120);
+            this.uxMedsInstructionsLabel.Name = "uxMedsInstructionsLabel";
+            this.uxMedsInstructionsLabel.Size = new System.Drawing.Size(92, 20);
+            this.uxMedsInstructionsLabel.TabIndex = 17;
+            this.uxMedsInstructionsLabel.Text = "Instructions";
             // 
             // uxMedsSubmitButton
             // 
@@ -697,18 +725,64 @@
             this.uxSearchListBox.Size = new System.Drawing.Size(306, 324);
             this.uxSearchListBox.TabIndex = 1;
             // 
+            // uxQueryRankVets
+            // 
+            this.uxQueryRankVets.Location = new System.Drawing.Point(9, 21);
+            this.uxQueryRankVets.Name = "uxQueryRankVets";
+            this.uxQueryRankVets.Size = new System.Drawing.Size(176, 34);
+            this.uxQueryRankVets.TabIndex = 0;
+            this.uxQueryRankVets.Text = "Rank Vets";
+            this.uxQueryRankVets.UseVisualStyleBackColor = true;
+            // 
+            // uxQuery
+            // 
+            this.uxQuery.Location = new System.Drawing.Point(191, 22);
+            this.uxQuery.Name = "uxQuery";
+            this.uxQuery.Size = new System.Drawing.Size(176, 34);
+            this.uxQuery.TabIndex = 1;
+            this.uxQuery.Text = "Breeds and Meds";
+            this.uxQuery.UseVisualStyleBackColor = true;
+            // 
+            // uxQueryCommonNames
+            // 
+            this.uxQueryCommonNames.Location = new System.Drawing.Point(373, 22);
+            this.uxQueryCommonNames.Name = "uxQueryCommonNames";
+            this.uxQueryCommonNames.Size = new System.Drawing.Size(176, 34);
+            this.uxQueryCommonNames.TabIndex = 2;
+            this.uxQueryCommonNames.Text = "Common Names";
+            this.uxQueryCommonNames.UseVisualStyleBackColor = true;
+            // 
+            // uxQueryTotalApts
+            // 
+            this.uxQueryTotalApts.Location = new System.Drawing.Point(555, 22);
+            this.uxQueryTotalApts.Name = "uxQueryTotalApts";
+            this.uxQueryTotalApts.Size = new System.Drawing.Size(176, 34);
+            this.uxQueryTotalApts.TabIndex = 3;
+            this.uxQueryTotalApts.Text = "Total Appointments";
+            this.uxQueryTotalApts.UseVisualStyleBackColor = true;
+            // 
+            // uxQueryDataGridView
+            // 
+            this.uxQueryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.uxQueryDataGridView.Location = new System.Drawing.Point(9, 75);
+            this.uxQueryDataGridView.Name = "uxQueryDataGridView";
+            this.uxQueryDataGridView.RowHeadersWidth = 62;
+            this.uxQueryDataGridView.RowTemplate.Height = 28;
+            this.uxQueryDataGridView.Size = new System.Drawing.Size(722, 265);
+            this.uxQueryDataGridView.TabIndex = 4;
+            // 
             // Application
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(966, 504);
-            this.Controls.Add(this.uxAddPetControls);
-            this.Controls.Add(this.uxSearchControls);
-            this.Controls.Add(this.uxAddVetControls);
-            this.Controls.Add(this.uxPrescribeMedsControls);
-            this.Controls.Add(this.uxCreateAptControls);
             this.Controls.Add(this.uxQueryControls);
+            this.Controls.Add(this.uxPrescribeMedsControls);
+            this.Controls.Add(this.uxAddPetControls);
+            this.Controls.Add(this.uxCreateAptControls);
+            this.Controls.Add(this.uxAddVetControls);
+            this.Controls.Add(this.uxSearchControls);
             this.Controls.Add(this.uxMenuStrip);
             this.MainMenuStrip = this.uxMenuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -719,7 +793,6 @@
             this.uxAddPetControls.ResumeLayout(false);
             this.uxAddPetControls.PerformLayout();
             this.uxQueryControls.ResumeLayout(false);
-            this.uxQueryControls.PerformLayout();
             this.uxCreateAptControls.ResumeLayout(false);
             this.uxCreateAptControls.PerformLayout();
             this.uxAddVetControls.ResumeLayout(false);
@@ -728,6 +801,7 @@
             this.uxPrescribeMedsControls.PerformLayout();
             this.uxSearchControls.ResumeLayout(false);
             this.uxSearchControls.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uxQueryDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -755,8 +829,6 @@
         private System.Windows.Forms.Label uxAptPetNameLabel;
         private System.Windows.Forms.TextBox uxAptPetNameTB;
         private System.Windows.Forms.GroupBox uxQueryControls;
-        private System.Windows.Forms.ComboBox uxQuerySelectQueryCB;
-        private System.Windows.Forms.Label uxQuerySelectQueryLabel;
         private System.Windows.Forms.Label uxAptAptDateLabel;
         private System.Windows.Forms.ComboBox uxAptAptTimeCB;
         private System.Windows.Forms.Label uxPCOwnerLastNameLabel;
@@ -797,6 +869,13 @@
         private System.Windows.Forms.Button uxSearchPetsButton;
         private System.Windows.Forms.ListBox uxSearchListBox;
         private System.Windows.Forms.Button uxSearchEditButton;
+        private System.Windows.Forms.TextBox uxMedsInstructionsTB;
+        private System.Windows.Forms.Label uxMedsInstructionsLabel;
+        private System.Windows.Forms.Button uxQueryTotalApts;
+        private System.Windows.Forms.Button uxQueryCommonNames;
+        private System.Windows.Forms.Button uxQuery;
+        private System.Windows.Forms.Button uxQueryRankVets;
+        private System.Windows.Forms.DataGridView uxQueryDataGridView;
     }
 }
 

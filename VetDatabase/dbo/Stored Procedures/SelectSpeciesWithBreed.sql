@@ -3,4 +3,5 @@
 AS
 SELECT S.SpeciesID, S.SpeciesName
 FROM Species S
-WHERE S.SpeciesID = @BreedID
+	INNER JOIN Breed B ON B.SpeciesID = S.SpeciesID
+WHERE B.BreedID = @BreedID

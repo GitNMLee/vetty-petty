@@ -16,16 +16,45 @@ namespace WindowsFormProject
         private List<Species> _species;
         private List<string> _queries;
         private SqlConnection _sqlClient;
+        private List<Vets> _vets;
 
         public Application()
         {
             InitializeComponent(); uxConnectDB_Click(null, null);
             GetMedications();
             GetSpecies();
+            GetVetsAndTimes();
             FillAggregatedQueries();
         }
 
         #region Get functions and Connect DB
+
+        private void GetVetsAndTimes()
+        {
+            //get vets
+            uxAptVetCB.Items.Clear();
+            SqlCommand cmnd = new SqlCommand("SelectVet", _sqlClient);
+            cmnd.CommandType = CommandType.StoredProcedure;
+            cmnd.Parameters.AddWithValue("@Search", SqlDbType.NVarChar).Value = "";
+            using (SqlDataReader data = cmnd.ExecuteReader())
+            {
+                List<Vets> list = new List<Vets>();
+                while(data.Read() != false)
+                {
+                    list.Add(new Vets { VetID = data.GetFieldValue<int>(0), FirstName = data.GetFieldValue<string>(1), LastName = data.GetFieldValue<string>(2), HireDate = data.GetFieldValue<DateTime>(3) });
+                }
+                _vets = list;
+            }
+            uxAptVetCB.Items.AddRange(_vets.ToArray());
+
+            //AddTimes
+            DateTime time = DateTime.Today.AddHours(8); //8:00 am
+            while(time <= DateTime.Today.AddHours(17)) //5 pm (17:00)
+            {
+                uxAptAptTimeCB.Items.Add(time.TimeOfDay.ToString(@"hh\:mm"));
+                time = time.AddMinutes(30);
+            }
+        }
         private void FillAggregatedQueries()
         {
             List<string> queryList = new List<string>() { "CommonMedicationByBreed", "CommonNamesByBreed", "MonthlyAppointmentsByVet", "QuarterlyAppointments" };
@@ -203,55 +232,7 @@ namespace WindowsFormProject
         }
         #endregion
 
-        /// <summary>
-        /// Event handler for Adding Pet
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void uxPCSubmitButton_Click(object sender, EventArgs e)
-        {
-            // Check that each text box is filled
-            foreach (TextBox tb in uxAddPetControls.Controls.OfType<TextBox>())
-            {
-                if (string.IsNullOrEmpty(tb.Text))
-                {
-                    MessageBox.Show("Please fill in all information.");
-                    return;
-                }
-            }
 
-            // Check that each combo box has a selection
-            foreach (ComboBox cb in uxAddPetControls.Controls.OfType<ComboBox>())
-            {
-                if (cb.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Please fill in all information.");
-                    return;
-                }
-            }
-
-            // Run Sql stored procedure
-            try
-            {
-                SqlCommand cmnd = new SqlCommand("InsertPet", _sqlClient);
-                cmnd.CommandType = CommandType.StoredProcedure;
-                cmnd.Parameters.AddWithValue("@OwnerFirstName", SqlDbType.NVarChar).Value = uxPCOwnerFirstNameTB.Text;
-                cmnd.Parameters.AddWithValue("@OwnerLastName", SqlDbType.NVarChar).Value = uxPCOwnerLastNameTB.Text;
-                cmnd.Parameters.AddWithValue("@OwnerEMail", SqlDbType.NVarChar).Value = uxPCOwnerEmailTB.Text;
-
-                cmnd.Parameters.AddWithValue("@PetFirstName", SqlDbType.NVarChar).Value = uxPCPetFirstNameTB.Text;
-                cmnd.Parameters.AddWithValue("@PetLastName", SqlDbType.NVarChar).Value = uxPCPetLastNameTB.Text;
-                cmnd.Parameters.AddWithValue("@PetSpecies", SqlDbType.NVarChar).Value = uxPetSpeciesCB.SelectedItem.ToString();
-                cmnd.Parameters.AddWithValue("@PetBreed", SqlDbType.NVarChar).Value = uxPetBreedCB.SelectedItem.ToString();
-                cmnd.Parameters.AddWithValue("@PetDescription", SqlDbType.NVarChar).Value = uxPCPetDescriptionTB.Text;
-
-                int n = cmnd.ExecuteNonQuery();
-            }
-            catch (SqlException sqlEx)
-            {
-                MessageBox.Show(sqlEx.Message);
-            }
-        }
 
         #region Search functions
         /// <summary>
@@ -388,6 +369,61 @@ namespace WindowsFormProject
             }
         }
 
+        #region Submit button functions
+        /// <summary>
+        /// Event handler for Adding Pet
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxPCSubmitButton_Click(object sender, EventArgs e)
+        {
+            // Check that each text box is filled
+            foreach (TextBox tb in uxAddPetControls.Controls.OfType<TextBox>())
+            {
+                if (string.IsNullOrEmpty(tb.Text))
+                {
+                    MessageBox.Show("Please fill in all information.");
+                    return;
+                }
+            }
+
+            // Check that each combo box has a selection
+            foreach (ComboBox cb in uxAddPetControls.Controls.OfType<ComboBox>())
+            {
+                if (cb.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please fill in all information.");
+                    return;
+                }
+            }
+
+            // Run Sql stored procedure
+            try
+            {
+                SqlCommand cmnd = new SqlCommand("InsertPet", _sqlClient);
+                cmnd.CommandType = CommandType.StoredProcedure;
+                cmnd.Parameters.AddWithValue("@OwnerFirstName", SqlDbType.NVarChar).Value = uxPCOwnerFirstNameTB.Text;
+                cmnd.Parameters.AddWithValue("@OwnerLastName", SqlDbType.NVarChar).Value = uxPCOwnerLastNameTB.Text;
+                cmnd.Parameters.AddWithValue("@OwnerEMail", SqlDbType.NVarChar).Value = uxPCOwnerEmailTB.Text;
+
+                cmnd.Parameters.AddWithValue("@PetFirstName", SqlDbType.NVarChar).Value = uxPCPetFirstNameTB.Text;
+                cmnd.Parameters.AddWithValue("@PetLastName", SqlDbType.NVarChar).Value = uxPCPetLastNameTB.Text;
+                cmnd.Parameters.AddWithValue("@PetSpecies", SqlDbType.NVarChar).Value = uxPetSpeciesCB.SelectedItem.ToString();
+                cmnd.Parameters.AddWithValue("@PetBreed", SqlDbType.NVarChar).Value = uxPetBreedCB.SelectedItem.ToString();
+                cmnd.Parameters.AddWithValue("@PetDescription", SqlDbType.NVarChar).Value = uxPCPetDescriptionTB.Text;
+
+                int n = cmnd.ExecuteNonQuery();
+
+                MessageBox.Show($"{uxPCPetFirstNameTB.Text} {uxPCPetLastNameTB.Text} added successfully");
+                ClearForm();
+                
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
+            }
+        }
+
         /// <summary>
         /// Event Handler for Adding Vet
         /// </summary>
@@ -414,6 +450,9 @@ namespace WindowsFormProject
                 cmnd.Parameters.AddWithValue("@VetLastName", SqlDbType.NVarChar).Value = uxVetLastNameTB.Text;
 
                 cmnd.ExecuteNonQuery();
+
+                MessageBox.Show($"{uxVetFirstNameTB.Text} {uxVetLastNameTB.Text} added successfully");
+                ClearForm();
             }
             catch (SqlException sqlEx)
             {
@@ -463,21 +502,24 @@ namespace WindowsFormProject
                 SqlCommand cmnd = new SqlCommand("InsertAppointment", _sqlClient);
                 cmnd.CommandType = CommandType.StoredProcedure;
                 string[] nameSplit = uxAptPetNameTB.Text.Split(' ');
-                if (nameSplit.Length != 2) throw new Exception("Could not split name");
+                if (nameSplit.Length != 2) throw new Exception("Please enter first and last name of pet");
                 Vets vet = uxAptVetCB.SelectedItem as Vets;
                 cmnd.Parameters.AddWithValue("@PetFirstName", SqlDbType.NVarChar).Value = nameSplit[0];
                 cmnd.Parameters.AddWithValue("@PetLastName", SqlDbType.NVarChar).Value = nameSplit[1];
                 cmnd.Parameters.AddWithValue("@OwnerEMail", SqlDbType.NVarChar).Value = uxAptOwnerEmailTB.Text;
                 cmnd.Parameters.AddWithValue("@VetID", SqlDbType.Int).Value = vet.VetID;
                 cmnd.Parameters.AddWithValue("@Date", SqlDbType.DateTime).Value = DateTime.Parse(uxAptDatePicker.Text);
-                cmnd.Parameters.AddWithValue("@Time", SqlDbType.DateTime).Value = (DateTime)uxAptAptTimeCB.SelectedItem;
+                cmnd.Parameters.AddWithValue("@Time", SqlDbType.DateTime).Value = DateTime.Parse(uxAptAptTimeCB.SelectedItem.ToString());
                 cmnd.Parameters.AddWithValue("@Reason", SqlDbType.NVarChar).Value = uxAptReasonTB.Text;
 
                 cmnd.ExecuteNonQuery();
+
+                MessageBox.Show($"Appointment successfully created for {nameSplit[0]} {nameSplit[1]} for {uxAptDatePicker.Text} at {uxAptAptTimeCB.SelectedItem}");
+                ClearForm();
             }
-            catch (SqlException sqlEx)
+            catch (Exception Ex)
             {
-                MessageBox.Show(sqlEx.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -513,20 +555,66 @@ namespace WindowsFormProject
                 SqlCommand cmnd = new SqlCommand("InsertPetMed", _sqlClient);
                 cmnd.CommandType = CommandType.StoredProcedure;
                 string[] nameSplit = uxMedsPetNameTB.Text.Split(' ');
-                if (nameSplit.Length != 2) throw new Exception("Could not split name");
+                if (nameSplit.Length != 2) throw new Exception("Please enter first and last name of pet");
                 Medications medication = uxMedsMedicationCB.SelectedItem as Medications;
                 cmnd.Parameters.AddWithValue("@PetFirstName", SqlDbType.NVarChar).Value = nameSplit[0];
                 cmnd.Parameters.AddWithValue("@PetLastName", SqlDbType.NVarChar).Value = nameSplit[1];
                 cmnd.Parameters.AddWithValue("@OwnerEMail", SqlDbType.NVarChar).Value = uxMedsOwnerEmailTB.Text;
                 cmnd.Parameters.AddWithValue("@MedicationID", SqlDbType.Int).Value = medication.MedicationID;
-                cmnd.Parameters.AddWithValue("@Instructions", SqlDbType.NVarChar).Value = "";
+                cmnd.Parameters.AddWithValue("@Instructions", SqlDbType.NVarChar).Value = uxMedsInstructionsTB.Text;
 
                 cmnd.ExecuteNonQuery();
+
+                MessageBox.Show($"{uxMedsPetNameTB.Text} has been prescribed {medication.MedicationName}");
+                ClearForm();
             }
-            catch (SqlException sqlEx)
+            catch (Exception Ex)
             {
-                MessageBox.Show(sqlEx.Message);
+                MessageBox.Show(Ex.Message);
             }
+        }
+
+        /// <summary>
+        /// Clears form
+        /// </summary>
+        private void ClearForm()
+        {
+            //AddPetControls
+            foreach (TextBox tb in uxAddPetControls.Controls.OfType<TextBox>())
+            {
+                tb.Clear();
+            }
+            foreach (ComboBox cb in uxAddPetControls.Controls.OfType<ComboBox>())
+            {
+                cb.SelectedIndex = -1;
+            }
+
+            //AddVetControls
+            foreach (TextBox tb in uxAddVetControls.Controls.OfType<TextBox>())
+            {
+                tb.Clear();
+            }
+
+            //CreateAptControls
+            foreach (TextBox tb in uxCreateAptControls.Controls.OfType<TextBox>())
+            {
+                tb.Clear();
+            }
+            foreach (ComboBox cb in uxCreateAptControls.Controls.OfType<ComboBox>())
+            {
+                cb.SelectedIndex = -1;
+            }
+
+            //PrescribeMedsControls
+            foreach (TextBox tb in uxPrescribeMedsControls.Controls.OfType<TextBox>())
+            {
+                tb.Clear();
+            }
+            foreach (ComboBox cb in uxPrescribeMedsControls.Controls.OfType<ComboBox>())
+            {
+                cb.SelectedIndex = -1;
+            }
+
         }
 
         private void OpenDataTable(string procedureName)
@@ -548,5 +636,6 @@ namespace WindowsFormProject
             string queryName = uxQuerySelectQueryCB.SelectedItem as string;
             OpenDataTable(queryName);
         }
+        #endregion
     }
 }

@@ -13,4 +13,4 @@ WITH name_rank_cte AS
 SELECT RCTE.[PetName], RCTE.Species, RCTE.Breed,
         RANK() OVER(ORDER BY RCTE.[Count] DESC) AS [Rank]
 FROM name_rank_cte RCTE
-ORDER BY [Rank] ASC
+ORDER BY [Rank] ASC, RCTE.Species ASC, RCTE.Breed ASC

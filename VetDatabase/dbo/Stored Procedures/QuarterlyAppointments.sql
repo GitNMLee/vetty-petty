@@ -3,8 +3,8 @@
 @LastDate DATETIME2 = '01-01-2000 12:00:00 AM'
 AS
 
-WITH quarter_cte(DateID, [Date], [Quarter]) AS (
-    SELECT A.DateID, A.[Date],
+WITH quarter_cte(DateID, [Year], [Quarter]) AS (
+    SELECT A.DateID, YEAR(A.[Date]),
             CASE
                 WHEN MONTH(A.[Date]) BETWEEN 1 AND 3 THEN 1
                 WHEN MONTH(A.[Date]) BETWEEN 4 AND 6 THEN 2
@@ -12,11 +12,13 @@ WITH quarter_cte(DateID, [Date], [Quarter]) AS (
                 ELSE 4
             END AS [Quarter]
     FROM Appointment A
+    WHERE A.[Date] <= @LastDate AND A.[Date] >= @FirstDate
 )
 
 SELECT 
-    YEAR(Q.[Date]),
+    Q.[Year],
     Q.[Quarter],
-    COUNT(Q.DateID) OVER (PARTITION BY YEAR(Q.[Date]), Q.[Quarter]) AS AppointmentCount
+    COUNT(DISTINCT Q.DateID) AS AppointmentCount
 FROM quarter_cte Q
-ORDER BY YEAR(Q.[Date]) DESC, Q.[Quarter] ASC
+GROUP BY Q.[Quarter], Q.[Year]
+ORDER BY Q.[Year] DESC, Q.[Quarter] ASC
