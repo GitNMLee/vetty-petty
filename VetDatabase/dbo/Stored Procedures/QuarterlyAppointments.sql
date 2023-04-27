@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE QuarterlyAppointments
 @FirstDate DATETIME2 = '01-01-2000 12:00:00 AM',
-@LastDate DATETIME2 = '01-01-2000 12:00:00 AM'
+@LastDate DATETIME2 = '01-01-2999 12:00:00 AM'
 AS
 
 WITH quarter_cte(DateID, [Year], [Quarter]) AS (

@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE MonthlyAppointmentsByVet
 @FirstDate AS DATETIME2 = '01-01-2000 12:00:00 AM',
-@LastDate AS DATETIME2 = '01-01-2000 12:00:00 AM'
+@LastDate AS DATETIME2 = '01-01-2999 12:00:00 AM'
 AS
 
 WITH appointment_count_cte(VetID, AppointmentCount, AppointmentYear, AppointmentMonth) AS (
