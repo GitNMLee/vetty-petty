@@ -398,3 +398,10 @@ insert into Pet ( OwnerID, BreedID, PetFirstName, PetLastName, Description, Dece
 insert into Pet ( OwnerID, BreedID, PetFirstName, PetLastName, Description, DeceasedOn) values ( 98, 48, 'Chev', 'Maulin', 'Maecenas rhoncus aliquam lacus.', NULL);
 insert into Pet ( OwnerID, BreedID, PetFirstName, PetLastName, Description, DeceasedOn) values ( 99, 49, 'Carlina', 'Tootal', 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.', NULL);
 insert into Pet ( OwnerID, BreedID, PetFirstName, PetLastName, Description, DeceasedOn) values ( 100, 50, 'Brynn', 'di Rocca', 'Suspendisse potenti. Cras in purus eu magna vulputate luctus.', NULL);
+
+insert into Pet ( OwnerID, BreedID, PetFirstName, PetLastName, Description, DeceasedOn) values ( 99, 49, 'Precious', 'Rock', 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.', NULL);
+insert into Pet ( OwnerID, BreedID, PetFirstName, PetLastName, Description, DeceasedOn) values ( 99, 49, 'Horo', 'Scope', 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.', NULL);
+insert into Pet ( OwnerID, BreedID, PetFirstName, PetLastName, Description, DeceasedOn) values ( 99, 49, 'Doofen', 'Schmirtz', 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.', NULL);
+insert into Pet ( OwnerID, BreedID, PetFirstName, PetLastName, Description, DeceasedOn) values ( 100, 50, 'Josh', 'Weese', 'Suspendisse potenti. Cras in purus eu magna vulputate luctus.', NULL);
+
+

@@ -9,3 +9,12 @@ insert into PetMed (PetID, MedicationID, Instructions) values ( 8, 8, 'Vestibulu
 insert into PetMed (PetID, MedicationID, Instructions) values ( 9, 9, 'Pellentesque at nulla. Suspendisse potenti.');
 insert into PetMed (PetID, MedicationID, Instructions) values ( 10, 10, 'Duis mattis egestas metus. Aenean fermentum.');
 
+insert into PetMed (PetID, MedicationID, Instructions) values ( 9, 8, 'Pellentesque at nulla. Suspendisse potenti.');
+insert into PetMed (PetID, MedicationID, Instructions) values ( 9, 7, 'Duis mattis egestas metus. Aenean fermentum.');
+insert into PetMed (PetID, MedicationID, Instructions) values ( 9, 6, 'Pellentesque at nulla. Suspendisse potenti.');
+insert into PetMed (PetID, MedicationID, Instructions) values ( 9, 5, 'Duis mattis egestas metus. Aenean fermentum.');
+
+insert into PetMed (PetID, MedicationID, Instructions) values ( 54, 4, 'Pellentesque at nulla. Suspendisse potenti.');
+insert into PetMed (PetID, MedicationID, Instructions) values ( 104, 4, 'Duis mattis egestas metus. Aenean fermentum.');
+insert into PetMed (PetID, MedicationID, Instructions) values ( 154, 4, 'Pellentesque at nulla. Suspendisse potenti.');
+insert into PetMed (PetID, MedicationID, Instructions) values ( 254, 4, 'Duis mattis egestas metus. Aenean fermentum.');

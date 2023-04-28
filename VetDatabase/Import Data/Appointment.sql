@@ -19,4 +19,10 @@ insert  Appointment ( VetID, PetID, [Date], [Time], Reason) values ( 18, 18, '20
 insert  Appointment ( VetID, PetID, [Date], [Time], Reason) values ( 19, 19, '2019-12-13', '12:15 PM', 'Insert Reason Here');
 insert  Appointment ( VetID, PetID, [Date], [Time], Reason) values ( 20, 20, '2019-09-18', '12:12 AM', 'Insert Reason Here');
 
-
+insert  Appointment ( VetID, PetID, [Date], [Time], Reason) values ( 19, 19, '2018-12-13', '12:22:00 PM', 'Insert Reason Here');
+insert  Appointment ( VetID, PetID, [Date], [Time], Reason) values ( 19, 20, '2022-09-18', '12:45:00 AM', 'Worms');
+insert  Appointment ( VetID, PetID, [Date], [Time], Reason) values ( 19, 20, '2022-09-24', '12:45:00 AM', 'Worms');
+insert  Appointment ( VetID, PetID, [Date], [Time], Reason) values ( 19, 20, '2022-09-22', '12:45:00 AM', 'Worms');
+insert  Appointment ( VetID, PetID, [Date], [Time], Reason) values ( 19, 20, '2022-09-04', '12:45:00 AM', 'Worms');
+insert  Appointment ( VetID, PetID, [Date], [Time], Reason) values ( 19, 8, '2022-02-18', '12:36:00 AM', 'Insert Reason Here');
+insert  Appointment ( VetID, PetID, [Date], [Time], Reason) values ( 19, 20, '2021-04-18', '12:00:00 AM', 'Sore Tummy');
