@@ -107,5 +107,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="VetDatabase.publish.xml" />
+    <None Include="VetDatabase_1.publish.xml" />
+    <None Include="VetDatabase_2.publish.xml" />
+    <None Include="VetDatabase_3.publish.xml" />
   </ItemGroup>
 </Project>

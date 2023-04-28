@@ -18,7 +18,3 @@ insert into Species (SpeciesName) values ( 'Guinea Pig');
 insert into Species (SpeciesName) values ( 'Pig');
 insert into Species (SpeciesName) values ( 'Mouse');
 insert into Species (SpeciesName) values ( 'Rat');
-
-SELECT *
-FROM Species
-Order BY SpeciesID ASC
