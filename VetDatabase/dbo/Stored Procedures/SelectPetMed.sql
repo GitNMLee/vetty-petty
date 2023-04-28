@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE SelectPetMed
+﻿-- Selects a PetMed record, given a PetID and MedicationID
+CREATE PROCEDURE SelectPetMed
 @PetID INT,
 @MedicationID INT
 AS

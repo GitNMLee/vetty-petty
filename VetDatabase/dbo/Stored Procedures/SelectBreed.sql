@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE SelectBreed
+﻿-- Selects a Breed with a given BreedName, and SpeciesID
+CREATE PROCEDURE SelectBreed
 @BreedName NVARCHAR(30),
 @SpeciesID INT
 AS

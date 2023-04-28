@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE SelectVet
+﻿-- Selects a Vet given a Search term (this could match to FirstName or LastName of the Vet)
+CREATE PROCEDURE SelectVet
 @Search NVARCHAR(30)
 AS
 SELECT V.VetID, V.FirstName, V.LastName, V.HireDate, V.TerminationDate

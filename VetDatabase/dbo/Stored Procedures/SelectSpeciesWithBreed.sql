@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE SelectSpeciesWithBreed
+﻿-- Selects a Species given a BreedID
+CREATE PROCEDURE SelectSpeciesWithBreed
 @BreedID INT
 AS
 SELECT S.SpeciesID, S.SpeciesName

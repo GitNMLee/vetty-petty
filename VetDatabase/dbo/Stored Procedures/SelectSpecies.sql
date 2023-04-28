@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE SelectSpecies
+﻿-- Selects a Species given a SpeciesName
+CREATE PROCEDURE SelectSpecies
 @SpeciesName NVARCHAR(30)
 AS
 SELECT S.SpeciesID, S.SpeciesName

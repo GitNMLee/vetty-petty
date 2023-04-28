@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE SelectAppointment
+﻿-- Selects an Appointment with a given VetID, Date, and Time
+CREATE PROCEDURE SelectAppointment
 @VetID INT,
 @Date DATE,
 @Time TIME

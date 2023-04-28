@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE SelectMedication
+﻿-- Selects a Medication given a MedicationName
+CREATE PROCEDURE SelectMedication
 @MedicationName NVARCHAR(30)
 AS
 SELECT M.MedicationID, M.MedicationName, M.Purpose
