@@ -10,4 +10,4 @@ V.LastName = @LastName,
 V.HireDate = @HireDate,
 V.TerminationDate = @TerminationDate
 FROM Vet V
-WHERE (V.FirstName = @FirstName OR V.LastName = @LastName) AND V.HireDate IS NOT NULL 
+WHERE (V.FirstName = @FirstName OR V.LastName = @LastName) AND V.HireDate IS NOT NULL
