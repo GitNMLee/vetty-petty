@@ -49,6 +49,9 @@ namespace WindowsFormProject
             cmnd.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// Populates the species Combobox by calling GetBreeds
+        /// </summary>
         private void PopulateComboBoxes()
         {
             SqlCommand cmnd = new SqlCommand("SelectSpeciesWithBreed", _connection);
