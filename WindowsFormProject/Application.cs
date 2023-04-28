@@ -273,7 +273,7 @@ namespace WindowsFormProject
             //search Owners
             SqlCommand cmnd = new SqlCommand("SelectOwner", _sqlClient);
             cmnd.CommandType = CommandType.StoredProcedure;
-            cmnd.Parameters.AddWithValue("@Email", SqlDbType.NVarChar).Value = uxSearchTB.Text;
+            cmnd.Parameters.AddWithValue("@Search", SqlDbType.NVarChar).Value = uxSearchTB.Text;
 
             //Populate listbox
             using (SqlDataReader data = cmnd.ExecuteReader())
@@ -347,7 +347,7 @@ namespace WindowsFormProject
                 //owners
                 else if (uxSearchListBox.SelectedItem is Owners owner)
                 {
-                    EditOwnerForm form = new EditOwnerForm(owner);
+                    EditOwnerForm form = new EditOwnerForm(owner, _sqlClient);
                     form.Show();
                 }
             }

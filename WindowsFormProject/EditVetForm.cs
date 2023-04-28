@@ -43,9 +43,21 @@ namespace WindowsFormProject
             MessageBox.Show($"Sayonara {_vet.FirstName} {_vet.LastName}!");
         }
 
+        /// <summary>
+        /// Updates vet information to match filled form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxEVSubmitButton_Click(object sender, EventArgs e)
         {
+            SqlCommand cmnd = new SqlCommand("UpdateVet", _connection);
+            cmnd.CommandType = CommandType.StoredProcedure;
+            cmnd.Parameters.AddWithValue("@VetID", SqlDbType.Int).Value = _vet.VetID;
+            cmnd.Parameters.AddWithValue("@FirstName", SqlDbType.Int).Value = uxEVFirstNameTB.Text;
+            cmnd.Parameters.AddWithValue("@LastName", SqlDbType.Int).Value = uxEVLastNameTB.Text;
 
+            cmnd.ExecuteNonQuery();
+            MessageBox.Show("Successfully upated.");
         }
     }
 }

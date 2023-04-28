@@ -33,14 +33,14 @@
             this.uxEPLastNameLabel = new System.Windows.Forms.Label();
             this.uxEPLastNameTB = new System.Windows.Forms.TextBox();
             this.uxEPPetSpeciesLabel = new System.Windows.Forms.Label();
-            this.uxEPPetSpeciesCB = new System.Windows.Forms.ComboBox();
             this.uxEPPetBreedLabel = new System.Windows.Forms.Label();
             this.uxEPPetBreedCB = new System.Windows.Forms.ComboBox();
             this.uxEPPetDescLabel = new System.Windows.Forms.Label();
             this.uxEPPetDescTB = new System.Windows.Forms.TextBox();
             this.uxEditPetControls = new System.Windows.Forms.GroupBox();
-            this.uxEPKillPetButton = new System.Windows.Forms.Button();
             this.uxEPSubmitButton = new System.Windows.Forms.Button();
+            this.uxEPKillPetButton = new System.Windows.Forms.Button();
+            this.uxEPPetSpeciesTB = new System.Windows.Forms.TextBox();
             this.uxEditPetControls.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,14 +85,6 @@
             this.uxEPPetSpeciesLabel.TabIndex = 17;
             this.uxEPPetSpeciesLabel.Text = "Pet Species";
             // 
-            // uxEPPetSpeciesCB
-            // 
-            this.uxEPPetSpeciesCB.FormattingEnabled = true;
-            this.uxEPPetSpeciesCB.Location = new System.Drawing.Point(104, 88);
-            this.uxEPPetSpeciesCB.Name = "uxEPPetSpeciesCB";
-            this.uxEPPetSpeciesCB.Size = new System.Drawing.Size(121, 28);
-            this.uxEPPetSpeciesCB.TabIndex = 18;
-            // 
             // uxEPPetBreedLabel
             // 
             this.uxEPPetBreedLabel.AutoSize = true;
@@ -130,13 +122,13 @@
             // uxEditPetControls
             // 
             this.uxEditPetControls.AutoSize = true;
+            this.uxEditPetControls.Controls.Add(this.uxEPPetSpeciesTB);
             this.uxEditPetControls.Controls.Add(this.uxEPSubmitButton);
             this.uxEditPetControls.Controls.Add(this.uxEPKillPetButton);
             this.uxEditPetControls.Controls.Add(this.uxEPPetDescTB);
             this.uxEditPetControls.Controls.Add(this.uxEPPetDescLabel);
             this.uxEditPetControls.Controls.Add(this.uxEPPetBreedCB);
             this.uxEditPetControls.Controls.Add(this.uxEPPetBreedLabel);
-            this.uxEditPetControls.Controls.Add(this.uxEPPetSpeciesCB);
             this.uxEditPetControls.Controls.Add(this.uxEPPetSpeciesLabel);
             this.uxEditPetControls.Controls.Add(this.uxEPLastNameTB);
             this.uxEditPetControls.Controls.Add(this.uxEPLastNameLabel);
@@ -149,6 +141,16 @@
             this.uxEditPetControls.TabStop = false;
             this.uxEditPetControls.Text = "Edit Pet";
             // 
+            // uxEPSubmitButton
+            // 
+            this.uxEPSubmitButton.Location = new System.Drawing.Point(28, 318);
+            this.uxEPSubmitButton.Name = "uxEPSubmitButton";
+            this.uxEPSubmitButton.Size = new System.Drawing.Size(131, 32);
+            this.uxEPSubmitButton.TabIndex = 24;
+            this.uxEPSubmitButton.Text = "Submit";
+            this.uxEPSubmitButton.UseVisualStyleBackColor = true;
+            this.uxEPSubmitButton.Click += new System.EventHandler(this.uxEPSubmitButton_Click);
+            // 
             // uxEPKillPetButton
             // 
             this.uxEPKillPetButton.Image = global::WindowsFormProject.Properties.Resources.ObiButtonImage1;
@@ -159,15 +161,13 @@
             this.uxEPKillPetButton.UseVisualStyleBackColor = true;
             this.uxEPKillPetButton.Click += new System.EventHandler(this.uxEPKillPetButton_Click);
             // 
-            // uxEPSubmitButton
+            // uxEPPetSpeciesTB
             // 
-            this.uxEPSubmitButton.Location = new System.Drawing.Point(28, 318);
-            this.uxEPSubmitButton.Name = "uxEPSubmitButton";
-            this.uxEPSubmitButton.Size = new System.Drawing.Size(131, 32);
-            this.uxEPSubmitButton.TabIndex = 24;
-            this.uxEPSubmitButton.Text = "Submit";
-            this.uxEPSubmitButton.UseVisualStyleBackColor = true;
-            this.uxEPSubmitButton.Click += new System.EventHandler(this.uxEPSubmitButton_Click);
+            this.uxEPPetSpeciesTB.Location = new System.Drawing.Point(107, 91);
+            this.uxEPPetSpeciesTB.Name = "uxEPPetSpeciesTB";
+            this.uxEPPetSpeciesTB.ReadOnly = true;
+            this.uxEPPetSpeciesTB.Size = new System.Drawing.Size(118, 26);
+            this.uxEPPetSpeciesTB.TabIndex = 25;
             // 
             // EditPetForm
             // 
@@ -191,7 +191,6 @@
         private System.Windows.Forms.Label uxEPLastNameLabel;
         private System.Windows.Forms.TextBox uxEPLastNameTB;
         private System.Windows.Forms.Label uxEPPetSpeciesLabel;
-        private System.Windows.Forms.ComboBox uxEPPetSpeciesCB;
         private System.Windows.Forms.Label uxEPPetBreedLabel;
         private System.Windows.Forms.ComboBox uxEPPetBreedCB;
         private System.Windows.Forms.Label uxEPPetDescLabel;
@@ -199,5 +198,6 @@
         private System.Windows.Forms.Button uxEPKillPetButton;
         private System.Windows.Forms.GroupBox uxEditPetControls;
         private System.Windows.Forms.Button uxEPSubmitButton;
+        private System.Windows.Forms.TextBox uxEPPetSpeciesTB;
     }
 }

@@ -28,7 +28,6 @@ namespace WindowsFormProject
             uxEPFirstNameTB.Text = _pet.PetFirstName;
             uxEPLastNameTB.Text = _pet.PetLastName;
             //populate species box
-            uxEPPetSpeciesCB.Items.AddRange(_species.ToArray());
             PopulateComboBoxes();
             uxEPPetDescTB.Text = _pet.Description;
         }
@@ -68,7 +67,7 @@ namespace WindowsFormProject
                 // sets current index
                 for(int i = 0; i < _species.Count; i++)
                 {
-                    if (_species[i].SpeciesName == currentSpecies.SpeciesName) uxEPPetSpeciesCB.SelectedIndex = i;
+                    if (_species[i].SpeciesName == currentSpecies.SpeciesName) uxEPPetSpeciesTB.Text = currentSpecies.SpeciesName;
                 }
             }
             //sets breed combo box
@@ -103,9 +102,26 @@ namespace WindowsFormProject
 
         }
 
+        /// <summary>
+        /// updates pet based on filled form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxEPSubmitButton_Click(object sender, EventArgs e)
         {
+            SqlCommand cmnd = new SqlCommand("UpdatePet", _connection);
+            cmnd.CommandType = CommandType.StoredProcedure;
+            cmnd.Parameters.AddWithValue("@PetID", SqlDbType.Int).Value = _pet.PetID;
+            if (uxEPPetBreedCB.SelectedItem is Breed item)
+            {
+                cmnd.Parameters.AddWithValue("@BreedID", SqlDbType.Int).Value = item.BreedID;
+            }
+            cmnd.Parameters.AddWithValue("@PetFirstName", SqlDbType.Int).Value = uxEPFirstNameTB.Text;
+            cmnd.Parameters.AddWithValue("@PetLastName", SqlDbType.Int).Value = uxEPLastNameTB.Text;
+            cmnd.Parameters.AddWithValue("@Description", SqlDbType.Int).Value = uxEPPetDescTB.Text;
 
+            cmnd.ExecuteNonQuery();
+            MessageBox.Show("Successfully upated.");
         }
     }
 }

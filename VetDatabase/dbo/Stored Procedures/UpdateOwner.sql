@@ -10,4 +10,4 @@ SET O.Email = @EMail,
 O.FirstName = @FirstName,
 O.LastName = @LastName
 FROM [Owner] O
-WHERE (O.OwnerID = @OwnerID AND O.EMail = @EMail AND O.FirstName = @FirstName AND O.LastName = @LastName)
+WHERE O.OwnerID = @OwnerID

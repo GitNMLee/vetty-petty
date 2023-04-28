@@ -3,14 +3,10 @@
 CREATE PROCEDURE [dbo].[UpdateVet]
 	@VetID	   INT,
 	@FirstName NVARCHAR(30),
-	@LastName NVARCHAR(30),
-	@HireDate DATETIME,
-	@TerminationDate DATETIME = NULL
+	@LastName NVARCHAR(30)
 AS
 UPDATE V
 SET V.FirstName = @FirstName,
-V.LastName = @LastName,
-V.HireDate = @HireDate,
-V.TerminationDate = @TerminationDate
+V.LastName = @LastName
 FROM Vet V
-WHERE V.VetID = @VetID AND (V.FirstName = @FirstName AND V.LastName = @LastName) AND V.HireDate IS NOT NULL
+WHERE V.VetID = @VetID
