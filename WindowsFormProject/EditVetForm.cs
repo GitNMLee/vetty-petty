@@ -40,5 +40,10 @@ namespace WindowsFormProject
 
             cmnd.ExecuteNonQuery();
         }
+
+        private void uxEVSubmitButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

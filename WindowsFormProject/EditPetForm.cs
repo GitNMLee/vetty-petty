@@ -96,5 +96,10 @@ namespace WindowsFormProject
             }
 
         }
+
+        private void uxEPSubmitButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

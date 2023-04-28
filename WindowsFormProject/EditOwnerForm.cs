@@ -26,5 +26,10 @@ namespace WindowsFormProject
         {
 
         }
+
+        private void uxEOSubmitButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

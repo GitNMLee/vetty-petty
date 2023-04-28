@@ -35,12 +35,14 @@
             this.uxEOLastNameLabel = new System.Windows.Forms.Label();
             this.uxEOFirstNameLabel = new System.Windows.Forms.Label();
             this.uxEOFirstNameTB = new System.Windows.Forms.TextBox();
+            this.uxEOSubmitButton = new System.Windows.Forms.Button();
             this.uxEditOwnerControls.SuspendLayout();
             this.SuspendLayout();
             // 
             // uxEditOwnerControls
             // 
             this.uxEditOwnerControls.AutoSize = true;
+            this.uxEditOwnerControls.Controls.Add(this.uxEOSubmitButton);
             this.uxEditOwnerControls.Controls.Add(this.uxEOEmailTB);
             this.uxEditOwnerControls.Controls.Add(this.uxEOEmailLabel);
             this.uxEditOwnerControls.Controls.Add(this.uxEOLastNameTB);
@@ -49,7 +51,7 @@
             this.uxEditOwnerControls.Controls.Add(this.uxEOFirstNameTB);
             this.uxEditOwnerControls.Location = new System.Drawing.Point(9, 13);
             this.uxEditOwnerControls.Name = "uxEditOwnerControls";
-            this.uxEditOwnerControls.Size = new System.Drawing.Size(312, 136);
+            this.uxEditOwnerControls.Size = new System.Drawing.Size(312, 175);
             this.uxEditOwnerControls.TabIndex = 25;
             this.uxEditOwnerControls.TabStop = false;
             this.uxEditOwnerControls.Text = "Edit Owner";
@@ -102,11 +104,21 @@
             this.uxEOFirstNameTB.Size = new System.Drawing.Size(188, 26);
             this.uxEOFirstNameTB.TabIndex = 12;
             // 
+            // uxEOSubmitButton
+            // 
+            this.uxEOSubmitButton.Location = new System.Drawing.Point(91, 118);
+            this.uxEOSubmitButton.Name = "uxEOSubmitButton";
+            this.uxEOSubmitButton.Size = new System.Drawing.Size(131, 32);
+            this.uxEOSubmitButton.TabIndex = 19;
+            this.uxEOSubmitButton.Text = "Submit";
+            this.uxEOSubmitButton.UseVisualStyleBackColor = true;
+            this.uxEOSubmitButton.Click += new System.EventHandler(this.uxEOSubmitButton_Click);
+            // 
             // EditOwnerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(339, 154);
+            this.ClientSize = new System.Drawing.Size(339, 175);
             this.Controls.Add(this.uxEditOwnerControls);
             this.Name = "EditOwnerForm";
             this.Text = "EditOwnerForm";
@@ -125,5 +137,6 @@
         private System.Windows.Forms.Label uxEOLastNameLabel;
         private System.Windows.Forms.Label uxEOFirstNameLabel;
         private System.Windows.Forms.TextBox uxEOFirstNameTB;
+        private System.Windows.Forms.Button uxEOSubmitButton;
     }
 }

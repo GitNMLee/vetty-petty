@@ -30,18 +30,20 @@
         {
             this.uxEditVetControls = new System.Windows.Forms.GroupBox();
             this.uxEVHireDateTB = new System.Windows.Forms.TextBox();
+            this.uxEVHireDateLabel = new System.Windows.Forms.Label();
             this.uxEVFireButton = new System.Windows.Forms.Button();
             this.uxEVLastNameTB = new System.Windows.Forms.TextBox();
             this.uxEVLastNameLabel = new System.Windows.Forms.Label();
             this.uxEVFirstNameLabel = new System.Windows.Forms.Label();
             this.uxEVFirstNameTB = new System.Windows.Forms.TextBox();
-            this.uxEVHireDateLabel = new System.Windows.Forms.Label();
+            this.uxEVSubmitButton = new System.Windows.Forms.Button();
             this.uxEditVetControls.SuspendLayout();
             this.SuspendLayout();
             // 
             // uxEditVetControls
             // 
             this.uxEditVetControls.AutoSize = true;
+            this.uxEditVetControls.Controls.Add(this.uxEVSubmitButton);
             this.uxEditVetControls.Controls.Add(this.uxEVHireDateTB);
             this.uxEditVetControls.Controls.Add(this.uxEVHireDateLabel);
             this.uxEditVetControls.Controls.Add(this.uxEVFireButton);
@@ -65,9 +67,18 @@
             this.uxEVHireDateTB.Size = new System.Drawing.Size(188, 26);
             this.uxEVHireDateTB.TabIndex = 18;
             // 
+            // uxEVHireDateLabel
+            // 
+            this.uxEVHireDateLabel.AutoSize = true;
+            this.uxEVHireDateLabel.Location = new System.Drawing.Point(6, 88);
+            this.uxEVHireDateLabel.Name = "uxEVHireDateLabel";
+            this.uxEVHireDateLabel.Size = new System.Drawing.Size(77, 20);
+            this.uxEVHireDateLabel.TabIndex = 17;
+            this.uxEVHireDateLabel.Text = "Hire Date";
+            // 
             // uxEVFireButton
             // 
-            this.uxEVFireButton.Location = new System.Drawing.Point(91, 130);
+            this.uxEVFireButton.Location = new System.Drawing.Point(165, 135);
             this.uxEVFireButton.Name = "uxEVFireButton";
             this.uxEVFireButton.Size = new System.Drawing.Size(114, 42);
             this.uxEVFireButton.TabIndex = 16;
@@ -107,14 +118,15 @@
             this.uxEVFirstNameTB.Size = new System.Drawing.Size(188, 26);
             this.uxEVFirstNameTB.TabIndex = 12;
             // 
-            // uxEVHireDateLabel
+            // uxEVSubmitButton
             // 
-            this.uxEVHireDateLabel.AutoSize = true;
-            this.uxEVHireDateLabel.Location = new System.Drawing.Point(6, 88);
-            this.uxEVHireDateLabel.Name = "uxEVHireDateLabel";
-            this.uxEVHireDateLabel.Size = new System.Drawing.Size(77, 20);
-            this.uxEVHireDateLabel.TabIndex = 17;
-            this.uxEVHireDateLabel.Text = "Hire Date";
+            this.uxEVSubmitButton.Location = new System.Drawing.Point(27, 135);
+            this.uxEVSubmitButton.Name = "uxEVSubmitButton";
+            this.uxEVSubmitButton.Size = new System.Drawing.Size(115, 42);
+            this.uxEVSubmitButton.TabIndex = 20;
+            this.uxEVSubmitButton.Text = "Submit";
+            this.uxEVSubmitButton.UseVisualStyleBackColor = true;
+            this.uxEVSubmitButton.Click += new System.EventHandler(this.uxEVSubmitButton_Click);
             // 
             // EditVetForm
             // 
@@ -140,5 +152,6 @@
         private System.Windows.Forms.TextBox uxEVFirstNameTB;
         private System.Windows.Forms.TextBox uxEVHireDateTB;
         private System.Windows.Forms.Label uxEVHireDateLabel;
+        private System.Windows.Forms.Button uxEVSubmitButton;
     }
 }
