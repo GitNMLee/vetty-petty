@@ -1,6 +1,3 @@
-TRUNCATE TABLE Species;
-TRUNCATE TABLE Breed;
-
 insert into Breed (SpeciesID, BreedName) values ( 1, 'Labrador Retriever');
 insert into Breed (SpeciesID, BreedName) values ( 1, 'German Shepherd');
 insert into Breed (SpeciesID, BreedName) values ( 1, 'Bulldog');
@@ -68,10 +65,3 @@ insert into Breed (SpeciesID, BreedName) values ( 17, 'Peruvian');
 insert into Breed (SpeciesID, BreedName) values ( 18, 'Vietnamese Pot-bellied');
 insert into Breed (SpeciesID, BreedName) values ( 19, 'Grey Domestic');
 insert into Breed (SpeciesID, BreedName) values ( 20, 'Hairless');
-
-SELECT *
-FROM Breed
-ORDER BY SpeciesID ASC
-SELECT *
-FROM Species
-Order BY SpeciesID ASC

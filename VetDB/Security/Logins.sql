@@ -1,7 +1,0 @@
-﻿
-CREATE LOGIN [WIN2\nmlee] FROM WINDOWS;
-GO;
-
-
-
-CREATE USER [nmlee] FOR LOGIN [WIN2\nmlee]

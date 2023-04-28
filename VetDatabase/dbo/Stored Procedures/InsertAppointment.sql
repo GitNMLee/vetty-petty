@@ -1,4 +1,5 @@
-﻿
+﻿--Allows the user to create an appointment with a specified pet and vet
+-- at a specified date and time and for a given reason
 CREATE PROCEDURE InsertAppointment
 -- GIVEN VARIABLES
 @PetFirstName NVARCHAR(30),

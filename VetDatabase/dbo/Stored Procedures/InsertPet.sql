@@ -1,4 +1,6 @@
-﻿
+﻿--This allows the user to add in a new pet to be seen at the clinic
+--Takes in Owner's first name, last name and email
+--Takes in Pet's first and last name, species, breed, and any description it may need
 CREATE PROCEDURE InsertPet
 -- GIVEN VARIABLES
 @OwnerFirstName NVARCHAR(30),

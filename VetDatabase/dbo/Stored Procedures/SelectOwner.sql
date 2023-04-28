@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE SelectOwner
+﻿-- Selects an Owner given an Owner's Email
+CREATE PROCEDURE SelectOwner
 @EMail NVARCHAR(50)
 AS
 SELECT O.OwnerID, O.FirstName, O.LastName, O.Email

@@ -9,6 +9,3 @@ insert into Medication (MedicationName, Purpose) values ('Amantadine Hydrochlori
 insert into Medication (MedicationName, Purpose) values ('Acetaminophen', 'In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.');
 insert into Medication (MedicationName, Purpose) values ('Sulindac', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.');
 
-
-SELECT *
-FROM Medication

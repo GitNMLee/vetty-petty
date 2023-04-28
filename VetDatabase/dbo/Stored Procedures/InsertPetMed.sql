@@ -1,4 +1,6 @@
-﻿
+﻿--Allows the user to prescribe a medication to a pet. T
+--This acts as a prescription slip would in real life.
+-- It is a connection table between Pet and Medication
 CREATE PROCEDURE InsertPetMed
 @OwnerEMail NVARCHAR(50),
 @PetFirstName NVARCHAR(30),

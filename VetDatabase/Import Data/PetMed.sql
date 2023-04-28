@@ -9,6 +9,3 @@ insert into PetMed (PetID, MedicationID, Instructions) values ( 8, 8, 'Vestibulu
 insert into PetMed (PetID, MedicationID, Instructions) values ( 9, 9, 'Pellentesque at nulla. Suspendisse potenti.');
 insert into PetMed (PetID, MedicationID, Instructions) values ( 10, 10, 'Duis mattis egestas metus. Aenean fermentum.');
 
-
-SELECT *
-FROM Pet

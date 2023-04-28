@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE FireVet
+﻿--This allows the user to fire a vet, which is essentially a soft delete of that vet.
+CREATE PROCEDURE FireVet
 @VetFirstName NVARCHAR(30),
 @VetLastName NVARCHAR(30)
 AS

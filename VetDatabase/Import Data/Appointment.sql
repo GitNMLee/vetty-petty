@@ -19,5 +19,4 @@ insert  Appointment ( VetID, PetID, [Date], [Time], Reason) values ( 18, 18, '20
 insert  Appointment ( VetID, PetID, [Date], [Time], Reason) values ( 19, 19, '2019-12-13', '12:15 PM', 'Insert Reason Here');
 insert  Appointment ( VetID, PetID, [Date], [Time], Reason) values ( 20, 20, '2019-09-18', '12:12 AM', 'Insert Reason Here');
 
-SELECT * FROM Appointment
-	INNER JOIN Vet V ON V.VetID = Appointment.VetID
+

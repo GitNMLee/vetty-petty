@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE MonthlyAppointmentsByVet
+﻿--Returns a ranked list of vets who have the most to least appointments by month in a specified date range
+CREATE PROCEDURE MonthlyAppointmentsByVet
 @FirstDate AS DATETIME2 = '01-01-2000 12:00:00 AM',
 @LastDate AS DATETIME2 = '01-01-2999 12:00:00 AM'
 AS

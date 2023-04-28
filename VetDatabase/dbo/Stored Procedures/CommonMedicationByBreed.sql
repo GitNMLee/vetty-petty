@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE CommonMedicationByBreed
+﻿--Creates a list of breeds that have been prescribed medications and the most common med that that breed has been prescribed
+CREATE PROCEDURE CommonMedicationByBreed
 AS
 WITH med_cte(BreedID, MedicationID, MedCount) AS (
     SELECT P.BreedID, PM.MedicationID, COUNT(*) AS MedCount
