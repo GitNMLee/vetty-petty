@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Application));
             this.uxMenuStrip = new System.Windows.Forms.MenuStrip();
             this.uxMenuAddPet = new System.Windows.Forms.ToolStripMenuItem();
             this.addVetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,6 +94,7 @@
             this.uxSearchOwnersButton = new System.Windows.Forms.Button();
             this.uxSearchPetsButton = new System.Windows.Forms.Button();
             this.uxSearchListBox = new System.Windows.Forms.ListBox();
+            this.uxTitleImage = new System.Windows.Forms.PictureBox();
             this.uxMenuStrip.SuspendLayout();
             this.uxAddPetControls.SuspendLayout();
             this.uxQueryControls.SuspendLayout();
@@ -100,10 +102,12 @@
             this.uxAddVetControls.SuspendLayout();
             this.uxPrescribeMedsControls.SuspendLayout();
             this.uxSearchControls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uxTitleImage)).BeginInit();
             this.SuspendLayout();
             // 
             // uxMenuStrip
             // 
+            this.uxMenuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.uxMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.uxMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.uxMenuAddPet,
@@ -114,7 +118,7 @@
             this.editToolStripMenuItem});
             this.uxMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.uxMenuStrip.Name = "uxMenuStrip";
-            this.uxMenuStrip.Size = new System.Drawing.Size(966, 33);
+            this.uxMenuStrip.Size = new System.Drawing.Size(955, 36);
             this.uxMenuStrip.TabIndex = 1;
             this.uxMenuStrip.Text = "MenuStrip";
             // 
@@ -182,7 +186,7 @@
             this.uxAddPetControls.Controls.Add(this.uxPCPetFirstNameTB);
             this.uxAddPetControls.Location = new System.Drawing.Point(0, 35);
             this.uxAddPetControls.Name = "uxAddPetControls";
-            this.uxAddPetControls.Size = new System.Drawing.Size(651, 405);
+            this.uxAddPetControls.Size = new System.Drawing.Size(864, 405);
             this.uxAddPetControls.TabIndex = 2;
             this.uxAddPetControls.TabStop = false;
             this.uxAddPetControls.Text = "AddPet";
@@ -336,7 +340,7 @@
             this.uxQueryControls.Controls.Add(this.uxQuerySelectQueryLabel);
             this.uxQueryControls.Location = new System.Drawing.Point(4, 37);
             this.uxQueryControls.Name = "uxQueryControls";
-            this.uxQueryControls.Size = new System.Drawing.Size(909, 405);
+            this.uxQueryControls.Size = new System.Drawing.Size(860, 405);
             this.uxQueryControls.TabIndex = 11;
             this.uxQueryControls.TabStop = false;
             this.uxQueryControls.Text = "View Data Sets";
@@ -718,13 +722,24 @@
             this.uxSearchListBox.Size = new System.Drawing.Size(306, 324);
             this.uxSearchListBox.TabIndex = 1;
             // 
+            // uxTitleImage
+            // 
+            this.uxTitleImage.Image = ((System.Drawing.Image)(resources.GetObject("uxTitleImage.Image")));
+            this.uxTitleImage.Location = new System.Drawing.Point(0, 37);
+            this.uxTitleImage.Name = "uxTitleImage";
+            this.uxTitleImage.Size = new System.Drawing.Size(600, 392);
+            this.uxTitleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.uxTitleImage.TabIndex = 7;
+            this.uxTitleImage.TabStop = false;
+            // 
             // Application
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(966, 505);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(955, 536);
             this.Controls.Add(this.uxQueryControls);
+            this.Controls.Add(this.uxTitleImage);
             this.Controls.Add(this.uxPrescribeMedsControls);
             this.Controls.Add(this.uxAddPetControls);
             this.Controls.Add(this.uxCreateAptControls);
@@ -749,6 +764,7 @@
             this.uxPrescribeMedsControls.PerformLayout();
             this.uxSearchControls.ResumeLayout(false);
             this.uxSearchControls.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uxTitleImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -820,6 +836,7 @@
         private System.Windows.Forms.Label uxMedsInstructionsLabel;
         private System.Windows.Forms.ComboBox uxQuerySelectQueryCB;
         private System.Windows.Forms.Label uxQuerySelectQueryLabel;
+        private System.Windows.Forms.PictureBox uxTitleImage;
     }
 }
 

@@ -153,6 +153,7 @@ namespace WindowsFormProject
             uxAddVetControls.Visible = false;
             uxPrescribeMedsControls.Visible = false;
             uxSearchControls.Visible = false;
+            uxTitleImage.Visible = false;
         }
 
         /// <summary>
@@ -169,6 +170,7 @@ namespace WindowsFormProject
             uxAddVetControls.Visible = false;
             uxPrescribeMedsControls.Visible = false;
             uxSearchControls.Visible = false;
+            uxTitleImage.Visible = false;
         }
 
         /// <summary>
@@ -184,6 +186,7 @@ namespace WindowsFormProject
             uxAddVetControls.Visible = false;
             uxPrescribeMedsControls.Visible = false;
             uxSearchControls.Visible = false;
+            uxTitleImage.Visible = false;
         }
 
         /// <summary>
@@ -199,6 +202,7 @@ namespace WindowsFormProject
             uxCreateAptControls.Visible = false;
             uxPrescribeMedsControls.Visible = false;
             uxSearchControls.Visible = false;
+            uxTitleImage.Visible = false;
         }
 
         /// <summary>
@@ -214,6 +218,7 @@ namespace WindowsFormProject
             uxCreateAptControls.Visible = false;
             uxAddVetControls.Visible = false;
             uxSearchControls.Visible = false;
+            uxTitleImage.Visible = false;
         }
 
         /// <summary>
@@ -229,6 +234,7 @@ namespace WindowsFormProject
             uxQueryControls.Visible = false;
             uxAddVetControls.Visible = false;
             uxPrescribeMedsControls.Visible = false;
+            uxTitleImage.Visible = false;
         }
         #endregion
 
