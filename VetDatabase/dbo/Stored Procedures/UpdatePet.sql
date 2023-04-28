@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[UpdatePet]       
+﻿CREATE PROCEDURE [dbo].[UpdatePet] 
+	@PetID		  INT  ,
 	@OwnerID      INT  ,        
 	@BreedID      INT  ,        
 	@PetFirstName NVARCHAR (32),
@@ -13,4 +14,4 @@ P.BreedID = @BreedID,
 P.Description = @Description,
 P.DeceasedOn = @DeceasedOn
 FROM Pet P
-WHERE (P.OwnerID = @OwnerID AND P.PetFirstName = @PetFirstName AND P.PetLastName = @PetLastName)
+WHERE (P.PetID = @PetID AND P.OwnerID = @OwnerID AND P.PetFirstName = @PetFirstName AND P.PetLastName = @PetLastName)
