@@ -105,6 +105,8 @@
     <None Include="Import Data\Vet.sql" />
     <Build Include="dbo\Stored Procedures\SelectSpeciesWithBreed.sql" />
     <Build Include="dbo\Stored Procedures\UpdateVet.sql" />
+    <Build Include="dbo\Stored Procedures\UpdatePet.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateOwner.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="VetDatabase.publish.xml" />
