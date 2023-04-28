@@ -232,8 +232,6 @@ namespace WindowsFormProject
         }
         #endregion
 
-
-
         #region Search functions
         /// <summary>
         /// Search control search pet button
@@ -450,6 +448,7 @@ namespace WindowsFormProject
                 cmnd.Parameters.AddWithValue("@VetLastName", SqlDbType.NVarChar).Value = uxVetLastNameTB.Text;
 
                 cmnd.ExecuteNonQuery();
+                GetVetsAndTimes();
 
                 MessageBox.Show($"{uxVetFirstNameTB.Text} {uxVetLastNameTB.Text} added successfully");
                 ClearForm();

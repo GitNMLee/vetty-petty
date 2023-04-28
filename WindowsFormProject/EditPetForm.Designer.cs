@@ -40,6 +40,7 @@
             this.uxEPPetDescTB = new System.Windows.Forms.TextBox();
             this.uxEditPetControls = new System.Windows.Forms.GroupBox();
             this.uxEPKillPetButton = new System.Windows.Forms.Button();
+            this.uxEPSubmitButton = new System.Windows.Forms.Button();
             this.uxEditPetControls.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,6 +130,7 @@
             // uxEditPetControls
             // 
             this.uxEditPetControls.AutoSize = true;
+            this.uxEditPetControls.Controls.Add(this.uxEPSubmitButton);
             this.uxEditPetControls.Controls.Add(this.uxEPKillPetButton);
             this.uxEditPetControls.Controls.Add(this.uxEPPetDescTB);
             this.uxEditPetControls.Controls.Add(this.uxEPPetDescLabel);
@@ -142,7 +144,7 @@
             this.uxEditPetControls.Controls.Add(this.uxEPFirstNameLabel);
             this.uxEditPetControls.Location = new System.Drawing.Point(13, 13);
             this.uxEditPetControls.Name = "uxEditPetControls";
-            this.uxEditPetControls.Size = new System.Drawing.Size(312, 412);
+            this.uxEditPetControls.Size = new System.Drawing.Size(312, 416);
             this.uxEditPetControls.TabIndex = 0;
             this.uxEditPetControls.TabStop = false;
             this.uxEditPetControls.Text = "Edit Pet";
@@ -150,12 +152,22 @@
             // uxEPKillPetButton
             // 
             this.uxEPKillPetButton.Image = global::WindowsFormProject.Properties.Resources.ObiButtonImage1;
-            this.uxEPKillPetButton.Location = new System.Drawing.Point(99, 287);
+            this.uxEPKillPetButton.Location = new System.Drawing.Point(184, 277);
             this.uxEPKillPetButton.Name = "uxEPKillPetButton";
-            this.uxEPKillPetButton.Size = new System.Drawing.Size(105, 92);
+            this.uxEPKillPetButton.Size = new System.Drawing.Size(122, 114);
             this.uxEPKillPetButton.TabIndex = 23;
             this.uxEPKillPetButton.UseVisualStyleBackColor = true;
             this.uxEPKillPetButton.Click += new System.EventHandler(this.uxEPKillPetButton_Click);
+            // 
+            // uxEPSubmitButton
+            // 
+            this.uxEPSubmitButton.Location = new System.Drawing.Point(28, 318);
+            this.uxEPSubmitButton.Name = "uxEPSubmitButton";
+            this.uxEPSubmitButton.Size = new System.Drawing.Size(131, 32);
+            this.uxEPSubmitButton.TabIndex = 24;
+            this.uxEPSubmitButton.Text = "Submit";
+            this.uxEPSubmitButton.UseVisualStyleBackColor = true;
+            this.uxEPSubmitButton.Click += new System.EventHandler(this.uxEPSubmitButton_Click);
             // 
             // EditPetForm
             // 
@@ -186,5 +198,6 @@
         private System.Windows.Forms.TextBox uxEPPetDescTB;
         private System.Windows.Forms.Button uxEPKillPetButton;
         private System.Windows.Forms.GroupBox uxEditPetControls;
+        private System.Windows.Forms.Button uxEPSubmitButton;
     }
 }
