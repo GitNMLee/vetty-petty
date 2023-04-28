@@ -1,4 +1,6 @@
-﻿CREATE PROCEDURE InsertVet
+﻿-- This allows the user to enter in a new vet
+-- With variables of FirstName, LAstName and the current date and time as the HireDate
+CREATE PROCEDURE InsertVet
 @VetFirstName NVARCHAR(30),
 @VetLastName NVARCHAR(30)
 AS

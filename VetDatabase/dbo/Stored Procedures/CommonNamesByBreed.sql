@@ -1,4 +1,6 @@
-﻿CREATE PROCEDURE CommonNamesByBreed
+﻿--A ranked list is returned which shows the most common names by breed
+--Ordered by rank, then species then breed
+CREATE PROCEDURE CommonNamesByBreed
 AS
 WITH name_rank_cte AS
 (

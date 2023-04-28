@@ -1,4 +1,8 @@
-﻿CREATE PROCEDURE QuarterlyAppointments
+﻿--This will return the number of appointments that are in a quarter (Jan-Mar = 1, April-June = 2, July-Sep = 3, Oct-Dec = 4)
+-- only the quarters within a specified date are shown.
+-- The quarters are in order of year (descending) and then quarter
+
+CREATE PROCEDURE QuarterlyAppointments
 @FirstDate DATETIME2 = '01-01-2000 12:00:00 AM',
 @LastDate DATETIME2 = '01-01-2999 12:00:00 AM'
 AS

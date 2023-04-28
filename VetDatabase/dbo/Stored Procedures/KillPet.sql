@@ -1,4 +1,4 @@
-﻿
+﻿-- This allows a "soft delete" of a pet, which is essentially saying that this pet died
 CREATE PROCEDURE KillPet
 @PetFirstName NVARCHAR(30),
 @PetLastName NVARCHAR(30),

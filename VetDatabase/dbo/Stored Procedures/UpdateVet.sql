@@ -1,4 +1,6 @@
-﻿CREATE PROCEDURE [dbo].[UpdateVet]
+﻿--Allows an entry of the Vet table to be updated
+-- The updatable bits are FirstName, LastName, and HireDate
+CREATE PROCEDURE [dbo].[UpdateVet]
 	@VetID	   INT,
 	@FirstName NVARCHAR(30),
 	@LastName NVARCHAR(30),
