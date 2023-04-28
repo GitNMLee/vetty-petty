@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.uxEditVetControls = new System.Windows.Forms.GroupBox();
+            this.uxEVSubmitButton = new System.Windows.Forms.Button();
             this.uxEVHireDateTB = new System.Windows.Forms.TextBox();
             this.uxEVHireDateLabel = new System.Windows.Forms.Label();
             this.uxEVFireButton = new System.Windows.Forms.Button();
@@ -36,7 +37,6 @@
             this.uxEVLastNameLabel = new System.Windows.Forms.Label();
             this.uxEVFirstNameLabel = new System.Windows.Forms.Label();
             this.uxEVFirstNameTB = new System.Windows.Forms.TextBox();
-            this.uxEVSubmitButton = new System.Windows.Forms.Button();
             this.uxEditVetControls.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +57,16 @@
             this.uxEditVetControls.TabIndex = 24;
             this.uxEditVetControls.TabStop = false;
             this.uxEditVetControls.Text = "Edit Vet";
-            this.uxEditVetControls.Visible = false;
+            // 
+            // uxEVSubmitButton
+            // 
+            this.uxEVSubmitButton.Location = new System.Drawing.Point(27, 135);
+            this.uxEVSubmitButton.Name = "uxEVSubmitButton";
+            this.uxEVSubmitButton.Size = new System.Drawing.Size(115, 42);
+            this.uxEVSubmitButton.TabIndex = 20;
+            this.uxEVSubmitButton.Text = "Submit";
+            this.uxEVSubmitButton.UseVisualStyleBackColor = true;
+            this.uxEVSubmitButton.Click += new System.EventHandler(this.uxEVSubmitButton_Click);
             // 
             // uxEVHireDateTB
             // 
@@ -117,16 +126,6 @@
             this.uxEVFirstNameTB.Name = "uxEVFirstNameTB";
             this.uxEVFirstNameTB.Size = new System.Drawing.Size(188, 26);
             this.uxEVFirstNameTB.TabIndex = 12;
-            // 
-            // uxEVSubmitButton
-            // 
-            this.uxEVSubmitButton.Location = new System.Drawing.Point(27, 135);
-            this.uxEVSubmitButton.Name = "uxEVSubmitButton";
-            this.uxEVSubmitButton.Size = new System.Drawing.Size(115, 42);
-            this.uxEVSubmitButton.TabIndex = 20;
-            this.uxEVSubmitButton.Text = "Submit";
-            this.uxEVSubmitButton.UseVisualStyleBackColor = true;
-            this.uxEVSubmitButton.Click += new System.EventHandler(this.uxEVSubmitButton_Click);
             // 
             // EditVetForm
             // 

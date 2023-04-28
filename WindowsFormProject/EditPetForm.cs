@@ -47,6 +47,9 @@ namespace WindowsFormProject
             cmnd.Parameters.AddWithValue("@OwnerID", SqlDbType.Int).Value = _pet.OwnerID;
 
             cmnd.ExecuteNonQuery();
+
+            MessageBox.Show($"RIP {_pet.PetFirstName} :(");
+            this.Close();
         }
 
         private void PopulateComboBoxes()

@@ -39,6 +39,8 @@ namespace WindowsFormProject
             cmnd.Parameters.AddWithValue("@VetLastname", SqlDbType.NVarChar).Value = _vet.LastName;
 
             cmnd.ExecuteNonQuery();
+
+            MessageBox.Show($"Sayonara {_vet.FirstName} {_vet.LastName}!");
         }
 
         private void uxEVSubmitButton_Click(object sender, EventArgs e)
