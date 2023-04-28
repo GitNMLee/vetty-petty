@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[UpdateOwner]
+﻿--Allows the user to update an owner
+CREATE PROCEDURE [dbo].[UpdateOwner]
 	@OwnerID INT,
 	@EMail NVARCHAR(50),
 	@FirstName NVARCHAR(30),

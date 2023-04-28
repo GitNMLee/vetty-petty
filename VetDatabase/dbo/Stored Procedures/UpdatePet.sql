@@ -1,4 +1,6 @@
-﻿CREATE PROCEDURE [dbo].[UpdatePet] 
+﻿--Allows the user to update any or all of the following attributes of a Pet:
+-- Breed, Description and/or Deceased On Date
+CREATE PROCEDURE [dbo].[UpdatePet] 
 	@PetID		  INT  ,
 	@OwnerID      INT  ,        
 	@BreedID      INT  ,        
